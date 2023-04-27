@@ -1,12 +1,12 @@
 <script>
-    import Button from '../components/forms/Button.svelte';
-    import { store } from '../lib/stores/Store';
+    import Button from '../../components/forms/Button.svelte';
+    import { store } from '../../lib/stores/Store';
 
-    $store.nav = 'home';
+    $store.nav = 'contact';
 </script>
 
 <svelte:head>
-	<title>Hello world</title>
+	<title>Hello world CONTACT</title>
 	<meta name="robots" content="index follow" />
     <meta name="description" content="Hello world" />
 </svelte:head>
@@ -102,7 +102,7 @@
 </section>
 
 <style lang="scss">
-    @import '../styles/variables.scss';
+    @import '../../styles/variables.scss';
 
     .title {
         font-family: $family-title;

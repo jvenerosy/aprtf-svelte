@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
     import Button from './forms/Button.svelte';
     import InputText from './forms/InputText.svelte';
+    import { store } from '../lib/stores/Store';
 
     let fixed = false;
     let isBurger = false;
@@ -41,21 +42,21 @@
 <header class="{fixed === true ? "fixed" : ""} {isBurger === true ? "is-open" : ""}">
     <div class="container">
         <div class="columns is-vcentered">
-            <div class="column is-narrow">
+            <div class="column is-narrow logo">
                 <div class="columns is-mobile is-vcentered">
                     <div class="column">
                         <picture>
-                            <img src="https://placehold.it/153x65" srcset="https://placehold.it/153x65 153w, https://placehold.it/306x130 306w" sizes="153px" alt="">
+                            <img src="images/logo.svg" srcset="images/logo.svg 153w, images/logo.svg 306w" sizes="(max-width: 1023px) 153px, 306px" alt="Logo APRTF">
                         </picture>
                     </div>
                 </div>
             </div>
             <div class="column menu {isBurger === true ? "" : "is-hidden-touch"}">
                 <ul class="columns">
-                    <li class="column is-narrow"><a class="active" href="/#">Accueil</a></li>
-                    <li class="column is-narrow"><a href="/#">Association</a></li>
-                    <li class="column is-narrow"><a href="/#">Journée clinique</a></li>
-                    <li class="column is-narrow"><a href="/#">Contact</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'home'} href="/">Accueil</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'association'} href="/#">Association</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'coloque'} href="/#">Journée clinique</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'contact'} href="/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="column search is-narrow {isBurger === true ? "" : "is-hidden-touch"}">
@@ -91,7 +92,7 @@
         
         
         @media screen and (min-width: $b-desktop) {
-            padding: calc($gap/2) calc($gap*2);
+            padding: $gap calc($gap*2);
             height: auto;
         }
         
@@ -110,9 +111,13 @@
         }
     }
 
+    .logo {
+        margin-right: $gap;
+    }
+
     li {
         margin: 0 12px 20px;
-        font-size: $size-large;
+        font-size: $size-regular;
         
         @media screen and (min-width: $b-desktop) {
             text-align: center;
@@ -128,7 +133,7 @@
 
     .burger-menu {
         position: absolute;
-        top: 35px;
+        top: 22px;
         right: 10px;
     }
 

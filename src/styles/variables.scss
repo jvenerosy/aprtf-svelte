@@ -5,8 +5,12 @@ $family-title: 'Frank Ruhl Libre', serif;
 //font-size
 $size-regular: 16px;
 $size-small: 14px;
-$size-large: 18px;
-$size-title: 36px;
+$size-large: 20px;
+$size-title-1: 40px;
+$size-title-1-desktop: 52px;
+$size-title-2: 34px;
+$size-title-2-desktop: 42px;
+$size-title-3: 28px;
 
 
 //color
@@ -14,6 +18,7 @@ $primary: #322E4E;
 $secondary: #CED4DA;
 $tertiary: #5241FB;
 $inverted: #fff;
+$family: #D11B4C;
 
 //breakpoint
 $b-desktop: 1024px;

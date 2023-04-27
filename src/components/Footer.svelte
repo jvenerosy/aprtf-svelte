@@ -5,7 +5,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture class="logo">
-                            <img src="https://placehold.it/153x65" width="153" height="65" alt="Logo APRTF">
+                            <img src="images/logo-inverted.svg" srcset="images/logo-inverted.svg 153w, images/logo-inverted.svg 306w" sizes="(max-width: 1023px) 153px, 306px" alt="Logo APRTF">
                         </picture>
                     </div>
                     <div class="row">

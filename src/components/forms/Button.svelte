@@ -1,8 +1,9 @@
 <script>
     export let text = "Suivant";
+    export let theme = "is-tertiary";
 </script>
 
-<button class="button">
+<button class="button {theme}">
     {text}
 </button>
 
@@ -10,15 +11,26 @@
     @import '../../styles/variables.scss';
 
     button {
-        background-color: $tertiary;
         color: $inverted;
         padding: 10px $gap;
         font-size: $size-regular;
         border: none;
+        border-radius: 5px;
 
-        &:hover {
-            background-color: darken($tertiary, 5%);
-            color: $inverted;
+        &.is-tertiary {
+            background-color: $tertiary;
+            &:hover {
+                background-color: darken($tertiary, 5%);
+                color: $inverted;
+            }
         }
+        &.is-family {
+            background-color: $family;
+            &:hover {
+                background-color: darken($family, 5%);
+                color: $inverted;
+            }
+        }
+        
     }
 </style>

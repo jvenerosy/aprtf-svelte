@@ -11,7 +11,7 @@
         padding: 10px $gap;
         font-size: $size-regular;
         border: 1px solid $secondary;
-        border-radius: 4px;
+        border-radius: 5px;
 
         &:focus {
             outline: none;
