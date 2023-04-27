@@ -1,15 +1,15 @@
 <footer>
     <div class="container">
-        <div class="columns">
-            <div class="column">
+        <div class="columns top">
+            <div class="column first">
                 <div class="rows">
                     <div class="row">
-                        <picture>
-                            <img src="https://placehold.it/153x65" width="153" height="65" alt="">
+                        <picture class="logo">
+                            <img src="https://placehold.it/160x90" width="160" height="90" alt="Logo APRTF">
                         </picture>
                     </div>
                     <div class="row">
-                        <p>
+                        <p class="parag">
                             Association loi 1901 agréée par la formation permanente.<br/>
                             La certification qualité a été délivrée au titre de la catégorie Actions de formation.<br/>
                             Organisme Référencé Datadock - 0050392<br/>
@@ -31,8 +31,7 @@
                 <li><a href="/#">Contact</a></li>
             </ul>
         </div>
-        <hr>
-        <div class="columns">
+        <div class="columns bottom">
             <div class="column">© 2023 A.P.R.T.F</div>
             <div class="column">
                 <a href="/#">Tarifs et conditions</a>
@@ -41,8 +40,63 @@
                 <a href="/#">Règlement intérieur</a>
             </div>
             <div class="column">
-                <a href="/#">Membre de l'EFTA et la SFTF</a>
+                Membre de <a href="/#">l'EFTA</a> et la <a href="/#">SFTF</a>
             </div>
         </div>
     </div>
 </footer>
+
+<style lang="scss">
+    @import '../styles/variables.scss';
+
+    footer {
+        background-color: $primary;
+        color: $inverted;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 10px;
+
+        @media screen and (min-width: $b-desktop) {
+            text-align: left;
+            padding: 20px;
+        }
+    }
+
+    li {
+        margin-bottom: 1em;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 0 20px 0;
+    }
+
+    .columns {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .first {
+        @media screen and (min-width: $b-desktop) {
+            margin-right: 40px;
+        }
+    }
+
+    .top {
+        a {
+            font-weight: bold;
+        }
+    }
+
+    .bottom {
+        border-top: 1px solid $inverted;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .parag {
+        font-size: 1.4rem;
+    }
+</style>

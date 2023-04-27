@@ -1,2 +1,15 @@
-$family-sans-serif:  Arial, Helvetica, sans-serif;
 @import "bulma/bulma.sass";
+@import "variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;600;700&display=swap');
+
+html {
+  font-size: 10px;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    color: $secondary;
+  }
+}
