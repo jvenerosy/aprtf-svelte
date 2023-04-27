@@ -5,5 +5,13 @@
 </script>
 
 <Header />
-<slot></slot>
+<div class="slot">
+	<slot></slot>
+</div>
 <Footer />
+
+<style>
+	.slot {
+		padding-top: 120px;
+	}
+</style>

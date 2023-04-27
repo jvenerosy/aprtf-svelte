@@ -2,6 +2,13 @@
 $family-regular:  'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 $family-title: 'Frank Ruhl Libre', serif;
 
+//font-size
+$size-regular: 16px;
+$size-small: 14px;
+$size-large: 18px;
+$size-title: 36px;
+
+
 //color
 $primary: #322E4E;
 $secondary: #CED4DA;
@@ -9,4 +16,7 @@ $tertiary: #5241FB;
 $inverted: #fff;
 
 //breakpoint
-$b-desktop: 768px;
+$b-desktop: 1024px;
+
+//spacing
+$gap: 18px;

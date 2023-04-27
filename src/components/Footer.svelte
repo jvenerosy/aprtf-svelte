@@ -5,7 +5,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture class="logo">
-                            <img src="https://placehold.it/160x90" width="160" height="90" alt="Logo APRTF">
+                            <img src="https://placehold.it/153x65" width="153" height="65" alt="Logo APRTF">
                         </picture>
                     </div>
                     <div class="row">
@@ -52,13 +52,13 @@
     footer {
         background-color: $primary;
         color: $inverted;
-        font-size: 1.6rem;
+        font-size: $size-regular;
         text-align: center;
-        padding: 10px;
+        padding: calc($gap/2);
 
         @media screen and (min-width: $b-desktop) {
             text-align: left;
-            padding: 20px;
+            padding: $gap;
         }
     }
 
@@ -68,17 +68,17 @@
 
     .logo {
         display: block;
-        margin: 0 0 20px 0;
+        margin: 0 0 $gap 0;
     }
 
     .columns {
-        padding-top: 20px;
-        padding-bottom: 40px;
+        padding-top: $gap;
+        padding-bottom: calc($gap*2);
     }
 
     .first {
         @media screen and (min-width: $b-desktop) {
-            margin-right: 40px;
+            margin-right: calc($gap*2);
         }
     }
 
@@ -97,6 +97,6 @@
     }
 
     .parag {
-        font-size: 1.4rem;
+        font-size: $size-small;
     }
 </style>
