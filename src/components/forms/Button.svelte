@@ -3,7 +3,7 @@
     export let theme: string = "is-tertiary";
 </script>
 
-<button class="button {theme}">
+<button class="button {theme}" on:click>
     {text}
 </button>
 

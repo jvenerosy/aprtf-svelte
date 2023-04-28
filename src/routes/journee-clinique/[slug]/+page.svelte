@@ -89,7 +89,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <Button text="Inscription" />
+                        <a href="/journee-clinique/{data.slug}/inscription">
+                            <Button text="Inscription" />
+                        </a>
                     </div>
                 </div>
             </div>

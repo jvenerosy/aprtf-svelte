@@ -76,7 +76,7 @@
                             <Button theme="is-family" text="Contacter" />
                         </div>
                         <div class="column">
-                            <a href="/#">En savoir plus</a>
+                            <a href="/therapie">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -88,10 +88,12 @@
                     <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
                     <div class="links columns is-vcentered is-mobile">
                         <div class="column is-narrow">
-                            <Button text="Découvrir" />
+                            <a href="/association">
+                                <Button text="Découvrir" />
+                            </a>
                         </div>
                         <div class="column">
-                            <a href="/#">Voir les événements</a>
+                            <a href="/journee-clinique">Voir les événements</a>
                         </div>
                     </div>
                 </div>
