@@ -5,7 +5,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture class="logo">
-                            <img src="images/logo-inverted.svg" srcset="images/logo-inverted.svg 360w, images/logo-inverted.svg 306w" sizes="(max-width: 1023px) 360px, 306px" alt="Logo APRTF">
+                            <img src="/images/logo-inverted.svg" srcset="/images/logo-inverted.svg 360w, /images/logo-inverted.svg 306w" sizes="(max-width: 1023px) 360px, 306px" alt="Logo APRTF">
                         </picture>
                     </div>
                     <div class="row">

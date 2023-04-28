@@ -12,9 +12,9 @@
     return new Date(date).toLocaleDateString('fr-FR', options);
     }
 
-    let dateDebut:string = formatDate(date_debut)
-    let dateFin:string = formatDate(date_fin)
-    let statutValue:string = statut === 'past' ? 'Terminé' : statut === 'present' ? 'Inscriptions ouvertes' : 'A venir'
+    let dateDebut:string = formatDate(date_debut);
+    let dateFin:string = formatDate(date_fin);
+    let statutValue:string = statut === 'past' ? 'Terminé' : statut === 'present' ? 'Inscriptions ouvertes' : 'A venir';
 </script>
 
 <a href="/journee-clinique/{slug}" class="column is-4">

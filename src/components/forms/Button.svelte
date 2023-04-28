@@ -38,6 +38,13 @@
                 color: $inverted;
             }
         }
+        &.is-inverted {
+            color: $tertiary;
+            border: 1px solid $tertiary;
+            &:hover {
+                border-color: darken($tertiary, 5%);
+            }
+        }
         
     }
 </style>

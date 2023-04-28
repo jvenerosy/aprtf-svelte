@@ -2,8 +2,7 @@
     import { store } from '$lib/stores/Store';
     import { onMount } from 'svelte';
 	import ColloqueSlider from '../../components/blocs/ColloqueSlider.svelte';
-    
-    const endpoint = "http://0.0.0.0:8055/items/colloques";
+    const endpoint = "http://0.0.0.0:8055/items/colloques?fields=titre,slug,statut,date_debut,date_fin,lieu,illustration_colloque";
     let colloques: string[] = [];
     
     onMount(async function () {

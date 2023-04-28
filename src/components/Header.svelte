@@ -55,7 +55,7 @@
                 <div class="columns is-mobile is-vcentered">
                     <div class="column">
                         <picture>
-                            <img src="images/logo.svg" srcset="images/logo.svg 153w, images/logo.svg 306w" sizes="(max-width: 1023px) 153px, 306px" alt="Logo APRTF">
+                            <img src="/images/logo.svg" srcset="/images/logo.svg 153w, /images/logo.svg 306w" sizes="(max-width: 1023px) 153px, 306px" alt="Logo APRTF">
                         </picture>
                     </div>
                 </div>
