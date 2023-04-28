@@ -64,7 +64,7 @@
                 <ul class="columns nav">
                     <li class="column is-narrow"><a class:active={$store.nav === 'home'} href="/">Accueil</a></li>
                     <li class="column is-narrow"><a class:active={$store.nav === 'association'} href="/association">Association</a></li>
-                    <li class="column is-narrow"><a class:active={$store.nav === 'coloque'} href="/#">Journée clinique</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'coloque'} href="/journee-clinique">Journée clinique</a></li>
                     <li class="column is-narrow"><a class:active={$store.nav === 'therapie'} href="/therapie">Thérapie</a></li>
                     <li class="column is-narrow"><a class:active={$store.nav === 'contact'} href="/contact">Contact</a></li>
                 </ul>
@@ -206,6 +206,7 @@
     }
 
     .search {
+        display: none !important;
         position: absolute;
         width: 100%;
         left: 0;

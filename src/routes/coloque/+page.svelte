@@ -59,7 +59,9 @@
                         <p class="parag">Rencontrez l’équipe des fondateurs et des formateurs titulaires ou associés, et les valeurs portées par l’association depuis sa création en 1981</p>
                     </div>
                     <div class="row is-narrow links">
-                        <Button text="Découvrir" />
+                        <a href="/association">
+                            <Button text="Découvrir" />
+                        </a>
                     </div>
                 </div>
             </div>

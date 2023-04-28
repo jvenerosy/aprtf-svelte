@@ -1,5 +1,5 @@
-<script>
-    export let placeholder = "Tapez votre recherche";
+<script lang="ts">
+    export let placeholder: string = "Tapez votre recherche";
 </script>
 
 <input type="text" placeholder={placeholder}>

@@ -3,14 +3,14 @@ $family-regular:  'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-seri
 $family-title: 'Frank Ruhl Libre', serif;
 
 //font-size
+$size-title-1-desktop: 52px;
+$size-title-2-desktop: 42px;
+$size-title-1: 40px;
+$size-title-2: 34px;
+$size-title-3: 28px;
+$size-large: 20px;
 $size-regular: 16px;
 $size-small: 14px;
-$size-large: 20px;
-$size-title-1: 40px;
-$size-title-1-desktop: 52px;
-$size-title-2: 34px;
-$size-title-2-desktop: 42px;
-$size-title-3: 28px;
 
 
 //color
@@ -21,7 +21,12 @@ $tertiary-light: #CDC9FF;
 $inverted: #fff;
 $family: #D11B4C;
 $family-light: #FFE5E9;
+$grey: #6C757D;
 $grey-light: #EAEBF0;
+$grey-lighter: #F9F9FB;
+$tag-future: #D9A547;
+$tag-present: #47D9A6;
+$tag-past: #E67089;
 
 //breakpoint
 $b-desktop: 1024px;

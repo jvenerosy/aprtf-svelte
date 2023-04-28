@@ -1,6 +1,6 @@
-<script>
-    export let text = "Suivant";
-    export let theme = "is-tertiary";
+<script lang="ts">
+    export let text: string = "Suivant";
+    export let theme: string = "is-tertiary";
 </script>
 
 <button class="button {theme}">

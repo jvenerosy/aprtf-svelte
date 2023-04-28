@@ -1,0 +1,42 @@
+{
+    "coloques": [
+        {
+            "statut": "A venir",
+            "titre": "Triangulation et coparentage à l’adolescence et chez le jeune adulte",
+            "chapo": "La transmission fait partie intégrante de l’ADN de l’APRTF.",
+            "description": "L’adolescence et les premières années de la vie adulte sont des périodes à risque de survenue de troubles psychiques. Elles sont aussi propices à l’enlisement de situations relationnelles familiales problématiques ou conflictuelles, avec ou sans troubles psychiques. Elles mettent fortement à l’épreuve le couple parental, induisant des confusions avec la dynamique conjugale. Au-delà des problématiques symptomatiques ou relationnelles spécifiques, les concepts de triangulation et de coparentage sont utiles pour le travail thérapeutique avec les familles d’adolescents et de jeunes adultes présentant des difficultés d’autonomisation. Leur utilisation donne au thérapeute des perspectives, tant en termes de thématiques narratives qu’en termes de cadres de travail. Elle permet d’instaurer une dynamique pour la thérapie familiale, propre à cette période de la vie, et des changements de perspective pertinents pour les membres de la famille. En outre, elle resitue les parents dans le cycle de vie de cette dernière, en les impliquant dans une tâche développementale fonctionnelle de ce moment de la vie. Ces journées aborderont les pièges inhérents au travail avec les familles d’adolescents et de jeunes adultes, et proposeront des concepts théoriques utiles pour déterminer de manière collaborative avec la famille, le cadre et les thématiques thérapeutiques. Les présentations seront illustrées par des éclairages cliniques. Elles seront animées par le Dr Noël Pommepuy, pédopsychiatre, thérapeute familial, formateur et chef de service. Il a contribué à mettre en œuvre des unités pour adolescents basées sur un modèle systémique et s’est spécialisé dans les approches familiales de l’adolescent et du jeune adulte.",
+            "mea": "https://placehold.it/300x300",
+            "date_start": "2018-11-15",
+            "date_end": "2018-11-16",
+            "lieu": "Paris",
+            "tarifs": {
+                "etudiant": 200,
+                "individuel": 250,
+                "formation": 100
+            },
+            "documentation": "https://placehold.it/300x300",
+            "informations": [
+                {
+                    "titre": "Information et inscription administrative",
+                    "type": "administrative",
+                    "description": "Pour toute information d’ordre administratif ou organisationnel, nous contacter à l’adresse contact@aprtfformations.fr"
+                },
+                {
+                    "titre": "Nom et coordonnées du/des animateurs",
+                    "type": "contact",
+                    "description": "Dr Noël Pommepuy animera cette journée clinique, pédopsychiatre, thérapeute familial, formateur et chef de service Mail ? Coordonnées ? Lien vers l’équipe pédagogique ?"
+                },
+                {
+                    "titre": "Public concerné par cette journée clinique",
+                    "type": "public",
+                    "description": "Indiquer ici le niveau accepté dans cette journée clinique !"
+                },
+                {
+                    "titre": "Modalités d’inscription à la journée clinique",
+                    "type": "modalite",
+                    "description": "Il est nécessaire de renseigner la fiche d’inscription, le niveau de connaissance et de positionnement."
+                },
+            ]
+        }
+    ]
+}

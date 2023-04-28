@@ -2,14 +2,14 @@
     export let name: string;
     export let description: string;
     export let date: string;
-    export let image: string;
+    export let photo: string;
     export let type: string;
 </script>
 
 <div class="box is-{type} is-fullheight">
     <div class="columns is-vcentered">
         <div class="column is-4">
-            <div class="rounded" style={`background: url(images/photos/${image}.png) no-repeat center top;`}>
+            <div class="rounded" style={`background-image: url(http://0.0.0.0:8055/assets/${photo});`}>
             </div>
             <p class="name">{name}</p>
             {#if date}
@@ -44,6 +44,7 @@
             width: 92px;
             height: 92px;
             margin: 0 auto;
+            background-size: cover;
         }
 
         .name {
