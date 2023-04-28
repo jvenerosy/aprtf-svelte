@@ -11,88 +11,126 @@
     <meta name="description" content="Hello world" />
 </svelte:head>
 
-<section class="section association">
+<section class="section top">
     <div class="container is-max-widescreen">
-        <div class="columns is-vcentered">  
-            <div class="column is-5">
+        <div class="columns">
+            <div class="column is-5 has-text-centered">
                 <picture>
-                    <img src="images/home-illustration.svg" alt="" />      
+                    <img src="images/pro-illustration.svg" srcset="images/contact-illustration.svg 250w" sizes="250px" alt="" />      
                 </picture>
             </div>
             <div class="column">
-                <h1 class="title is-1">Association parisienne 
-                    de recherche et de travail avec les familles</h1>
-            </div>
-        </div>
-        <hr>
-        <div class="bloc">
-            <h2 class="title is-2">Les missions de l’Aprtf</h2>
-            <p class="subtitle">Fondée en 1981</p>
-        </div>
-        <div class="pepites columns">
-            <div class="column">            
-                <div class="box">
-                    <picture>
-                        <img src="images/pictos/megaphone.svg" srcset="images/pictos/megaphone.svg 38w" sizes="38px" alt="">
-                    </picture>
-                    <h3 class="parag">Développer la pratique des thérapies avec les familles</h3>
-                    <p>Proposer des consultations de thérapie familiale et de couple, et promouvoir ces modalités de soins dans le service public de santé.</p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <picture>
-                        <img src="images/pictos/people.svg" srcset="images/pictos/people.svg 38w" sizes="38px" alt="">
-                    </picture>
-                    <h3 class="parag">Former les professionnels à la pratique systémique</h3>
-                    <p>Proposer un parcours structuré de formation à la pratique thérapeutique familiale systémique pour les professionnels médicaux, psychologiques, paramédicaux et sociaux.</p>
-                </div>
-            </div>
-            <div class="column">
-                <div class="box">
-                    <picture>
-                        <img src="images/pictos/hospital.svg" srcset="images/pictos/hospital.svg 38w" sizes="38px" alt="">
-                    </picture>
-                    <h3 class="parag">Approfondir la recherche clinique</h3>
-                    <p>Sur les processus thérapeutiques, les vécus expérientiels des familles et contribuer à la réflexion sur la pertinence des modèles systémiques.</p>
-                </div>
+                <h1 class="title is-1">Besoin d’informations complémentaires ?</h1>
+                <p class="parag">Vous souhaitez vous rendre à l’Aprtf ou nous contacter ? On vous donne toutes ces informations ici.</p>
             </div>
         </div>
     </div>
 </section>
-<section class="section qrv">
-    <div class="container is-max-widescreen">
-        <div class="bloc">
-            <h2 class="title is-2">Que recherchez-vous ?</h2>
-            <p class="subtitle">Les consultations familiales et les formations pour les professionnel(le)s</p>
-        </div>
-        <div class="formations columns">
-            <div class="column is-4 family">
-                <div class="box is-fullheight">
-                    <h3 class="title is-3">Vous êtes une famille, un couple</h3>
-                    <p class="subtitle">Consultation familiale et conjugale</p>
-                    <p class="text">Nous proposons des thérapies pour accompagner les difficultés familiales (enfants, adolescents, adultes, fratries) ou de couple. Bienvenue dans cette section pour en savoir plus ou faire une demande.</p>
-                    <div class="links columns is-vcentered">
-                        <div class="column is-narrow">
-                            <Button theme="is-family" text="Contacter" />
-                        </div>
-                        <div class="column">
-                            <a href="/#">En savoir plus</a>
-                        </div>
+<section class="section bottom">
+    <div class="container is-max-desktop">
+        <div class="rows">
+            <div class="row">
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="title is-2">Nous contacter</h2>
+                        <form action="" method="post">
+                            <div class="fieldset">
+                                <div class="field">
+                                    <legend class="label">Vos informations</legend>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <label class="label is-2" for="lastname">Nom</label>
+                                            <div class="control">
+                                                <input id="lastname" class="input" type="text" placeholder="Votre nom">
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <label class="label is-2" for="firstname">Prénom</label>
+                                            <div class="control">
+                                                <input id="firstname" class="input" type="text" placeholder="Votre prénom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label is-2" for="email">Votre mail</label>
+                                    <div class="control">
+                                        <input id="email" class="input" type="email" placeholder="Votre email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fieldset">
+                                <legend class="label">Pour quelle raison nous contactez vous ?</legend>
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="select">
+                                            <select name="raison" id="raison">
+                                                <option value="" disabled selected>La raison de votre contact</option>
+                                                <option value="1">Raison 1</option>
+                                                <option value="2">Raison 2</option>
+                                                <option value="3">Raison 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="message" class="label is-2">Message</label>
+                                    <div class="control">
+                                        <textarea id="message" class="textarea" placeholder="Votre message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <Button text="Envoyer" />
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <address>
+                            <p class="ref">Adresse</p>
+                            <p>16 rue de l’Evangile – 75018 Paris</p>
+                            <p class="ref">Téléphone</p>
+                            <p><a href="tel:+33143381698">01 43 38 16 98</a></p>
+                            <p class="ref">Mail</p>
+                            <p><a href="mailto:contact@aprtfformations.fr">contact@aprtfformations.fr</a></p>
+                        </address>
+                    </div>
+                    <div class="column">
+                        <iframe title="Localisation de l'APRTF" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.206113230414!2d2.3599578765283344!3d48.89240897133683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ffcceb3a2e3%3A0xa4efe7e4ef97fc55!2sAprtf!5e0!3m2!1sfr!2sit!4v1682666495810!5m2!1sfr!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
-            <div class="column pro">
-                <div class="box is-fullheight">
-                    <h3 class="title is-3">Vous êtes un(e) professionnel(le)</h3>
-                    <p class="subtitle">Formations et journées cliniques</p>
-                    <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
-                    <div class="links columns is-vcentered">
-                        <div class="column is-narrow">
-                            <Button text="Découvrir" />
-                        </div>
-                        <div class="column">
-                            <a href="/#">Voir les événements</a>
+            <div class="row">
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="title is-2">Informations pratiques</h2>
+                        <picture>
+                            <img src="images/contact-illustration-2.svg" srcset="images/contact-illustration-2.svg 250w" sizes="250px" alt="" />
+                        </picture>
+                    </div>
+                    <div class="column">
+                        <div class="explication">
+                            <p class="ref">Restauration</p>
+                            <p>
+                                Les repas ne sont pas compris dans le tarif de formation.<br>
+                                Il est possible de se restaurer à proximité ou bien sur place (cuisine équipée d’un micro-onde, réfrigérateur, vaisselle).<br>
+                                Le café et le thé son accessibles gratuitement.
+                            </p>
+                            <p class="ref">Pendant les sessions, penser à prendre</p>
+                            <p>
+                                Papier, stylo et éventuellement votre ordinateur portable.<br>
+                                L’espace est équipé d’un accès Wifi, d’ordinateurs portables, de téléviseurs, d’un rétro-projecteur et de Paperboards.
+                            </p>
+                            <p class="ref">Les locaux de l’APRTF sont accessibles</p>
+                            <p>
+                                Par le Métro : Marx Dormoy ou La Chapelle.<br>
+                                Par les Bus 35 &  60 (arrêt Place de Torcy ou Place Hébert) et 65 (arrêt Boucry).
+                            </p>
+                            <p>
+                                Accès routier : Par la Porte de la Chapelle<br>
+                                Les formations sont assurées en présentiel.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -104,12 +142,26 @@
 <style lang="scss">
     @import '../../styles/variables.scss';
 
+    .section {
+        text-align: center;
+
+        @media screen and (min-width: $b-desktop) {
+            text-align: left;
+        }
+    }
+
+    .top {
+        background: $grey-light;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
     .title {
         font-family: $family-title;
-
+        
         &.is-1 {
             font-size: $size-title-1;
             text-align: center;
+            margin-bottom: calc($gap*2);
             
             @media screen and (min-width: $b-desktop) {
                 font-size: $size-title-1-desktop;
@@ -118,96 +170,56 @@
         }
         &.is-2 {
             font-size: $size-title-2;
+            margin-bottom: calc($gap*2);
             
             @media screen and (min-width: $b-desktop) {
                 font-size: $size-title-2-desktop;
             }
         }
-        &.is-3 {
-            font-size: $size-title-3;
+    }
+
+    .label {
+        &.is-2 {
+            font-weight: normal;
         }
+    }
+
+    form {
+        text-align: left;
     }
     
-    .parag {
-        font-size: $size-large;
-        font-weight: 600;
-        margin: 1em 0;
+    .fieldset {
+        margin-bottom: calc($gap*2);
+    }
+    textarea {
+        resize: none;
     }
 
-    .association {
-        background: $tertiary;
-        color: $inverted;
-        padding-top: 60px;
-        padding-bottom: 60px;
-        
-        .title {
-            color: $inverted;
-        }
-        .subtitle {
-            color: $inverted;
-        }
+    .ref {
+        font-weight: bold;
+        margin-top: calc($gap/2);
+    }
 
-        .box {
-            background: -webkit-linear-gradient(top, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0) 100%);
-            box-shadow: none;
-            color: $inverted;
+    address {
+        font-style: normal;
+
+        a {
+            color: $tertiary;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
-    hr {
-        max-width: 260px;
-        margin: calc($gap*2) auto;
-    }
-
-    .bloc {
-        text-align: center;
+    .row {
         margin-bottom: calc($gap*2);
     }
 
-    .is-fullheight {
-        height: 100%;
-    }
+    .explication {
+        margin-top: calc($gap*5);
 
-    .links {
-        margin-top: 20px;
+        p {
+            margin-bottom: calc($gap/2);}
     }
-
-    .qrv {
-        .box {
-            padding-bottom: 160px;
-            background-repeat: no-repeat;
-            background-position: 90% bottom;
-            transition: all 0.3s ease-in-out;
-    
-            &:hover {
-                box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.4), 0 0px 0 1px rgba(10, 10, 10, 0.1);
-            }
-        }
-        .family {
-            .box {
-                border: 1px solid $family;
-                background-image: url('images/family-illustration.svg');
-            }
-            a {
-                color: $family;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-        .pro {
-            .box {
-                border: 1px solid $tertiary;
-                background-image: url('images/pro-illustration.svg');
-            }
-            a {
-                color: $tertiary;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-
 </style>

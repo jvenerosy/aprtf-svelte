@@ -20,8 +20,7 @@
                 </picture>
             </div>
             <div class="column">
-                <h1 class="title is-1">Association parisienne 
-                    de recherche et de travail avec les familles</h1>
+                <h1 class="title is-1">Association parisienne de recherche et de travail avec les familles</h1>
             </div>
         </div>
         <hr>
@@ -72,7 +71,7 @@
                     <h3 class="title is-3">Vous êtes une famille, un couple</h3>
                     <p class="subtitle">Consultation familiale et conjugale</p>
                     <p class="text">Nous proposons des thérapies pour accompagner les difficultés familiales (enfants, adolescents, adultes, fratries) ou de couple. Bienvenue dans cette section pour en savoir plus ou faire une demande.</p>
-                    <div class="links columns is-vcentered">
+                    <div class="links columns is-vcentered is-mobile">
                         <div class="column is-narrow">
                             <Button theme="is-family" text="Contacter" />
                         </div>
@@ -87,7 +86,7 @@
                     <h3 class="title is-3">Vous êtes un(e) professionnel(le)</h3>
                     <p class="subtitle">Formations et journées cliniques</p>
                     <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
-                    <div class="links columns is-vcentered">
+                    <div class="links columns is-vcentered is-mobile">
                         <div class="column is-narrow">
                             <Button text="Découvrir" />
                         </div>

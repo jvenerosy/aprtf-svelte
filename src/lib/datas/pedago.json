@@ -1,0 +1,95 @@
+{
+    "equipe" : [
+        {
+            "name": "Elida Romano",
+            "date": "",
+            "description": "Membre fondateur de la Société Française de Thérapie Familiale (SFTF) et de l’EFTA (European Family Therapy Association). Elle a contribué à la création de l’Unité de Thérapie Familiale d’Aubervilliers qu’elle a dirigé jusqu’en 2014.",
+            "image": "elida-romano",
+            "type": "fondateur"
+        },
+        {
+            "name": "Patrick Chaltiel",
+            "date": "",
+            "description": "Membre fondateur de la Société Française de Thérapie Familiale (SFTF). Il est à l’origine de la création de l’Unité de thérapie familiale de Bondy en 2001, de groupes multi-familles sur la prise en charge des patients schizophrènes et de collaborations avec l’UNAFAM.",
+            "image": "partick-chaltiel",
+            "type": "fondateur"
+        },
+        {
+            "name": "Jean Clair Bouley",
+            "date": "",
+            "description": "Membre fondateur de la Société Française de Thérapie Familiale (SFTF) dont il a longtemps occupé le poste de secrétaire. Il a créé l’Unité de thérapie familiale de Bondy avec Patrick Chaltiel en 2001.",
+            "image": "jean-clair-bouley",
+            "type": "fondateur"
+        },
+        {
+            "name": "Didier Destal",
+            "date": "1947-2012",
+            "description": "Psychiatre et membre fondateur de la SFTF, il a créé l’unité de thérapie familiale d’Aubervilliers et développé des approches systémiques pour l’hospitalisation temps plein des adolescents.",
+            "image": "didier-destal",
+            "type": "fondateur"
+        },
+        {
+            "name": "Marie Christine Beaucousin",
+            "date": "",
+            "description": "Membre titulaire. Trésorière de l’Aprtf. Psychiatre, thérapeute familiale, Référente pédagogique de la formation Supervision-Entretiens familiaux",
+            "image": "marie-christine-beaucousin",
+            "type": "associe"
+        },
+        {
+            "name": "Elisabeth Bouana",
+            "date": "",
+            "description": "Membre titulaire. Secrétaire de l’Aprtf. Psychologue clinicienne, thérapeute familiale. Référente pédagogique des formations Supervision-Entretiens familiaux & Résonances familiales",
+            "image": "elisabeth-bouana",
+            "type": "associe"
+        },
+        {
+            "name": "Flore Chevet",
+            "date": "",
+            "description": "Membre titulaire. Psychologue clinicienne, thérapeute familiale.",
+            "image": "flore-chevet",
+            "type": "associe"
+        },
+        {
+            "name": "Raffaela Cucciniello",
+            "date": "",
+            "description": "Membre titulaire. Psychologue clinicienne, thérapeute familiale. Référente pédagogique de la formation Sensibilisation à la thérapie familiale",
+            "image": "rafella-cucciniello",
+            "type": "associe"
+        },
+        {
+            "name": "Jean Desmarquet",
+            "date": "",
+            "description": "Membre titulaire. Président de l’Aprtf. Psychiatre, thérapeute familial. Référent pédagogique de la formation Training à la thérapie familiale et Supervision didactique différée.",
+            "image": "jean-desmarquet",
+            "type": "associe"
+        },
+        {
+            "name": "Imen Fradi",
+            "date": "",
+            "description": "Membre titulaire. Psychiatre, thérapeute familiale. Référente pédagogique de la formation Sensibilisation à la thérapie familiale Référente « Handicap »",
+            "image": "imen-fradi",
+            "type": "associe"
+        },
+        {
+            "name": "Noël Pommepuy",
+            "date": "",
+            "description": "Membre titulaire. Psychiatre, thérapeute familial et multifamilial. Référent pédagogique des formations Supervision Familles en direct et Thérapie Multifamiliale.",
+            "image": "noel-pommepuy",
+            "type": "associe"
+        },
+        {
+            "name": "Dafna Waintrater",
+            "date": "",
+            "description": "Membre titulaire. Psychologue clinicienne, thérapeute familiale.",
+            "image": "dafna-waintrater",
+            "type": "associe"
+        },
+        {
+            "name": "Eia Asen",
+            "date": "",
+            "description": "Professeur de psychiatrie et pionnier des thérapies multifamiliales en Europe, il a contribué à développer de nombreux modèles multifamiliaux pour les enfants, les adolescents et les adultes, en psychiatrie et dans le champ pédagogique et social. Il travaille au Centre National Anna Freud (Londres)",
+            "image": "asen-eia",
+            "type": "formateur"
+        }
+    ]
+}

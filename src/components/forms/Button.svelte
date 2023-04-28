@@ -17,6 +17,13 @@
         border: none;
         border-radius: 5px;
 
+        &.is-primary {
+            background-color: $primary;
+            &:hover {
+                background-color: darken($primary, 5%);
+                color: $inverted;
+            }
+        }
         &.is-tertiary {
             background-color: $tertiary;
             &:hover {
