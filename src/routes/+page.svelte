@@ -93,7 +93,7 @@
                             </a>
                         </div>
                         <div class="column">
-                            <a href="/journee-clinique">Voir les événements</a>
+                            <a href="/journees-cliniques">Voir les événements</a>
                         </div>
                     </div>
                 </div>

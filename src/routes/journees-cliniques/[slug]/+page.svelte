@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="/journee-clinique/{data.slug}/inscription">
+                        <a href="/journees-cliniques/{data.slug}/inscription">
                             <Button text="Inscription" />
                         </a>
                     </div>
@@ -240,6 +240,14 @@
         &.is-3 {
             font-size: $size-title-3;
         }
+    }
+
+    :global(.text a) {
+        color: $tertiary;
+    }
+    :global(.text a:hover) {
+        color: $tertiary;
+        text-decoration: underline;
     }
 
     .subtitle {

@@ -17,7 +17,7 @@
     let statutValue:string = statut === 'past' ? 'Terminé' : statut === 'present' ? 'Inscriptions ouvertes' : 'A venir';
 </script>
 
-<a href="/journee-clinique/{slug}" class="column is-4">
+<a href="/journees-cliniques/{slug}" class="column is-4">
     <div class="card">
         <div class="card-image">
             <figure class="image">
