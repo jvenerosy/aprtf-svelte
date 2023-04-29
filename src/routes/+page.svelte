@@ -188,7 +188,7 @@
         .family {
             .box {
                 border: 1px solid $family;
-                background-image: url('images/family-illustration.svg');
+                background-image: url('/images/family-illustration.svg');
             }
             a {
                 color: $family;
@@ -200,7 +200,7 @@
         .pro {
             .box {
                 border: 1px solid $tertiary;
-                background-image: url('images/pro-illustration.svg');
+                background-image: url('/images/pro-illustration.svg');
             }
             a {
                 color: $tertiary;
