@@ -1,9 +1,10 @@
 <script lang="ts">
     export let text: string = "Suivant";
     export let theme: string = "is-tertiary";
+    export let disabled: any = "";
 </script>
 
-<button class="button {theme}" on:click>
+<button class="button {theme}" on:click disabled={disabled}>
     {text}
 </button>
 

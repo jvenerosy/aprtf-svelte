@@ -89,9 +89,15 @@
                         </div>
                     </div>
                     <div class="row">
+                        {#if colloque.statut === 'present'}
                         <a href="/journees-cliniques/{data.slug}/inscription">
                             <Button text="Inscription" />
                         </a>
+                        {:else if colloque.statut === 'past'}
+                        <Button text="Evènement déjà passé" disabled />
+                        {:else if colloque.statut === 'future'}
+                        <Button text="Inscriptions ouvertes bientôt" disabled />
+                        {/if}
                     </div>
                 </div>
             </div>
