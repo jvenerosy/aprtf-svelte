@@ -130,7 +130,7 @@
     });
     
     
-    $store.nav = 'coloque';
+    $store.nav = 'colloque';
 </script>
 
 <svelte:head>

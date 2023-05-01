@@ -11,14 +11,9 @@
         colloques = data.data;
     });
 
-    $store.nav = 'coloque';
+    $store.nav = 'colloque';
+    $store.slug = '/journees-cliniques';
 </script>
-
-<svelte:head>
-	<title>Hello world</title>
-	<meta name="robots" content="index follow" />
-    <meta name="description" content="Hello world" />
-</svelte:head>
 
 <section class="section top">
     <div class="container is-max-widescreen">

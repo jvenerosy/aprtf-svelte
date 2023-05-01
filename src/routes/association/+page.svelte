@@ -13,13 +13,8 @@
     });
     
     $store.nav = 'association';
+    $store.slug = '/association';
 </script>
-
-<svelte:head>
-<title>Hello world</title>
-<meta name="robots" content="index follow" />
-<meta name="description" content="Hello world" />
-</svelte:head>
 
 <section class="section association">
     <div class="container is-max-widescreen">

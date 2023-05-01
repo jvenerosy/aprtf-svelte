@@ -19,16 +19,16 @@
                 </div>
             </div>
             <ul class="column">
-                <li><a href="/#">Association</a></li>
-                <li><a href="/#">Journées cliniques</a></li>
+                <li><a href="/association">Association</a></li>
+                <li><a href="/journees-cliniques">Journées cliniques</a></li>
             </ul>
             <ul class="column">
-                <li><a href="/#">Formations</a></li>
-                <li><a href="/#">Thérapie familiale & couple</a></li>
+                <!-- <li><a href="/#">Formations</a></li> -->
+                <li><a href="/therapie">Thérapie familiale & couple</a></li>
             </ul>
             <ul class="column">
-                <li><a href="/#">Ressources</a></li>
-                <li><a href="/#">Contact</a></li>
+                <!-- <li><a href="/#">Ressources</a></li> -->
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
         <div class="columns bottom">

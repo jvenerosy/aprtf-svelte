@@ -3,13 +3,8 @@
     import { store } from '../../lib/stores/Store';
 
     $store.nav = 'therapie';
+    $store.slug = '/therapie';
 </script>
-
-<svelte:head>
-	<title>Hello world CONTACT</title>
-	<meta name="robots" content="index follow" />
-    <meta name="description" content="Hello world" />
-</svelte:head>
 
 <section class="section top">
     <div class="container is-max-widescreen">

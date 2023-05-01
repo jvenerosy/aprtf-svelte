@@ -2,14 +2,9 @@
     import Button from '../../components/forms/Button.svelte';
     import { store } from '../../lib/stores/Store';
 
-    $store.nav = 'coloque';
+    $store.nav = 'home';
+    $store.slug = '/colloques';
 </script>
-
-<svelte:head>
-	<title>Hello world CONTACT</title>
-	<meta name="robots" content="index follow" />
-    <meta name="description" content="Hello world" />
-</svelte:head>
 
 <section class="section top">
     <div class="container is-max-widescreen">
@@ -31,22 +26,6 @@
     <div class="container is-max-desktop">
         <h2 class="title is-2 has-text-centered">Intéressé(e) par une formation, un événement ou découvrir l’Aprtf ?</h2>
         <div class="columns pepites is-variable is-8">
-            <div class="column is-6">
-                <div class="rows">
-                    <div class="row">
-                        <picture>
-                            <img src="images/pictos/calendar.svg" alt="" />
-                        </picture>
-                    </div>
-                    <div class="row">
-                        <p class="name">Dates et informations des journées cliniques et colloques</p>
-                        <p class="parag">Nos journées cliniques thématiques sont pluriannuelles et sous forme de modules courts (1-2 jours). L’Aprtf organise également des colloques régulièrement</p>
-                    </div>
-                    <div class="row is-narrow links">
-                        <Button text="Consulter" />
-                    </div>
-                </div>
-            </div>
             <div class="column">
                 <div class="rows">
                     <div class="row">
@@ -61,6 +40,24 @@
                     <div class="row is-narrow links">
                         <a href="/association">
                             <Button text="Découvrir" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div class="rows">
+                    <div class="row">
+                        <picture>
+                            <img src="images/pictos/calendar.svg" alt="" />
+                        </picture>
+                    </div>
+                    <div class="row">
+                        <p class="name">Dates et informations des journées cliniques et colloques</p>
+                        <p class="parag">Nos journées cliniques thématiques sont pluriannuelles et sous forme de modules courts (1-2 jours). L’Aprtf organise également des colloques régulièrement</p>
+                    </div>
+                    <div class="row is-narrow links">
+                        <a href="/journees-cliniques">
+                            <Button text="Consulter" />
                         </a>
                     </div>
                 </div>

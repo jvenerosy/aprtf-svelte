@@ -1,15 +1,10 @@
-<script>
+<script lang="ts">
     import Button from '../components/forms/Button.svelte';
     import { store } from '../lib/stores/Store';
 
     $store.nav = 'home';
+    $store.slug = '/';
 </script>
-
-<svelte:head>
-	<title>Hello world</title>
-	<meta name="robots" content="index follow" />
-    <meta name="description" content="Hello world" />
-</svelte:head>
 
 <section class="section association">
     <div class="container is-max-widescreen">
@@ -88,7 +83,7 @@
                     <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
                     <div class="links columns is-vcentered is-mobile">
                         <div class="column is-narrow">
-                            <a href="/association">
+                            <a href="/colloque">
                                 <Button text="Découvrir" />
                             </a>
                         </div>
