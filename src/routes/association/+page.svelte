@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { PUBLIC_HOST_API } from '$env/static/public';
     import { store } from '$lib/stores/Store';
-    import Membre from '../../components/blocs/Membre.svelte';
     import { onMount } from 'svelte';
+    import Membre from '../../components/blocs/Membre.svelte';
     
-    const endpoint = "http://155.133.131.137:8055/items/membres?fields=name,photo,description,date,type";
+    const endpoint = `${PUBLIC_HOST_API}/items/membres?fields=name,photo,description,date,type`;
     let membres: string[] = [];
     
     onMount(async function () {
