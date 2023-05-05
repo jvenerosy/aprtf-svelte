@@ -5,7 +5,7 @@
     import { store } from '$lib/stores/Store';
     
     export let data;
-    const endpoint = `http://155.133.131.137:8055/items/colloques/${data.slug}`;
+    const endpoint = `http://0.0.0.0:8055/items/colloques/${data.slug}`;
     let colloque: {
         titre: string,
         description: string,
@@ -527,7 +527,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img src="{`http://155.133.131.137:8055/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img src="{`http://0.0.0.0:8055/assets/${colloque.illustration_colloque}`}" alt="">
                         </picture>
                     </div>
                     <div class="row">

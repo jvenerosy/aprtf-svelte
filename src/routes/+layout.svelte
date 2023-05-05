@@ -5,7 +5,7 @@
     import { store } from '../lib/stores/Store';
 	import '../styles/global.scss';
 	
-	const endpoint = "http://155.133.131.137:8055/items/page_seo";
+	const endpoint = "http://0.0.0.0:8055/items/page_seo";
 	let seo: string[] = [];
 	
 	onMount(async function () {
