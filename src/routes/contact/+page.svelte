@@ -25,7 +25,7 @@
     
     const sendContact = async (e:any) => {
         e.preventDefault(e);
-        const apiUrl = 'http://0.0.0.0:8055';
+        const apiUrl = 'http://155.133.131.137:8055';
         if (!contact.lastname || !contact.firstname || !contact.email || !contact.raison || !contact.message) {
             if(!contact.lastname) {
                 document.getElementById('lastname')!.classList.add('is-danger');

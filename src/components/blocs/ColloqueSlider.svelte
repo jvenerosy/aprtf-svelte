@@ -18,10 +18,10 @@
 </script>
 
 <a href="/journees-cliniques/{slug}" class="column is-4">
-    <div class="card">
+    <div class="card is-fullheight">
         <div class="card-image">
             <figure class="image">
-                <img src="{`http://0.0.0.0:8055/assets/${illustration_colloque}`}" alt="Placeholder">
+                <img src="{`http://155.133.131.137:8055/assets/${illustration_colloque}`}" alt="Placeholder">
             </figure>
         </div>
         <div class="card-content">
@@ -81,5 +81,9 @@
         font-size: $size-large;
         font-weight: 600;
         margin-top: $gap;
+    }
+
+    .is-fullheight {
+        height: 100%;
     }
 </style>
