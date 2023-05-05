@@ -9,7 +9,7 @@
 <div class="box is-{type} is-fullheight">
     <div class="columns is-vcentered">
         <div class="column is-4">
-            <div class="rounded" style={`background-image: url(http://localhost:8055/assets/${photo});`}>
+            <div class="rounded" style={`background-image: url(http://155.133.131.137:8055/assets/${photo});`}>
             </div>
             <p class="name">{name}</p>
             {#if date}
