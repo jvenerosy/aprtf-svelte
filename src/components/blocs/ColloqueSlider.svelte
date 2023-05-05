@@ -21,7 +21,7 @@
     <div class="card is-fullheight">
         <div class="card-image">
             <figure class="image">
-                <img src="{`http://0.0.0.0:8055/assets/${illustration_colloque}`}" alt="Placeholder">
+                <img src="{`http://localhost:8055/assets/${illustration_colloque}`}" alt="Placeholder">
             </figure>
         </div>
         <div class="card-content">
