@@ -3,7 +3,7 @@
     import Membre from '../../components/blocs/Membre.svelte';
     import { onMount } from 'svelte';
     
-    const endpoint = "http://0.0.0.0:8055/items/membres?fields=name,photo,description,date,type";
+    const endpoint = "http://localhost:8055/items/membres?fields=name,photo,description,date,type";
     let membres: string[] = [];
     
     onMount(async function () {
