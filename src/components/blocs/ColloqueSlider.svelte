@@ -7,6 +7,8 @@
     export let slug: string;
     export let illustration_colloque: string;
 
+	import { PUBLIC_HOST_API } from '$env/static/public';
+
     function formatDate(date: string) {
     const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(date).toLocaleDateString('fr-FR', options);
@@ -21,7 +23,7 @@
     <div class="card is-fullheight">
         <div class="card-image">
             <figure class="image">
-                <img src="{`http://155.133.131.137:8055/assets/${illustration_colloque}`}" alt="Placeholder">
+                <img src="{`${PUBLIC_HOST_API}/assets/${illustration_colloque}`}" alt="Placeholder">
             </figure>
         </div>
         <div class="card-content">
