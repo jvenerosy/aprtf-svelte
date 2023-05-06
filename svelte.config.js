@@ -1,4 +1,3 @@
-// import adapter from '@sveltejs/adapter-auto';
 import adapter from '@sveltejs/adapter-vercel';
 import preprocessor from 'svelte-preprocess';
 
