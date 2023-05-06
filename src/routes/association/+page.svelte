@@ -1,4 +1,5 @@
 <script lang="ts">
+	/** @type {import('./$types').LayoutServerData} */
 	import { PUBLIC_HOST_API } from '$env/static/public';
     import { store } from '$lib/stores/Store';
     import { onMount } from 'svelte';
