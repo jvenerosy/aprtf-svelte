@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
     import { store } from '../lib/stores/Store';
 	import '../styles/global.scss';
+
 	import { PUBLIC_HOST_API } from '$env/static/public';
 	
 	const endpoint = `${PUBLIC_HOST_API}/items/page_seo`;

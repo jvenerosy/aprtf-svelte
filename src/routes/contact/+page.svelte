@@ -2,6 +2,8 @@
     import axios from 'axios';
     import Button from '../../components/forms/Button.svelte';
     import { store } from '../../lib/stores/Store';
+
+    import { PUBLIC_HOST_API } from '$env/static/public';
     
     $store.nav = 'contact';
     $store.slug = '/contact';
@@ -25,7 +27,7 @@
     
     const sendContact = async (e:any) => {
         e.preventDefault(e);
-        const apiUrl = 'http://155.133.131.137:8055';
+        const apiUrl = PUBLIC_HOST_API;
         if (!contact.lastname || !contact.firstname || !contact.email || !contact.raison || !contact.message) {
             if(!contact.lastname) {
                 document.getElementById('lastname')!.classList.add('is-danger');
