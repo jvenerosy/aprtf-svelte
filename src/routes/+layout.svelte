@@ -13,6 +13,7 @@
 		const data = await response.json();
 		seo = data.data;
 	});
+	export const prerender = true;
 </script>
 
 <svelte:head>
