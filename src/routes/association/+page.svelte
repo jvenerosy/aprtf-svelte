@@ -5,7 +5,7 @@
     import Membre from '../../components/blocs/Membre.svelte';
     
     const endpoint = `${PUBLIC_HOST_API}/items/membres?fields=name,photo,description,date,type`;
-    let membres: string[] = [];
+    let membres: {name: string, photo: string, description: string, date: string, type: string}[] = [];
     
     onMount(async function () {
         const response = await fetch(endpoint);

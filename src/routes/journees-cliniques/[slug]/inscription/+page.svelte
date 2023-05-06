@@ -55,7 +55,7 @@
         service: string,
         objectif: string,
         level: number,
-        connaisance: string,
+        connaissance: string,
         context: string,
         cadre: string,
         finance: number,
@@ -81,7 +81,7 @@
         service: '',
         objectif: '',
         level: 0,
-        connaisance: '',
+        connaissance: '',
         context: '',
         cadre: '',
         finance: 0,
@@ -120,7 +120,7 @@
         colloque.modalite = md.render(colloque.modalite);
         
         function formatDate(date: string) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
             return new Date(date).toLocaleDateString('fr-FR', options);
         }
         

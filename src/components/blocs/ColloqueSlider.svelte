@@ -8,7 +8,7 @@
     export let illustration_colloque: string;
 
     function formatDate(date: string) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(date).toLocaleDateString('fr-FR', options);
     }
 

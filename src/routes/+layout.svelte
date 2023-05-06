@@ -1,4 +1,5 @@
 <script lang="ts">
+	/** @type {import('./$types').LayoutServerData} */
 	import Footer from "../components/Footer.svelte";
 	import Header from "../components/Header.svelte";
 	import { onMount } from 'svelte';
@@ -6,7 +7,7 @@
 	import '../styles/global.scss';
 	
 	const endpoint = "http://155.133.131.137:8055/items/page_seo";
-	let seo: string[] = [];
+	let seo: {title: string, description: string, url: string}[] = [];
 	
 	onMount(async function () {
 		const response = await fetch(endpoint);
