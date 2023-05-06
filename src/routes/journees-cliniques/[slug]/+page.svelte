@@ -3,9 +3,11 @@
     import MarkdownIt from 'markdown-it';
     import Button from '../../../components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
+
+	import { PUBLIC_HOST_API } from '$env/static/public';
     
     export let data;
-    const endpoint = `http://155.133.131.137:8055/items/colloques/${data.slug}`;
+    const endpoint = `${PUBLIC_HOST_API}/items/colloques/${data.slug}`;
     let colloque: {
         titre: string,
         description: string,
@@ -105,7 +107,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img src="{`http://155.133.131.137:8055/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
                         </picture>
                     </div>
                     <div class="row">

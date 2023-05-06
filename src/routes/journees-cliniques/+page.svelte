@@ -2,7 +2,10 @@
     import { store } from '$lib/stores/Store';
     import { onMount } from 'svelte';
 	import ColloqueSlider from '../../components/blocs/ColloqueSlider.svelte';
-    const endpoint = "http://155.133.131.137:8055/items/colloques?fields=titre,slug,statut,date_debut,date_fin,lieu,illustration_colloque&sort=date_debut";
+
+    import { PUBLIC_HOST_API } from '$env/static/public';
+
+    const endpoint = `${PUBLIC_HOST_API}/items/colloques?fields=titre,slug,statut,date_debut,date_fin,lieu,illustration_colloque&sort=date_debut`;
     let colloques: {titre: string, slug: string, statut: string, date_debut: string, date_fin: string, lieu: string, illustration_colloque: string}[] = [];
     
     onMount(async function () {
