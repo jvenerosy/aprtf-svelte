@@ -5,8 +5,8 @@
     import { store } from '../lib/stores/Store';
 	import '../styles/global.scss';
 	
-	const endpoint = "http://localhost:8055/items/page_seo";
-	let seo: string[] = [];
+	const endpoint = "http://155.133.131.137:8055/items/page_seo";
+	let seo: {title: string, description: string, url: string}[] = [];
 	
 	onMount(async function () {
 		const response = await fetch(endpoint);

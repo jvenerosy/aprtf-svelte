@@ -5,7 +5,7 @@
     import { store } from '$lib/stores/Store';
     
     export let data;
-    const endpoint = `http://localhost:8055/items/colloques/${data.slug}`;
+    const endpoint = `http://155.133.131.137:8055/items/colloques/${data.slug}`;
     let colloque: {
         titre: string,
         description: string,
@@ -55,7 +55,7 @@
         service: string,
         objectif: string,
         level: number,
-        connaisance: string,
+        connaissance: string,
         context: string,
         cadre: string,
         finance: number,
@@ -81,7 +81,7 @@
         service: '',
         objectif: '',
         level: 0,
-        connaisance: '',
+        connaissance: '',
         context: '',
         cadre: '',
         finance: 0,
@@ -120,7 +120,7 @@
         colloque.modalite = md.render(colloque.modalite);
         
         function formatDate(date: string) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
             return new Date(date).toLocaleDateString('fr-FR', options);
         }
         
@@ -527,7 +527,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img src="{`http://localhost:8055/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img src="{`http://155.133.131.137:8055/assets/${colloque.illustration_colloque}`}" alt="">
                         </picture>
                     </div>
                     <div class="row">

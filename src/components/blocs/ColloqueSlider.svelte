@@ -8,7 +8,7 @@
     export let illustration_colloque: string;
 
     function formatDate(date: string) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(date).toLocaleDateString('fr-FR', options);
     }
 
@@ -21,7 +21,7 @@
     <div class="card is-fullheight">
         <div class="card-image">
             <figure class="image">
-                <img src="{`http://localhost:8055/assets/${illustration_colloque}`}" alt="Placeholder">
+                <img src="{`http://155.133.131.137:8055/assets/${illustration_colloque}`}" alt="Placeholder">
             </figure>
         </div>
         <div class="card-content">
