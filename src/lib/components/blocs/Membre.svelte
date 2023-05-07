@@ -25,7 +25,7 @@
 </div>
 
 <style lang="scss">
-    @import '../../styles/variables.scss';
+    @import '../../../styles/variables.scss';
 
     .box {
         border-top: 9px solid #000;

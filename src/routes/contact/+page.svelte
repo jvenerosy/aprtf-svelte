@@ -1,78 +1,15 @@
 <script lang="ts">
-    import axios from 'axios';
-    import Button from '../../components/forms/Button.svelte';
-    import { store } from '../../lib/stores/Store';
-
-    import { PUBLIC_HOST_API } from '$env/static/public';
+    import Button from '$lib/components/forms/Button.svelte';
+    import { store } from '$lib/stores/Store';
+    import { enhance } from '$app/forms';
     
     $store.nav = 'contact';
     $store.slug = '/contact';
     
-    let etatSend: string = "false";
-    let isCorrect: boolean = true;
+    /** @type {import('./$types').ActionData} */
+    export let form: any = {};
     
-    let contact: {
-        lastname: string,
-        firstname: string,
-        email: string,
-        raison: string,
-        message: string
-    } = {
-        lastname: '',
-        firstname: '',
-        email: '',
-        raison: '',
-        message: ''
-    };
     
-    const sendContact = async (e:any) => {
-        e.preventDefault(e);
-        const apiUrl = PUBLIC_HOST_API;
-        if (!contact.lastname || !contact.firstname || !contact.email || !contact.raison || !contact.message) {
-            if(!contact.lastname) {
-                document.getElementById('lastname')!.classList.add('is-danger');
-            } else {
-                document.getElementById('lastname')!.classList.remove('is-danger');
-            }
-            if(!contact.firstname) {
-                document.getElementById('firstname')!.classList.add('is-danger');
-            } else {
-                document.getElementById('firstname')!.classList.remove('is-danger');
-            }
-            if(!contact.email) {
-                document.getElementById('email')!.classList.add('is-danger');
-            } else {
-                document.getElementById('email')!.classList.remove('is-danger');
-                if (!contact.email.includes('@')) {
-                    document.getElementById('email')!.classList.add('is-danger');
-                } else {
-                    document.getElementById('email')!.classList.remove('is-danger');
-                }
-            }
-            if(!contact.raison) {
-                document.getElementById('raison')!.classList.add('is-danger');
-            } else {
-                document.getElementById('raison')!.classList.remove('is-danger');
-            }
-            if(!contact.message) {
-                document.getElementById('message')!.classList.add('is-danger');
-            } else {
-                document.getElementById('message')!.classList.remove('is-danger');
-            }
-
-            isCorrect = false;
-
-            return;
-        }
-        try {
-            const response = await axios.post(`${apiUrl}/items/contact`, contact);
-            etatSend = "true";
-            
-        } catch (error) {
-            console.error('Erreur lors de la création de l\'article :', error);
-            etatSend = "error";
-        }
-    };
 </script>
 
 <section class="section top">
@@ -96,67 +33,8 @@
             <div class="row">
                 <div class="columns">
                     <div class="column">
-                        {#if etatSend === "false"}
                         <h2 class="title is-2">Nous contacter</h2>
-                        <form>
-                            <div class="fieldset">
-                                <div class="field">
-                                    <legend class="label">Vos informations</legend>
-                                    <div class="columns">
-                                        <div class="column">
-                                            <label class="label is-2" for="firstname">Prénom</label>
-                                            <div class="control">
-                                                <input id="firstname" class="input" type="text" placeholder="Votre prénom" bind:value={contact.firstname}>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <label class="label is-2" for="lastname">Nom</label>
-                                            <div class="control">
-                                                <input id="lastname" class="input" type="text" placeholder="Votre nom" bind:value={contact.lastname}>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label is-2" for="email">Votre mail</label>
-                                    <div class="control">
-                                        <input id="email" class="input" type="email" placeholder="Votre email" bind:value={contact.email}>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fieldset">
-                                <legend class="label">Pour quelle raison nous contactez vous ?</legend>
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select" id="raison">
-                                            <select name="raison" bind:value={contact.raison}>
-                                                <option value="" disabled selected>La raison de votre contact</option>
-                                                <option value="1">Raison 1</option>
-                                                <option value="2">Raison 2</option>
-                                                <option value="3">Raison 3</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="message" class="label is-2">Message</label>
-                                    <div class="control">
-                                        <textarea id="message" name="message" class="textarea" placeholder="Votre message" bind:value={contact.message}></textarea>
-                                    </div>
-                                </div>
-                                {#if !isCorrect}
-                                <div class="field">
-                                    <p class="parag has-text-danger	">Merci de remplir tous les champs obligatoires</p>
-                                </div>
-                                {/if}
-                            </div>
-                            <div class="field">
-                                <div class="control">
-                                    <Button text="Envoyer" on:click={sendContact} />
-                                </div>
-                            </div>
-                        </form>
-                        {:else if etatSend === "true"}
+                        {#if form?.success}
                         <div class="box validation">
                             <div class="rows">
                                 <div class="row">
@@ -170,11 +48,105 @@
                                 </div>
                             </div>
                         </div>
-                        {:else if etatSend === "error"}
-                        <div class="box validation">
-                            <h2 class="title is-2">Erreur !</h2>
-                            <p class="parag">Il y a eu une erreur lors de l'envoie de votre message, merci de reessayer en rechargeant la page.</p>
-                        </div>
+                        {:else}
+                        <form method="POST" use:enhance>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <legend class="label">Vos informations</legend>
+                                    <div class="columns">
+                                        <div class="column">
+                                            <label class="label is-2" for="firstName">Prénom</label>
+                                            <div class="control">
+                                                <input
+                                                    class="input {form?.firstNameMissing ? 'is-danger': ''}"
+                                                    id="firstName"
+                                                    name="firstName"
+                                                    type="text"
+                                                    placeholder="Votre prénom"
+                                                    value="{form?.firstName ?? ''}"
+                                                />
+                                            </div>
+                                            {#if form?.errors?.firstName}
+                                            <p class="has-text-danger mention">{form?.errors?.firstName[0]}</p>
+                                            {/if}
+                                        </div>
+                                        <div class="column">
+                                            <label class="label is-2" for="lastName">Nom</label>
+                                            <div class="control">
+                                                <input
+                                                    class="input {form?.lastNameMissing ? 'is-danger': ''}"
+                                                    id="lastName"
+                                                    name="lastName"
+                                                    type="text"
+                                                    placeholder="Votre nom"
+                                                    value="{form?.lastName ?? ''}"
+                                                />
+                                            </div>
+                                            {#if form?.errors?.lastName}
+                                            <p class="has-text-danger mention">{form?.errors?.lastName[0]}</p>
+                                            {/if}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label is-2" for="email">Votre mail</label>
+                                    <div class="control">
+                                        <input
+                                            class="input {form?.emailMissing ? 'is-danger': ''}"
+                                            id="email"
+                                            name="email"
+                                            type="email"
+                                            placeholder="Votre email"
+                                            value="{form?.email ?? ''}"
+                                        />
+                                    </div>
+                                    {#if form?.errors?.email}
+                                    <p class="has-text-danger mention">{form?.errors?.email[0]}</p>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="fieldset">
+                                <legend class="label">Pour quelle raison nous contactez vous ?</legend>
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="select {form?.raisonMissing ? 'is-danger': ''}">
+                                            <select
+                                                id="raison"
+                                                name="raison"
+                                            >
+                                                <option value="" disabled selected hidden>La raison de votre contact</option>
+                                                <option value="1">Raison 1</option>
+                                                <option value="2">Raison 2</option>
+                                                <option value="3">Raison 3</option>
+                                            </select>
+                                        </div>
+                                        {#if form?.errors?.raison}
+                                        <p class="has-text-danger mention">{form?.errors?.raison[0]}</p>
+                                        {/if}
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="message" class="label is-2">Message</label>
+                                    <div class="control">
+                                        <textarea
+                                            class="textarea {form?.messageMissing ? 'is-danger': ''}"
+                                            id="message"
+                                            name="message"
+                                            placeholder="Votre message"
+                                            value="{form?.message ?? ''}"
+                                        ></textarea>
+                                    </div>
+                                    {#if form?.errors?.message}
+                                    <p class="has-text-danger mention">{form?.errors?.message[0]}</p>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <Button text="Envoyer" />
+                                </div>
+                            </div>
+                        </form>
                         {/if}
                         <hr>
                         <address>
@@ -315,5 +287,9 @@
     }
     .validation {
         text-align: center;
+    }
+
+    .mention {
+        font-size: $size-small;
     }
 </style>

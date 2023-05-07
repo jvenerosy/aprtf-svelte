@@ -1,5 +1,5 @@
 <script>
-    import Button from '../../components/forms/Button.svelte';
+    import Button from '../../lib/components/forms/Button.svelte';
     import { store } from '../../lib/stores/Store';
 
     $store.nav = 'therapie';

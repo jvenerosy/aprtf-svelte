@@ -5,7 +5,7 @@
 <input type="text" placeholder={placeholder}>
 
 <style lang="scss">
-    @import '../../styles/variables.scss';
+    @import '../../../styles/variables.scss';
 
     input {
         padding: 10px $gap;
