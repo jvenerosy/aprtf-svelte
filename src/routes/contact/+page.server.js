@@ -1,11 +1,13 @@
 import { z } from 'zod';
+import { PUBLIC_HOST_API } from '$env/static/public';
+const endpoint = `${PUBLIC_HOST_API}/items/contact`;
 
 const contactSchema = z.object({
-	firstName: z
+	firstname: z
 		.string()
         .nonempty({ message: 'Le prénom ne peut pas être vide' })
 		.trim(),
-	lastName: z
+	lastname: z
 		.string()
         .nonempty({ message: 'Le nom ne peut pas être vide' })
 		.trim(),
@@ -30,16 +32,31 @@ export const actions = {
 		try {
 			const result = contactSchema.parse(formData);
 			console.log(result);
+			try {
+				const response = await fetch(endpoint, {
+					method: "POST",
+					headers: {
+					  "Content-Type": "application/json",
+					},
+					body: JSON.stringify(result),
+				  });
+				
+			} catch (error) {
+				console.error('Erreur lors de la création de l\'article :', error);
+				return {
+					etatSend: "error"
+				}
+			}
             return {
                 success: true,
             }
 		} catch (err) {
 			const { fieldErrors: errors } = err.flatten();
             console.log(errors);
-			const { firstName, lastName, raison, email, message } = formData;
+			const { firstname, lastname, raison, email, message } = formData;
 			return {
-				firstName,
-                lastName,
+				firstname,
+                lastname,
                 raison,
                 email,
                 message,

@@ -2,6 +2,7 @@
     import Button from '$lib/components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
     import { enhance } from '$app/forms';
+    import { fade } from 'svelte/transition';
     
     $store.nav = 'contact';
     $store.slug = '/contact';
@@ -35,7 +36,7 @@
                     <div class="column">
                         <h2 class="title is-2">Nous contacter</h2>
                         {#if form?.success}
-                        <div class="box validation">
+                        <div class="box validation" transition:fade>
                             <div class="rows">
                                 <div class="row">
                                     <picture>
@@ -48,6 +49,11 @@
                                 </div>
                             </div>
                         </div>
+                        {:else if form?.etatSend === 'error'}
+                        <div class="box validation">
+                            <h2 class="title is-2">Erreur !</h2>
+                            <p class="parag">Il y a eu une erreur lors de l'envoie de votre message, merci de reessayer en rechargeant la page.</p>
+                        </div>
                         {:else}
                         <form method="POST" use:enhance>
                             <div class="fieldset">
@@ -55,35 +61,35 @@
                                     <legend class="label">Vos informations</legend>
                                     <div class="columns">
                                         <div class="column">
-                                            <label class="label is-2" for="firstName">Prénom</label>
+                                            <label class="label is-2" for="firstname">Prénom</label>
                                             <div class="control">
                                                 <input
-                                                    class="input {form?.firstNameMissing ? 'is-danger': ''}"
-                                                    id="firstName"
-                                                    name="firstName"
+                                                    class="input {form?.firstnameMissing ? 'is-danger': ''}"
+                                                    id="firstname"
+                                                    name="firstname"
                                                     type="text"
                                                     placeholder="Votre prénom"
-                                                    value="{form?.firstName ?? ''}"
+                                                    value="{form?.firstname ?? ''}"
                                                 />
                                             </div>
-                                            {#if form?.errors?.firstName}
-                                            <p class="has-text-danger mention">{form?.errors?.firstName[0]}</p>
+                                            {#if form?.errors?.firstname}
+                                            <p class="has-text-danger mention">{form?.errors?.firstname[0]}</p>
                                             {/if}
                                         </div>
                                         <div class="column">
-                                            <label class="label is-2" for="lastName">Nom</label>
+                                            <label class="label is-2" for="lastname">Nom</label>
                                             <div class="control">
                                                 <input
-                                                    class="input {form?.lastNameMissing ? 'is-danger': ''}"
-                                                    id="lastName"
-                                                    name="lastName"
+                                                    class="input {form?.lastnameMissing ? 'is-danger': ''}"
+                                                    id="lastname"
+                                                    name="lastname"
                                                     type="text"
                                                     placeholder="Votre nom"
-                                                    value="{form?.lastName ?? ''}"
+                                                    value="{form?.lastname ?? ''}"
                                                 />
                                             </div>
-                                            {#if form?.errors?.lastName}
-                                            <p class="has-text-danger mention">{form?.errors?.lastName[0]}</p>
+                                            {#if form?.errors?.lastname}
+                                            <p class="has-text-danger mention">{form?.errors?.lastname[0]}</p>
                                             {/if}
                                         </div>
                                     </div>
