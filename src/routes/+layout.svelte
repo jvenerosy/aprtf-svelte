@@ -1,20 +1,11 @@
 <script lang="ts">
 	import Footer from "../components/Footer.svelte";
 	import Header from "../components/Header.svelte";
-	import { onMount } from 'svelte';
     import { store } from '../lib/stores/Store';
 	import '../styles/global.scss';
 
-	import { PUBLIC_HOST_API } from '$env/static/public';
-	
-	const endpoint = `${PUBLIC_HOST_API}/items/page_seo`;
-	let seo: {title: string, description: string, url: string}[] = [];
-	
-	onMount(async function () {
-		const response = await fetch(endpoint);
-		const data = await response.json();
-		seo = data.data;
-	});
+	export let data;
+	const seo = data.donnees;
 </script>
 
 <svelte:head>
@@ -36,6 +27,8 @@
 			<meta name="twitter:title" content="{item.title}" />
 			<meta name="twitter:site" content="@Aprtf" />
 			<meta name="twitter:creator" content="@Aprtf" />
+			<meta http-equiv="Content-Security-Policy" content="default-src 'self' vitals.vercel-insights.com">
+
 		{/if}
 	{/each}
 </svelte:head>

@@ -1,20 +1,12 @@
-<script lang="ts">
-	import { PUBLIC_HOST_API } from '$env/static/public';
+<script>
     import { store } from '$lib/stores/Store';
-    import { onMount } from 'svelte';
     import Membre from '../../components/blocs/Membre.svelte';
-    
-    const endpoint = `${PUBLIC_HOST_API}/items/membres?fields=name,photo,description,date,type`;
-    let membres: {name: string, photo: string, description: string, date: string, type: string}[] = [];
-    
-    onMount(async function () {
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        membres = data.data;
-    });
     
     $store.nav = 'association';
     $store.slug = '/association';
+
+    export let data;
+    const membres = data.donnees;
 </script>
 
 <section class="section association">
