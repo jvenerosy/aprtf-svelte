@@ -27,6 +27,8 @@
 			<meta name="twitter:title" content="{item.title}" />
 			<meta name="twitter:site" content="@Aprtf" />
 			<meta name="twitter:creator" content="@Aprtf" />
+			<meta http-equiv="Content-Security-Policy" content="default-src 'self' vitals.vercel-insights.com">
+
 		{/if}
 	{/each}
 </svelte:head>
