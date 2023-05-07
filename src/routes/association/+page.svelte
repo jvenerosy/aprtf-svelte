@@ -1,6 +1,6 @@
 <script>
     import { store } from '$lib/stores/Store';
-    import Membre from '../../components/blocs/Membre.svelte';
+    import Membre from '$lib/components/blocs/Membre.svelte';
     
     $store.nav = 'association';
     $store.slug = '/association';

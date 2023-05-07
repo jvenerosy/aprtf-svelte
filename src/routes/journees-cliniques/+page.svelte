@@ -1,6 +1,6 @@
 <script lang="ts">
     import { store } from '$lib/stores/Store';
-    import ColloqueSlider from '../../components/blocs/ColloqueSlider.svelte';
+    import ColloqueSlider from '../../lib/components/blocs/ColloqueSlider.svelte';
 
     export let data;
     const colloques = data.donnees;

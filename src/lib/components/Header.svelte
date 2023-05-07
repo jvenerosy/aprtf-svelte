@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
     import Button from './forms/Button.svelte';
     import InputText from './forms/InputText.svelte';
-    import { store } from '../lib/stores/Store';
+    import { store } from '../stores/Store';
 
     let fixed = false;
     let isBurger = false;
@@ -90,7 +90,7 @@
 </header>
 
 <style lang="scss">
-    @import '../styles/variables.scss';
+    @import '../../styles/variables.scss';
     
     header {
         padding: calc($gap/2);

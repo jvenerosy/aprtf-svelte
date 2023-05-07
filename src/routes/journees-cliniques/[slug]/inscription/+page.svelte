@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Button from '../../../../components/forms/Button.svelte';
+    import Button from '$lib/components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
 
     import { PUBLIC_HOST_API } from '$env/static/public';
