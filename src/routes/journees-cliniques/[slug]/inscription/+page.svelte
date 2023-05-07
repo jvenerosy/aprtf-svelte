@@ -469,7 +469,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
                         </picture>
                     </div>
                     <div class="row">
@@ -494,12 +494,10 @@
         margin-bottom: 20px;
     }
     .infos {
-        picture {
-            img {
-                display: block;
-                border-radius: $gap;
-                margin-bottom: calc($gap * 2);
-            }
+        img.mea {
+            display: block;
+            border-radius: $gap;
+            margin-bottom: calc($gap * 2);
         }
 
         .box {
