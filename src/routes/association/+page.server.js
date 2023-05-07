@@ -7,6 +7,6 @@ export const load = async () => {
     const donnees = data.data;
 
     return {
-        membres: donnees
+        donnees: donnees
     };
 };

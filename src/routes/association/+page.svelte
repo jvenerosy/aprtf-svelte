@@ -6,7 +6,7 @@
     $store.slug = '/association';
 
     export let data;
-    const { membres } = data;
+    const membres = data.donnees;
 </script>
 
 <section class="section association">
