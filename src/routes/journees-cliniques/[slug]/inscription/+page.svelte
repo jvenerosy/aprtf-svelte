@@ -1,44 +1,13 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import MarkdownIt from 'markdown-it';
     import Button from '../../../../components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
 
     import { PUBLIC_HOST_API } from '$env/static/public';
+
+    $store.nav = 'colloque';
     
     export let data;
-    const endpoint = `${PUBLIC_HOST_API}/items/colloques/${data.slug}`;
-    let colloque: {
-        titre: string,
-        description: string,
-        date_debut: string,
-        date_fin: string,
-        lieu: string,
-        statut: string,
-        illustration_colloque: string,
-        chapo: string,
-        tarifs: string,
-        administratif: string,
-        animateurs: string,
-        public: string,
-        modalite: string,
-        slug: string
-    } = {
-        titre: '',
-        description: '',
-        date_debut: '',
-        date_fin: '',
-        statut: '',
-        lieu: '',
-        tarifs: '',
-        chapo: '',
-        illustration_colloque: '',
-        administratif: '',
-        animateurs: '',
-        public: '',
-        modalite: '',
-        slug: ''
-    };
+    const colloque = data.colloque;
 
     let answer: {
         firstname: string,
@@ -93,9 +62,7 @@
         finance_address: ''
     }
     
-    let statut: string;
     let step: number = 1;
-    let finance: string = "0";
 
     function nextStep() {
         step++;
@@ -106,33 +73,6 @@
         step--;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    onMount(async function () {
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        colloque = data.data;
-        
-        let md = new MarkdownIt();
-        
-        colloque.description = md.render(colloque.description);
-        colloque.tarifs = md.render(colloque.tarifs);
-        colloque.administratif = md.render(colloque.administratif);
-        colloque.animateurs = md.render(colloque.animateurs);
-        colloque.public = md.render(colloque.public);
-        colloque.modalite = md.render(colloque.modalite);
-        
-        function formatDate(date: string) {
-            const options: {} = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(date).toLocaleDateString('fr-FR', options);
-        }
-        
-        colloque.date_debut = formatDate(colloque.date_debut);
-        colloque.date_fin = formatDate(colloque.date_fin);
-        statut = colloque.statut === 'past' ? 'Terminé' : colloque.statut === 'present' ? 'Inscriptions ouvertes' : 'A venir';
-    });
-    
-    
-    $store.nav = 'colloque';
 </script>
 
 <svelte:head>
