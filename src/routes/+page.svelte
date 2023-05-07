@@ -6,6 +6,10 @@
     $store.slug = '/';
 </script>
 
+<svelte:head>
+    <link rel="preload" as="image" href="images/pictos/megaphone.svg" />
+</svelte:head>
+
 <section class="section association">
     <div class="container is-max-widescreen">
         <div class="columns is-vcentered">  
