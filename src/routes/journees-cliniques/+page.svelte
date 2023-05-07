@@ -1,18 +1,9 @@
 <script lang="ts">
     import { store } from '$lib/stores/Store';
-    import { onMount } from 'svelte';
-	  import ColloqueSlider from '../../components/blocs/ColloqueSlider.svelte';
+    import ColloqueSlider from '../../components/blocs/ColloqueSlider.svelte';
 
-    import { PUBLIC_HOST_API } from '$env/static/public';
-    
-    const endpoint = `${PUBLIC_HOST_API}/items/colloques?fields=titre,slug,statut,date_debut,date_fin,lieu,illustration_colloque&sort=date_debut`;
-    let colloques: {titre: string, slug: string, statut: string, date_debut: string, date_fin: string, lieu: string, illustration_colloque: string}[] = [];
-    
-    onMount(async function () {
-        const response = await fetch(endpoint);
-        const data = await response.json();
-        colloques = data.data;
-    });
+    export let data;
+    const colloques = data.donnees;
 
     $store.nav = 'colloque';
     $store.slug = '/journees-cliniques';
