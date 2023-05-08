@@ -1,6 +1,7 @@
 <script lang="ts">
     import Button from '$lib/components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
+    import { fade } from 'svelte/transition';
 
     import { PUBLIC_HOST_API } from '$env/static/public';
 
@@ -109,7 +110,12 @@
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="firstname" class="label is-2">Prénom</label>
-                                                        <input type="text" class="input" id="firstname" bind:value={answer.firstname}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            id="firstname"
+                                                            bind:value={answer.firstname}
+                                                        />
                                                     </div>
                                                     <div class="column">
                                                         <label for="lastname" class="label is-2">Nom</label>
@@ -124,11 +130,21 @@
                                             </div>
                                             <div class="field">
                                                 <label for="phone_number" class="label is-2">Numéro de téléphone</label>
-                                                <input type="text" class="input" id="phone_number" bind:value={answer.phone_number}>
+                                                <input 
+                                                    type="text"
+                                                    class="input"
+                                                    id="phone_number"
+                                                    bind:value={answer.phone_number}
+                                                />
                                             </div>
                                             <div class="field">
                                                 <label for="email" class="label is-2">Mail</label>
-                                                <input type="email" class="input" id="email" bind:value={answer.email}>
+                                                <input
+                                                    type="email"
+                                                    class="input"
+                                                    id="email"
+                                                    bind:value={answer.email}
+                                                />
                                             </div>
                                         </div>
                                         <div class="fieldset">
@@ -137,17 +153,32 @@
                                             </div>
                                             <div class="field">
                                                 <label for="address" class="label is-2">Adresse postale</label>
-                                                <input type="text" class="input" id="address" bind:value={answer.address}>
+                                                <input
+                                                    type="text"
+                                                    class="input"
+                                                    id="address"
+                                                    bind:value={answer.address}
+                                                />
                                             </div>
                                             <div class="field">
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="postal_code" class="label is-2">Code postal</label>
-                                                        <input type="text" class="input" id="postal_code" bind:value={answer.postal_code}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            id="postal_code"
+                                                            bind:value={answer.postal_code}
+                                                        />
                                                     </div>
                                                     <div class="column">
                                                         <label for="city" class="label is-2">Ville</label>
-                                                        <input type="text" class="input" id="city" bind:value={answer.city}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            id="city"
+                                                            bind:value={answer.city}
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -171,7 +202,11 @@
                                                 <label for="connu" class="label is-2">Comment avez-vous connu l’APRTF ?</label>
                                                 <div class="control">
                                                     <div class="select">
-                                                        <select bind:value={answer.connu} name="connu" id="connu">
+                                                        <select
+                                                            bind:value={answer.connu}
+                                                            name="connu"
+                                                            id="connu"
+                                                        >
                                                             <option value="" disabled selected>Selectionnez une réponse</option>
                                                             <option value="1">Raison 1</option>
                                                             <option value="2">Raison 2</option>
@@ -187,11 +222,25 @@
                                                 <div class="control">
                                                     <label for="handicap" class="radio is-2">
                                                         Oui
-                                                        <input type="radio" class="radio" name="handicap" id="handicap" bind:group={answer.handicap} value={true}>
+                                                        <input
+                                                            type="radio"
+                                                            class="radio"
+                                                            name="handicap"
+                                                            id="handicap"
+                                                            bind:group={answer.handicap}
+                                                            value={true}
+                                                        />
                                                     </label>
                                                     <label for="" class="radio is-2">
                                                         Non
-                                                        <input type="radio" class="radio" name="handicap" id="handicap" bind:group={answer.handicap} value={false}>
+                                                        <input
+                                                            type="radio"
+                                                            class="radio"
+                                                            name="handicap"
+                                                            id="handicap"
+                                                            bind:group={answer.handicap}
+                                                            value={false}
+                                                        />
                                                     </label>
                                                 </div>
                                             </div>
@@ -200,11 +249,21 @@
                                                 <label for="" class="label is-2">Votre situation de handicap nécessite-t-elle une adaptation ?</label>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input name="handicap_adapt" value="rythme" bind:group={answer.handicap_adapt} class="checkbox" type="checkbox">
+                                                        <input
+                                                            name="handicap_adapt"
+                                                            value="rythme"
+                                                            bind:group={answer.handicap_adapt}
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                        />
                                                         Rythmes et temps de formation adaptées
                                                     </label>
                                                     <label class="checkbox">
-                                                        <input name="handicap_adapt" value="pedago" bind:group={answer.handicap_pedago} class="checkbox" type="checkbox">
+                                                        <input name="handicap_adapt" value="pedago"
+                                                            bind:group={answer.handicap_pedago}
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                        />
                                                         Modalités pédagogiques, contenus, supports et outils
                                                     </label>
                                                 </div>
@@ -217,17 +276,35 @@
                                             </div>
                                             <div class="field">
                                                 <label for="profession" class="label is-2">Profession</label>
-                                                <input type="text" class="input" name="profession" id="profession" bind:value={answer.profession}>
+                                                <input
+                                                    type="text"
+                                                    class="input"
+                                                    name="profession"
+                                                    id="profession"
+                                                    bind:value={answer.profession}
+                                                />
                                             </div>
                                             <div class="field">
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="etablissement" class="label is-2">Etablissement</label>
-                                                        <input type="text" class="input" name="etablissement" id="etablissement" bind:value={answer.etablissement}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            name="etablissement"
+                                                            id="etablissement"
+                                                            bind:value={answer.etablissement}
+                                                        />
                                                     </div>
                                                     <div class="column">
                                                         <label for="service" class="label is-2">Service ou structure d’exercice</label>
-                                                        <input type="text" class="input" name="service" id="service" bind:value={answer.service}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            name="service"
+                                                            id="service"
+                                                            bind:value={answer.service}
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -250,28 +327,59 @@
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
                                                 <label for="objectif" class="label is-2">Quels sont vos objectifs et attentes quant à cette formation ?</label>
-                                                <textarea id="objectif" class="textarea" placeholder="Exprimez vous ici" bind:value={answer.objectif}></textarea>
+                                                <textarea 
+                                                    id="objectif" 
+                                                    class="textarea" 
+                                                    placeholder="Exprimez vous ici" 
+                                                    bind:value={answer.objectif}   
+                                                ></textarea>
                                             </div>
                                             <div class="field">
                                                 <label for="level" class="label is-2">Niveau de connaissance ?</label>
                                                 <div class="control">
                                                     <label for="level_1" class="radio is-2">
-                                                        <input bind:group={answer.level} type="radio" class="radio" name="level" value={1} id="level_1">
+                                                        <input
+                                                            bind:group={answer.level}
+                                                            type="radio"
+                                                            class="radio"
+                                                            name="level"
+                                                            value={1}
+                                                            id="level_1"
+                                                        />
                                                         Peu de connaissance
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label for="level_2" class="radio is-2">
-                                                        <input bind:group={answer.level} type="radio" class="radio" name="level" value={2} id="level_2">
+                                                        <input
+                                                            bind:group={answer.level}
+                                                            type="radio"
+                                                            class="radio"
+                                                            name="level"
+                                                            value={2}
+                                                            id="level_2"
+                                                        />
                                                         Connaissance théorique
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label for="level_3" class="radio is-2">
-                                                        <input bind:group={answer.level} type="radio" class="radio" name="level" value={3} id="level_3">
+                                                        <input
+                                                            bind:group={answer.level}
+                                                            type="radio"
+                                                            class="radio"
+                                                            name="level"
+                                                            value={3}
+                                                            id="level_3"
+                                                        />
                                                         Connaissance théorique et pratique
                                                     </label>
-                                                    <textarea id="level_message" class="textarea" placeholder="Exprimez vous ici" bind:value={answer.connaissance}></textarea>
+                                                    <textarea
+                                                        id="level_message"
+                                                        class="textarea"
+                                                        placeholder="Exprimez vous ici"
+                                                        bind:value={answer.connaissance}
+                                                    ></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -297,43 +405,85 @@
                                                 <label class="label is-2" for="context">Dans quel contexte(s) professionnel(s) recevez-vous des familles <span>(plusieurs réponses possibles)</span> ?</label>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="liberal">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="liberal"
+                                                        />
                                                         En libéral
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="institution">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="institution"
+                                                        />
                                                         En institution
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="structure_adulte">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="structure_adulte"
+                                                        />
                                                         Dans une structure de psychiatrie adulte
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="structure_pedopsy">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="structure_pedopsy"
+                                                        />
                                                         Dans une structure de pédopsychiatrie
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="medico_social">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="medico_social"
+                                                        />
                                                         Dans le secteur médico-social
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="educatif">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="educatif"
+                                                        />
                                                         Dans le milieu éducatif
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="context" bind:group={answer.context} value="associatif">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="context"
+                                                            bind:group={answer.context}
+                                                            value="associatif"
+                                                        />
                                                         Dans le milieu social et/ou associatif
                                                     </label>
                                                 </div>
@@ -344,31 +494,61 @@
                                                 <label class="label is-2" for="cadre">Quel(s) est (sont) votre (vos) cadre(s) de travail avec les familles<span>(plusieurs réponses possibles)</span> ?</label>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="cadre" bind:group={answer.cadre} value="participe">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="cadre"
+                                                            bind:group={answer.cadre}
+                                                            value="participe"
+                                                        />
                                                         Je participe ou conduits des entretiens familiaux
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="cadre" bind:group={answer.cadre} value="pratique">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="cadre"
+                                                            bind:group={answer.cadre}
+                                                            value="pratique"
+                                                        />
                                                         Je pratique la thérapie familiale
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="cadre" bind:group={answer.cadre} value="seul">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="cadre"
+                                                            bind:group={answer.cadre}
+                                                            value="seul"
+                                                        />
                                                         Je travaille seul
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="cadre" bind:group={answer.cadre} value="equipe">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="cadre"
+                                                            bind:group={answer.cadre}
+                                                            value="equipe"
+                                                        />
                                                         Je travaille en équipe
                                                     </label>
                                                 </div>
                                                 <div class="control">
                                                     <label class="checkbox">
-                                                        <input class="checkbox" type="checkbox" name="cadre" bind:group={answer.cadre} value="filmer">
+                                                        <input
+                                                            class="checkbox"
+                                                            type="checkbox"
+                                                            name="cadre"
+                                                            bind:group={answer.cadre}
+                                                            value="filmer"
+                                                        />
                                                         Je peux filmer les entretiens
                                                     </label>
                                                 </div>
@@ -394,41 +574,66 @@
                                                 <label class="label is-2" for="finance">Les frais de formation sont à la charge de :</label>
                                                 <div class="control">
                                                     <div class="select">
-                                                        <select bind:value={answer.finance} name="finance" id="finance" >
-                                                            <option value="" disabled selected>Selectionnez une réponse</option>
-                                                            <option value={1}>Vous même</option>
-                                                            <option value={2}>Votre institution</option>
-                                                            <option value={3}>Raison 3</option>
+                                                        <select
+                                                            bind:value={answer.finance}
+                                                            name="finance"
+                                                            id="finance"
+                                                        >
+                                                            <option value={0} disabled selected hidden>La raison de votre contact</option>
+                                                            <option value={1}>A ma charge</option>
+                                                            <option value={2}>A la charge de mon employeur</option>
+                                                            <option value={3}>Mixte</option>
+                                                            <option value={4}>Sous réserve d'une prise en charge (employeur ou autre)</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        {#if answer.finance === 2}
+                                        {#if answer.finance === 2 || answer.finance === 3 || answer.finance === 4}
                                             <div class="fieldset">
                                                 <div class="field">
                                                     <legend class="label">À remplir si votre institution prend en charge vos frais</legend>
                                                     <label class="label is-2" for="finance_payeur">Organisme payeur <span>(à remplir si les frais sont pris en charge par votre institution)</span></label>
                                                     <div class="control">
-                                                        <input class="input" type="text" name="finance_payeur" bind:value={answer.finance_payeur}>
+                                                        <input
+                                                            class="input"
+                                                            type="text"
+                                                            name="finance_payeur"
+                                                            bind:value={answer.finance_payeur}
+                                                        >
                                                     </div>
                                                 </div>
                                                 <div class="field">
                                                     <label class="label is-2" for="finance_responsable">Responsable du service de formation</label>
                                                     <div class="control">
-                                                        <input class="input" type="text" name="finance_responsable" bind:value={answer.finance_responsable}>
+                                                        <input
+                                                            class="input"
+                                                            type="text"
+                                                            name="finance_responsable"
+                                                            bind:value={answer.finance_responsable}
+                                                        >
                                                     </div>
                                                 </div>
                                                 <div class="field">
                                                     <label class="label is-2" for="finance_mail">Mail du responsable du service de formation</label>
                                                     <div class="control">
-                                                        <input class="input" type="text" name="finance_mail" bind:value={answer.finance_mail}>
+                                                        <input
+                                                            class="input"
+                                                            type="text"
+                                                            name="finance_mail"
+                                                            bind:value={answer.finance_mail}
+                                                        >
                                                     </div>
                                                 </div>
                                                 <div class="field">
                                                     <label class="label is-2" for="finance_adress">Adresse de l’institution</label>
                                                     <div class="control">
-                                                        <input class="input" type="text" name="finance_address" bind:value={answer.finance_address}>
+                                                        <input
+                                                            class="input"
+                                                            type="text"
+                                                            name="finance_address"
+                                                            bind:value={answer.finance_address}
+                                                        >
                                                     </div>
                                                 </div>
                                             </div>
@@ -447,7 +652,7 @@
                                         </div>
                                     {/if}
                                     {#if step === 6}
-                                        <div class="fieldset has-text-centered">
+                                        <div class="fieldset has-text-centered" transition:fade>
                                             <div class="field">
                                                 <picture>
                                                     <img src="/images/pictos/check-circle.svg" alt="">
