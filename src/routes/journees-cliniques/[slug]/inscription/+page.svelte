@@ -101,7 +101,8 @@
                         <div class="box">
                             <div class="box-content">
                                 <form action="">
-                                    {#if step === 1}
+
+                                    <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Comment vous appelez-vous ?</legend>
@@ -194,8 +195,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/if}
-                                    {#if step === 2}
+                                    </div>
+
+                                    <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Quelques informations complémentaires</legend>
@@ -321,8 +323,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/if}
-                                    {#if step === 3}
+                                    </div>
+
+                                    <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -395,8 +398,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/if}
-                                    {#if step === 4}
+                                    </div>
+
+                                    <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -566,8 +570,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/if}
-                                    {#if step === 5}
+                                    </div>
+
+                                    <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Qui finance votre formation ?</legend>
@@ -650,9 +655,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {/if}
-                                    {#if step === 6}
-                                        <div class="fieldset has-text-centered" transition:fade>
+                                    </div>
+
+                                    <div class="step {step === 6 ? '': 'is-hidden'}" transition:fade>
+                                        <div class="fieldset has-text-centered">
                                             <div class="field">
                                                 <picture>
                                                     <img src="/images/pictos/check-circle.svg" alt="">
@@ -663,7 +669,8 @@
                                                 <a href="/journees-cliniques" class="link">← Retour aux journées cliniques</a>
                                             </div>
                                         </div>
-                                    {/if}
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -674,7 +681,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}?width=400&height=300&format=webp`}" alt="">
                         </picture>
                     </div>
                     <div class="row">
@@ -702,7 +709,7 @@
         img.mea {
             display: block;
             border-radius: $gap;
-            margin-bottom: calc($gap * 2);
+            margin: 0 auto calc($gap * 2);
         }
 
         .box {

@@ -48,7 +48,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}?width=400&height=300&format=webp" alt="">
                         </picture>
                     </div>
                     <div class="row">
