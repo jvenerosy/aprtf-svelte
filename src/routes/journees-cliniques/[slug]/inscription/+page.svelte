@@ -2,14 +2,14 @@
     import Button from '$lib/components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
     import { fade } from 'svelte/transition';
-
+    
     import { PUBLIC_HOST_API } from '$env/static/public';
-
+    
     $store.nav = 'colloque';
     
     export let data;
     const colloque = data.colloque;
-
+    
     let answer: {
         firstname: string,
         lastname: string,
@@ -35,7 +35,7 @@
         finance_responsable: string,
         finance_mail: string,
         finance_address: string
-
+        
     } = {
         firstname: '',
         lastname: '',
@@ -64,12 +64,12 @@
     }
     
     let step: number = 1;
-
+    
     function nextStep() {
         step++;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
+    
     function prevStep() {
         step--;
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -100,9 +100,8 @@
                     <div class="row">
                         <div class="box">
                             <div class="box-content">
-                                <form action="">
-
-                                    <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
+                                <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
+                                    <form action="">
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Comment vous appelez-vous ?</legend>
@@ -120,7 +119,12 @@
                                                     </div>
                                                     <div class="column">
                                                         <label for="lastname" class="label is-2">Nom</label>
-                                                        <input type="text" class="input" id="lastname" bind:value={answer.lastname}>
+                                                        <input
+                                                            type="text"
+                                                            class="input"
+                                                            id="lastname"
+                                                            bind:value={answer.lastname}
+                                                        />
                                                     </div>
                                                 </div>
                                             </div>
@@ -195,9 +199,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
+                                    </form>
+                                </div>
+                                
+                                <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
+                                    <form action="">
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Quelques informations complémentaires</legend>
@@ -323,9 +329,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
+                                    </form>
+                                </div>
+                            
+                                <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
+                                    <form action="">
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -398,9 +406,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
+                                    <form action="">
 
-                                    <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -570,9 +581,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
+                                </div>
+                            
+                                <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
+                                    <form action="">
 
-                                    <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Qui finance votre formation ?</legend>
@@ -595,53 +609,53 @@
                                             </div>
                                         </div>
                                         {#if answer.finance === 2 || answer.finance === 3 || answer.finance === 4}
-                                            <div class="fieldset">
-                                                <div class="field">
-                                                    <legend class="label">À remplir si votre institution prend en charge vos frais</legend>
-                                                    <label class="label is-2" for="finance_payeur">Organisme payeur <span>(à remplir si les frais sont pris en charge par votre institution)</span></label>
-                                                    <div class="control">
-                                                        <input
-                                                            class="input"
-                                                            type="text"
-                                                            name="finance_payeur"
-                                                            bind:value={answer.finance_payeur}
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="field">
-                                                    <label class="label is-2" for="finance_responsable">Responsable du service de formation</label>
-                                                    <div class="control">
-                                                        <input
-                                                            class="input"
-                                                            type="text"
-                                                            name="finance_responsable"
-                                                            bind:value={answer.finance_responsable}
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="field">
-                                                    <label class="label is-2" for="finance_mail">Mail du responsable du service de formation</label>
-                                                    <div class="control">
-                                                        <input
-                                                            class="input"
-                                                            type="text"
-                                                            name="finance_mail"
-                                                            bind:value={answer.finance_mail}
-                                                        >
-                                                    </div>
-                                                </div>
-                                                <div class="field">
-                                                    <label class="label is-2" for="finance_adress">Adresse de l’institution</label>
-                                                    <div class="control">
-                                                        <input
-                                                            class="input"
-                                                            type="text"
-                                                            name="finance_address"
-                                                            bind:value={answer.finance_address}
-                                                        >
-                                                    </div>
+                                        <div class="fieldset">
+                                            <div class="field">
+                                                <legend class="label">À remplir si votre institution prend en charge vos frais</legend>
+                                                <label class="label is-2" for="finance_payeur">Organisme payeur <span>(à remplir si les frais sont pris en charge par votre institution)</span></label>
+                                                <div class="control">
+                                                    <input
+                                                        class="input"
+                                                        type="text"
+                                                        name="finance_payeur"
+                                                        bind:value={answer.finance_payeur}
+                                                    >
                                                 </div>
                                             </div>
+                                            <div class="field">
+                                                <label class="label is-2" for="finance_responsable">Responsable du service de formation</label>
+                                                <div class="control">
+                                                    <input
+                                                        class="input"
+                                                        type="text"
+                                                        name="finance_responsable"
+                                                        bind:value={answer.finance_responsable}
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <label class="label is-2" for="finance_mail">Mail du responsable du service de formation</label>
+                                                <div class="control">
+                                                    <input
+                                                        class="input"
+                                                        type="text"
+                                                        name="finance_mail"
+                                                        bind:value={answer.finance_mail}
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <label class="label is-2" for="finance_adress">Adresse de l’institution</label>
+                                                <div class="control">
+                                                    <input
+                                                        class="input"
+                                                        type="text"
+                                                        name="finance_address"
+                                                        bind:value={answer.finance_address}
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
                                         {/if}
                                         <div class="columns is-vcentered">
                                             <div class="column is-narrow">
@@ -655,23 +669,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="step {step === 6 ? '': 'is-hidden'}" transition:fade>
-                                        <div class="fieldset has-text-centered">
-                                            <div class="field">
-                                                <picture>
-                                                    <img src="/images/pictos/check-circle.svg" alt="">
-                                                </picture>
-                                            </div>
-                                            <div class="field">
-                                                <p class="title is-2">Votre demande a bien été envoyée</p>
-                                                <a href="/journees-cliniques" class="link">← Retour aux journées cliniques</a>
-                                            </div>
+                                    </form>
+                                </div>
+                            
+                                <div class="step {step === 6 ? '': 'is-hidden'}" transition:fade>
+                                    <div class="fieldset has-text-centered">
+                                        <div class="field">
+                                            <picture>
+                                                <img src="/images/pictos/check-circle.svg" alt="">
+                                            </picture>
+                                        </div>
+                                        <div class="field">
+                                            <p class="title is-2">Votre demande a bien été envoyée</p>
+                                            <a href="/journees-cliniques" class="link">← Retour aux journées cliniques</a>
                                         </div>
                                     </div>
-                                    
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -711,12 +724,12 @@
             border-radius: $gap;
             margin: 0 auto calc($gap * 2);
         }
-
+        
         .box {
             background: $grey-light;
             box-shadow: none;
         }
-
+        
         .ref {
             font-weight: bold;
             &:not(:first-child) {
@@ -729,7 +742,7 @@
             }
         }
     }
-
+    
     .box {
         transition: all 0.3s ease;
     }
@@ -807,10 +820,10 @@
         font-family: $family-regular;
         font-weight: 600;
     }
-
+    
     .link {
         color: $tertiary;
-
+        
         &:hover {
             text-decoration: underline;
         }
