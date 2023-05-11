@@ -2,78 +2,34 @@
     import Button from '$lib/components/forms/Button.svelte';
     import { store } from '$lib/stores/Store';
     import { fade } from 'svelte/transition';
+    import { enhance } from '$app/forms';
     
     import { PUBLIC_HOST_API } from '$env/static/public';
+	import { onMount } from 'svelte';
     
     $store.nav = 'colloque';
     
     export let data;
     const colloque = data.colloque;
     
-    let answer: {
-        firstname: string,
-        lastname: string,
-        phone_number: string,
-        email: string,
-        address: string,
-        postal_code: string,
-        city: string,
-        connu: string,
-        handicap: boolean,
-        handicap_adapt: string,
-        handicap_pedago: string,
-        profession: string,
-        etablissement: string,
-        service: string,
-        objectif: string,
-        level: number,
-        connaissance: string,
-        context: string,
-        cadre: string,
-        finance: number,
-        finance_payeur: string,
-        finance_responsable: string,
-        finance_mail: string,
-        finance_address: string
-        
-    } = {
-        firstname: '',
-        lastname: '',
-        phone_number: '',
-        email: '',
-        address: '',
-        postal_code: '',
-        city: '',
-        connu: '',
-        handicap: false,
-        handicap_adapt: '',
-        handicap_pedago: '',
-        profession: '',
-        etablissement: '',
-        service: '',
-        objectif: '',
-        level: 0,
-        connaissance: '',
-        context: '',
-        cadre: '',
-        finance: 0,
-        finance_payeur: '',
-        finance_responsable: '',
-        finance_mail: '',
-        finance_address: ''
-    }
+    /** @type {import('./$types').ActionData} */
+    export let form: any = {};
     
-    let step: number = 1;
+    $: step = form?.step ?? 2
     
     function nextStep() {
-        step++;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
-    function prevStep() {
+    function prevStep(e: any) {
+        e.preventDefault();
         step--;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    let handicap ='false';
+    let handicapRythme = '';
+    let handicapPedago = '';
 </script>
 
 <svelte:head>
@@ -100,8 +56,9 @@
                     <div class="row">
                         <div class="box">
                             <div class="box-content">
-                                <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
-                                    <form action="">
+                                <!-- <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
+                                    <form method="POST" action="?/step1" use:enhance>
+                                        <input type="hidden" name="slug" value="{colloque.titre}">
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Comment vous appelez-vous ?</legend>
@@ -110,21 +67,33 @@
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="firstname" class="label is-2">Prénom</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            id="firstname"
-                                                            bind:value={answer.firstname}
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                id="firstname"
+                                                                name="firstname"
+                                                                value="{form?.firstname ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.firstname}
+                                                        <p class="has-text-danger mention">{form?.errors?.firstname[0]}</p>
+                                                        {/if}
                                                     </div>
                                                     <div class="column">
                                                         <label for="lastname" class="label is-2">Nom</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            id="lastname"
-                                                            bind:value={answer.lastname}
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                id="lastname"
+                                                                name="lastname"
+                                                                value="{form?.lastname ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.lastname}
+                                                        <p class="has-text-danger mention">{form?.errors?.lastname[0]}</p>
+                                                        {/if}
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,22 +103,34 @@
                                                 <legend class="label">Comment vous contacter ?</legend>
                                             </div>
                                             <div class="field">
-                                                <label for="phone_number" class="label is-2">Numéro de téléphone</label>
-                                                <input 
-                                                    type="text"
-                                                    class="input"
-                                                    id="phone_number"
-                                                    bind:value={answer.phone_number}
-                                                />
+                                                <label for="phone" class="label is-2">Numéro de téléphone</label>
+                                                <div class="control">
+                                                    <input 
+                                                        type="text"
+                                                        class="input"
+                                                        id="phone"
+                                                        name="phone"
+                                                        value="{form?.phone ?? ''}"
+                                                    />
+                                                </div>
+                                                {#if form?.errors?.phone}
+                                                <p class="has-text-danger mention">{form?.errors?.phone[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <label for="email" class="label is-2">Mail</label>
-                                                <input
-                                                    type="email"
-                                                    class="input"
-                                                    id="email"
-                                                    bind:value={answer.email}
-                                                />
+                                                <div class="control">
+                                                    <input
+                                                        type="email"
+                                                        class="input"
+                                                        id="email"
+                                                        name="email"
+                                                        value="{form?.email ?? ''}"
+                                                    />
+                                                </div>
+                                                {#if form?.errors?.email}
+                                                <p class="has-text-danger mention">{form?.errors?.email[0]}</p>
+                                                {/if}
                                             </div>
                                         </div>
                                         <div class="fieldset">
@@ -158,32 +139,50 @@
                                             </div>
                                             <div class="field">
                                                 <label for="address" class="label is-2">Adresse postale</label>
-                                                <input
-                                                    type="text"
-                                                    class="input"
-                                                    id="address"
-                                                    bind:value={answer.address}
-                                                />
+                                                <div class="control">
+                                                    <input
+                                                        type="text"
+                                                        class="input"
+                                                        id="address"
+                                                        name="address"
+                                                        value="{form?.address ?? ''}"
+                                                    />
+                                                </div>
+                                                {#if form?.errors?.address}
+                                                <p class="has-text-danger mention">{form?.errors?.address[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="postal_code" class="label is-2">Code postal</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            id="postal_code"
-                                                            bind:value={answer.postal_code}
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                id="postal_code"
+                                                                name="postalCode"
+                                                                value="{form?.postalCode ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.postalCode}
+                                                        <p class="has-text-danger mention">{form?.errors?.postalCode[0]}</p>
+                                                        {/if}
                                                     </div>
                                                     <div class="column">
                                                         <label for="city" class="label is-2">Ville</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            id="city"
-                                                            bind:value={answer.city}
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                id="city"
+                                                                name="city"
+                                                                value="{form?.city ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.city}
+                                                        <p class="has-text-danger mention">{form?.errors?.city[0]}</p>
+                                                        {/if}
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,10 +199,9 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>
-                                
+                                </div> -->
                                 <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
-                                    <form action="">
+                                    <form method="POST" action="?/step2" use:enhance>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Quelques informations complémentaires</legend>
@@ -211,7 +209,7 @@
                                                 <div class="control">
                                                     <div class="select">
                                                         <select
-                                                            bind:value={answer.connu}
+                                                            value="{form?.connu ?? ''}"
                                                             name="connu"
                                                             id="connu"
                                                         >
@@ -222,6 +220,9 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                {#if form?.errors?.connu}
+                                                <p class="has-text-danger mention">{form?.errors?.connu[0]}</p>
+                                                {/if}
                                             </div>
                                         </div>
                                         <div class="fieldset">
@@ -232,45 +233,50 @@
                                                         Oui
                                                         <input
                                                             type="radio"
-                                                            class="radio"
+                                                            bind:group={handicap}
                                                             name="handicap"
+                                                            value="true"
+                                                            class="radio"
                                                             id="handicap"
-                                                            bind:group={answer.handicap}
-                                                            value={true}
-                                                        />
-                                                    </label>
-                                                    <label for="" class="radio is-2">
-                                                        Non
-                                                        <input
+                                                            />
+                                                        </label>
+                                                        <label for="handicapNo" class="radio is-2">
+                                                            Non
+                                                            <input
                                                             type="radio"
-                                                            class="radio"
+                                                            bind:group="{handicap}"
                                                             name="handicap"
-                                                            id="handicap"
-                                                            bind:group={answer.handicap}
-                                                            value={false}
+                                                            value="false"
+                                                            class="radio"
+                                                            id="handicapNo"
                                                         />
                                                     </label>
                                                 </div>
+                                                {#if form?.errors?.handicap}
+                                                <p class="has-text-danger mention">{form?.errors?.handicap[0]}</p>
+                                                {/if}
                                             </div>
-                                            {#if answer.handicap}
+                                            {#if handicap === 'true'}
                                             <div class="field">
-                                                <label for="" class="label is-2">Votre situation de handicap nécessite-t-elle une adaptation ?</label>
+                                                <label for="" class="label is-2">Votre situation de handicap nécessite-t-elle une adaptation ?</label>
                                                 <div class="control">
                                                     <label class="checkbox">
                                                         <input
-                                                            name="handicap_adapt"
+                                                            name="handicapRythme"
                                                             value="rythme"
-                                                            bind:group={answer.handicap_adapt}
                                                             class="checkbox"
                                                             type="checkbox"
+                                                            bind:group={handicapRythme}
                                                         />
                                                         Rythmes et temps de formation adaptées
                                                     </label>
                                                     <label class="checkbox">
-                                                        <input name="handicap_adapt" value="pedago"
-                                                            bind:group={answer.handicap_pedago}
+                                                        <input
+                                                            name="handicapPedago"
+                                                            value="pedago"
                                                             class="checkbox"
                                                             type="checkbox"
+                                                            bind:group={handicapPedago}
                                                         />
                                                         Modalités pédagogiques, contenus, supports et outils
                                                     </label>
@@ -289,7 +295,7 @@
                                                     class="input"
                                                     name="profession"
                                                     id="profession"
-                                                    bind:value={answer.profession}
+                                                    value="{form?.profession ?? ''}"
                                                 />
                                             </div>
                                             <div class="field">
@@ -301,7 +307,7 @@
                                                             class="input"
                                                             name="etablissement"
                                                             id="etablissement"
-                                                            bind:value={answer.etablissement}
+                                                            value="{form?.etablissement ?? ''}"
                                                         />
                                                     </div>
                                                     <div class="column">
@@ -311,7 +317,7 @@
                                                             class="input"
                                                             name="service"
                                                             id="service"
-                                                            bind:value={answer.service}
+                                                            value="{form?.service ?? ''}"
                                                         />
                                                     </div>
                                                 </div>
@@ -325,13 +331,13 @@
                                             <div class="column is-narrow">
                                                 <div class="buttons">
                                                     <Button theme="is-inverted" text="← Précédent" on:click={prevStep} />
-                                                    <Button text="Suivant →" on:click={nextStep} />
+                                                    <Button text="Suivant →" />
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                            
+                                <!--    
                                 <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
                                     <form action="">
                                         <div class="fieldset">
@@ -342,7 +348,7 @@
                                                     id="objectif" 
                                                     class="textarea" 
                                                     placeholder="Exprimez vous ici" 
-                                                    bind:value={answer.objectif}   
+                                                    value="{form?.objectif ?? ''}" 
                                                 ></textarea>
                                             </div>
                                             <div class="field">
@@ -350,11 +356,10 @@
                                                 <div class="control">
                                                     <label for="level_1" class="radio is-2">
                                                         <input
-                                                            bind:group={answer.level}
+                                                            value="{form?.level ?? 1}"
                                                             type="radio"
                                                             class="radio"
                                                             name="level"
-                                                            value={1}
                                                             id="level_1"
                                                         />
                                                         Peu de connaissance
@@ -363,11 +368,10 @@
                                                 <div class="control">
                                                     <label for="level_2" class="radio is-2">
                                                         <input
-                                                            bind:group={answer.level}
+                                                            value="{form?.level ?? 2}"
                                                             type="radio"
                                                             class="radio"
                                                             name="level"
-                                                            value={2}
                                                             id="level_2"
                                                         />
                                                         Connaissance théorique
@@ -376,11 +380,10 @@
                                                 <div class="control">
                                                     <label for="level_3" class="radio is-2">
                                                         <input
-                                                            bind:group={answer.level}
+                                                            value="{form?.level ?? 3}"
                                                             type="radio"
                                                             class="radio"
                                                             name="level"
-                                                            value={3}
                                                             id="level_3"
                                                         />
                                                         Connaissance théorique et pratique
@@ -685,6 +688,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                 -->
                             </div>
                         </div>
                     </div>
