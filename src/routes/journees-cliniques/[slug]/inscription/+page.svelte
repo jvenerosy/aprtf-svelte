@@ -5,7 +5,6 @@
     import { enhance } from '$app/forms';
     
     import { PUBLIC_HOST_API } from '$env/static/public';
-	import { onMount } from 'svelte';
     
     $store.nav = 'colloque';
     
@@ -15,7 +14,7 @@
     /** @type {import('./$types').ActionData} */
     export let form: any = {};
     
-    $: step = form?.step ?? 2
+    $: step = form?.step ?? 1;
     
     function nextStep() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -56,7 +55,7 @@
                     <div class="row">
                         <div class="box">
                             <div class="box-content">
-                                <!-- <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
+                                <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step1" use:enhance>
                                         <input type="hidden" name="slug" value="{colloque.titre}">
                                         <div class="fieldset">
@@ -199,7 +198,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div> -->
+                                </div>
                                 <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step2" use:enhance>
                                         <div class="fieldset">
@@ -290,35 +289,50 @@
                                             </div>
                                             <div class="field">
                                                 <label for="profession" class="label is-2">Profession</label>
-                                                <input
-                                                    type="text"
-                                                    class="input"
-                                                    name="profession"
-                                                    id="profession"
-                                                    value="{form?.profession ?? ''}"
-                                                />
+                                                <div class="control">
+                                                    <input
+                                                        type="text"
+                                                        class="input"
+                                                        name="profession"
+                                                        id="profession"
+                                                        value="{form?.profession ?? ''}"
+                                                    />
+                                                </div>
+                                                {#if form?.errors?.profession}
+                                                <p class="has-text-danger mention">{form?.errors?.profession[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <div class="columns">
                                                     <div class="column">
                                                         <label for="etablissement" class="label is-2">Etablissement</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            name="etablissement"
-                                                            id="etablissement"
-                                                            value="{form?.etablissement ?? ''}"
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                name="etablissement"
+                                                                id="etablissement"
+                                                                value="{form?.etablissement ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.etablissement}
+                                                        <p class="has-text-danger mention">{form?.errors?.etablissement[0]}</p>
+                                                        {/if}
                                                     </div>
                                                     <div class="column">
                                                         <label for="service" class="label is-2">Service ou structure d’exercice</label>
-                                                        <input
-                                                            type="text"
-                                                            class="input"
-                                                            name="service"
-                                                            id="service"
-                                                            value="{form?.service ?? ''}"
-                                                        />
+                                                        <div class="control">
+                                                            <input
+                                                                type="text"
+                                                                class="input"
+                                                                name="service"
+                                                                id="service"
+                                                                value="{form?.service ?? ''}"
+                                                            />
+                                                        </div>
+                                                        {#if form?.errors?.service}
+                                                        <p class="has-text-danger mention">{form?.errors?.service[0]}</p>
+                                                        {/if}
                                                     </div>
                                                 </div>
                                             </div>
@@ -337,19 +351,24 @@
                                         </div>
                                     </form>
                                 </div>
-                                <!--    
                                 <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
-                                    <form action="">
+                                    <form method="POST" action="?/step3" use:enhance>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
                                                 <label for="objectif" class="label is-2">Quels sont vos objectifs et attentes quant à cette formation ?</label>
-                                                <textarea 
-                                                    id="objectif" 
-                                                    class="textarea" 
-                                                    placeholder="Exprimez vous ici" 
-                                                    value="{form?.objectif ?? ''}" 
-                                                ></textarea>
+                                                <div class="control">
+                                                    <textarea 
+                                                        id="objectif" 
+                                                        class="textarea" 
+                                                        placeholder="Exprimez vous ici"
+                                                        name="objectif"
+                                                        value="{form?.objectif ?? ''}" 
+                                                    ></textarea>
+                                                    {#if form?.errors?.objectif}
+                                                    <p class="has-text-danger mention">{form?.errors?.objectif[0]}</p>
+                                                    {/if}
+                                                </div>
                                             </div>
                                             <div class="field">
                                                 <label for="level" class="label is-2">Niveau de connaissance ?</label>
@@ -388,12 +407,20 @@
                                                         />
                                                         Connaissance théorique et pratique
                                                     </label>
+                                                </div>
+                                                {#if form?.errors?.level}
+                                                <p class="has-text-danger mention">{form?.errors?.level[0]}</p>
+                                                {/if}
+                                                <div class="control">
                                                     <textarea
-                                                        id="level_message"
                                                         class="textarea"
                                                         placeholder="Exprimez vous ici"
-                                                        bind:value={answer.connaissance}
+                                                        name="connaissance"
+                                                        value="{form?.connaissance ?? ''}"
                                                     ></textarea>
+                                                    {#if form?.errors?.connaissance}
+                                                    <p class="has-text-danger mention">{form?.errors?.connaissance[0]}</p>
+                                                    {/if}
                                                 </div>
                                             </div>
                                         </div>
@@ -405,12 +432,13 @@
                                             <div class="column is-narrow">
                                                 <div class="buttons">
                                                     <Button theme="is-inverted" text="← Précédent" on:click={prevStep} />
-                                                    <Button text="Suivant →" on:click={nextStep} />
+                                                    <Button text="Suivant →" />
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
+                                <!--    
                                 
                                 <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
                                     <form action="">

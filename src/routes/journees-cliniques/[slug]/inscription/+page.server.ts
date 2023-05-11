@@ -73,7 +73,7 @@ export const actions = {
         const formStep1 = Object.fromEntries(await request.formData());
         try {
             const result = contactSchemaStep1.parse(formStep1);
-            answer = {...formStep1};
+            answer = Object.assign(answer, formStep1);
             console.log(answer);
 
             const { firstname, lastname, phone, email, address, postalCode, city } = formStep1;
@@ -114,18 +114,32 @@ export const actions = {
                 .string({ required_error: 'Veuillez sélectionner une réponse' })
                 .nonempty({ message: 'Veuillez sélectionner une réponse' })
                 .trim(),
+            profession: z
+                .string({ required_error: 'Veuillez renseigner votre profession' })
+                .nonempty({ message: 'Veuillez renseigner votre profession' })
+                .trim(),
+            etablissement: z
+                .string({ required_error: 'Veuillez renseigner votre etablissement' })
+                .nonempty({ message: 'Veuillez renseigner votre etablissement' })
+                .trim(),
+            service: z
+                .string({ required_error: 'Veuillez renseigner votre service' })
+                .nonempty({ message: 'Veuillez renseigner votre service' })
+                .trim(),
         });
         
         const formStep2 = Object.fromEntries(await request.formData());
         try {
             const result = contactSchemaStep2.parse(formStep2);
-            answer = {...formStep2};
+            answer = Object.assign(answer, formStep2);
             console.log(answer);
 
-            const { connu, handicap } = formStep2;
+            const { connu, profession, etablissement, service } = formStep2;
 			return {
 				connu,
-                handicap,
+                profession,
+                etablissement,
+                service,
                 step: 3
 			};
             
@@ -133,12 +147,56 @@ export const actions = {
             const { fieldErrors: errors } = err.flatten();
             console.log(errors);
             console.log(formStep2);
-			const { connu, handicap, handicapRythme, handicapPedago } = formStep2;
+			const { connu, profession, etablissement, service } = formStep2;
 			return {
 				connu,
-                handicap,
-                handicapRythme,
-                handicapPedago,
+                profession,
+                etablissement,
+                service,
+				errors
+			};
+        }
+    },
+    step3: async ({request}) => {
+        const contactSchemaStep3 = z.object({
+            objectif: z
+                .string({ required_error: 'Le message ne peut pas être vide' })
+                .nonempty({ message: 'Le message ne peut pas être vide' })
+                .min(10, { message: 'Le message doit contenir au moins 10 caractères' })
+                .trim(),
+            level: z
+                .string({ required_error: 'Veuillez sélectionner une réponse' }),
+            connaissance: z
+                .string({ required_error: 'Le message ne peut pas être vide' })
+                .nonempty({ message: 'Le message ne peut pas être vide' })
+                .min(10, { message: 'Le message doit contenir au moins 10 caractères' })
+                .trim()
+            
+        });
+        
+        const formStep3 = Object.fromEntries(await request.formData());
+        try {
+            const result = contactSchemaStep3.parse(formStep3);
+            answer = Object.assign(answer, formStep3);
+            console.log(answer);
+
+            const { objectif, number, connaissance } = formStep3;
+			return {
+				objectif,
+                number,
+                connaissance,
+                step: 4
+			};
+            
+        } catch (err: any) {
+            const { fieldErrors: errors } = err.flatten();
+            console.log(errors);
+            console.log(formStep3);
+			const { objectif, number, connaissance } = formStep3;
+			return {
+				objectif,
+                number,
+                connaissance,
 				errors
 			};
         }
