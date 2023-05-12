@@ -1,8 +1,9 @@
-import { PUBLIC_HOST_API } from '$env/static/public';
 import MarkdownIt from 'markdown-it';
 let md = new MarkdownIt();
 import { z } from 'zod';
 import validator from 'validator';
+import { PUBLIC_HOST_API } from '$env/static/public';
+const endpoint = `${PUBLIC_HOST_API}/items/inscriptions_colloques`;
 
 // affichage des données
 export const load = async ({ params }) => {
@@ -100,6 +101,7 @@ export const actions = {
                 address,
                 postalCode,
                 city,
+                step: 1,
 				errors
 			};
         }
@@ -128,10 +130,14 @@ export const actions = {
                 .trim(),
         });
         
-        const formStep2 = Object.fromEntries(await request.formData());
+        const formData = await request.formData();
+        const handicapAdapt = formData.getAll('handicapAdapt');
+        
+        const formStep2 = Object.fromEntries(formData);
         try {
             const result = contactSchemaStep2.parse(formStep2);
             answer = Object.assign(answer, formStep2);
+            answer.handicapAdapt = handicapAdapt;
             console.log(answer);
 
             const { connu, profession, etablissement, service } = formStep2;
@@ -153,6 +159,7 @@ export const actions = {
                 profession,
                 etablissement,
                 service,
+                step: 2,
 				errors
 			};
         }
@@ -197,8 +204,77 @@ export const actions = {
 				objectif,
                 number,
                 connaissance,
+                step: 3,
 				errors
 			};
+        }
+    },
+    step4: async ({request}) => {
+        const contactSchemaStep4 = z.object({
+            context: z
+                .string({ required_error: 'Veuillez sélectionner au moins une réponse' }),
+            cadre: z
+                .string({ required_error: 'Veuillez sélectionner au moins une réponse' }),
+            
+        });
+
+        const formData = await request.formData();
+        const context = formData.getAll('context');
+        const cadre = formData.getAll('cadre');
+        
+        const formStep4 = Object.fromEntries(formData);
+        try {
+            const result = contactSchemaStep4.parse(formStep4);
+            answer = Object.assign(answer, formStep4);
+            answer.context = context;
+            answer.cadre = cadre;
+            console.log(answer);
+            
+            const { objectif, number, connaissance } = formStep4;
+			return {
+                objectif,
+                number,
+                connaissance,
+                step: 5
+			};
+            
+        } catch (err: any) {
+            const { fieldErrors: errors } = err.flatten();
+            console.log(context);
+            console.log(errors);
+			const { objectif, number, connaissance } = formStep4;
+			return {
+				objectif,
+                number,
+                connaissance,
+                step: 4,
+				errors
+			};
+        }
+    },
+    step5: async ({request}) => {
+        const formData = await request.formData();
+        const formStep5 = Object.fromEntries(formData);
+        
+        answer = Object.assign(answer, formStep5);
+        console.log(answer);
+        try {
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(answer),
+              });
+            
+        } catch (error) {
+            console.error('Erreur lors de la création de l\'article :', error);
+            return {
+                etatSend: "error"
+            }
+        }
+        return {
+            step: 6
         }
     }
 };

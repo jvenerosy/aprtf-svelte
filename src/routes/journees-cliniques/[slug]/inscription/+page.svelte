@@ -29,6 +29,14 @@
     let handicap ='false';
     let handicapRythme = '';
     let handicapPedago = '';
+    let finance: 0;
+    let cadreParticipe = '';
+    let cadrePratique = '';
+    let cadreSeul = '';
+    let cadreEquipe = '';
+    let cadreFilme = '';
+
+
 </script>
 
 <svelte:head>
@@ -261,7 +269,7 @@
                                                 <div class="control">
                                                     <label class="checkbox">
                                                         <input
-                                                            name="handicapRythme"
+                                                            name="handicapAdapt"
                                                             value="rythme"
                                                             class="checkbox"
                                                             type="checkbox"
@@ -271,7 +279,7 @@
                                                     </label>
                                                     <label class="checkbox">
                                                         <input
-                                                            name="handicapPedago"
+                                                            name="handicapAdapt"
                                                             value="pedago"
                                                             class="checkbox"
                                                             type="checkbox"
@@ -438,10 +446,8 @@
                                         </div>
                                     </form>
                                 </div>
-                                <!--    
-                                
                                 <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
-                                    <form action="">
+                                    <form method="POST" action="?/step4" use:enhance>
 
                                         <div class="fieldset">
                                             <div class="field">
@@ -455,7 +461,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="liberal"
                                                         />
                                                         En libéral
@@ -467,7 +472,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="institution"
                                                         />
                                                         En institution
@@ -479,7 +483,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="structure_adulte"
                                                         />
                                                         Dans une structure de psychiatrie adulte
@@ -491,7 +494,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="structure_pedopsy"
                                                         />
                                                         Dans une structure de pédopsychiatrie
@@ -503,7 +505,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="medico_social"
                                                         />
                                                         Dans le secteur médico-social
@@ -515,7 +516,6 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="educatif"
                                                         />
                                                         Dans le milieu éducatif
@@ -527,13 +527,15 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="context"
-                                                            bind:group={answer.context}
                                                             value="associatif"
                                                         />
                                                         Dans le milieu social et/ou associatif
                                                     </label>
                                                 </div>
                                             </div>
+                                            {#if form?.errors?.context}
+                                            <p class="has-text-danger mention">{form?.errors?.context[0]}</p>
+                                            {/if}
                                         </div>
                                         <div class="fieldset">
                                             <div class="field">
@@ -544,7 +546,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={answer.cadre}
+                                                            bind:group={cadreParticipe}
                                                             value="participe"
                                                         />
                                                         Je participe ou conduits des entretiens familiaux
@@ -556,7 +558,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={answer.cadre}
+                                                            bind:group={cadrePratique}
                                                             value="pratique"
                                                         />
                                                         Je pratique la thérapie familiale
@@ -568,7 +570,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={answer.cadre}
+                                                            bind:group={cadreSeul}
                                                             value="seul"
                                                         />
                                                         Je travaille seul
@@ -580,7 +582,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={answer.cadre}
+                                                            bind:group={cadreEquipe}
                                                             value="equipe"
                                                         />
                                                         Je travaille en équipe
@@ -592,13 +594,16 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={answer.cadre}
+                                                            bind:group={cadreFilme}
                                                             value="filmer"
                                                         />
                                                         Je peux filmer les entretiens
                                                     </label>
                                                 </div>
                                             </div>
+                                            {#if form?.errors?.cadre}
+                                            <p class="has-text-danger mention">{form?.errors?.cadre[0]}</p>
+                                            {/if}
                                         </div>
                                         <div class="columns is-vcentered">
                                             <div class="column is-narrow">
@@ -608,16 +613,14 @@
                                             <div class="column is-narrow">
                                                 <div class="buttons">
                                                     <Button theme="is-inverted" text="← Précédent" on:click={prevStep} />
-                                                    <Button text="Suivant →" on:click={nextStep} />
+                                                    <Button text="Suivant →"  />
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                            
                                 <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
-                                    <form action="">
-
+                                    <form method="POST" action="?/step5" use:enhance>
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Qui finance votre formation ?</legend>
@@ -625,11 +628,10 @@
                                                 <div class="control">
                                                     <div class="select">
                                                         <select
-                                                            bind:value={answer.finance}
+                                                            bind:value={finance}
                                                             name="finance"
                                                             id="finance"
                                                         >
-                                                            <option value={0} disabled selected hidden>La raison de votre contact</option>
                                                             <option value={1}>A ma charge</option>
                                                             <option value={2}>A la charge de mon employeur</option>
                                                             <option value={3}>Mixte</option>
@@ -639,7 +641,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {#if answer.finance === 2 || answer.finance === 3 || answer.finance === 4}
+                                        {#if Number(finance) === 2 || Number(finance) === 3 || Number(finance) === 4}
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">À remplir si votre institution prend en charge vos frais</legend>
@@ -649,9 +651,12 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_payeur"
-                                                        bind:value={answer.finance_payeur}
+                                                        value="{form?.finance_payeur ?? ''}"
                                                     >
                                                 </div>
+                                                {#if form?.errors?.finance_payeur}
+                                                <p class="has-text-danger mention">{form?.errors?.finance_payeur[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <label class="label is-2" for="finance_responsable">Responsable du service de formation</label>
@@ -660,9 +665,12 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_responsable"
-                                                        bind:value={answer.finance_responsable}
+                                                        value="{form?.finance_responsable ?? ''}"
                                                     >
                                                 </div>
+                                                {#if form?.errors?.finance_responsable}
+                                                <p class="has-text-danger mention">{form?.errors?.finance_responsable[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <label class="label is-2" for="finance_mail">Mail du responsable du service de formation</label>
@@ -671,9 +679,12 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_mail"
-                                                        bind:value={answer.finance_mail}
+                                                        value="{form?.finance_mail ?? ''}"
                                                     >
                                                 </div>
+                                                {#if form?.errors?.finance_mail}
+                                                <p class="has-text-danger mention">{form?.errors?.finance_mail[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="field">
                                                 <label class="label is-2" for="finance_adress">Adresse de l’institution</label>
@@ -682,9 +693,12 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_address"
-                                                        bind:value={answer.finance_address}
+                                                        value="{form?.finance_adress ?? ''}"
                                                     >
                                                 </div>
+                                                {#if form?.errors?.finance_adress}
+                                                <p class="has-text-danger mention">{form?.errors?.finance_adress[0]}</p>
+                                                {/if}
                                             </div>
                                         </div>
                                         {/if}
@@ -696,7 +710,7 @@
                                             <div class="column is-narrow">
                                                 <div class="buttons">
                                                     <Button theme="is-inverted" text="← Précédent" on:click={prevStep} />
-                                                    <Button text="Envoyer" on:click={nextStep} />
+                                                    <Button text="Envoyer" />
                                                 </div>
                                             </div>
                                         </div>
@@ -716,7 +730,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                 -->
                             </div>
                         </div>
                     </div>
