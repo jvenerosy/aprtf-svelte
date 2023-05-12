@@ -31,7 +31,6 @@ export const actions = {
         const formData = Object.fromEntries(await request.formData());
 		try {
 			const result = contactSchema.parse(formData);
-			console.log(result);
 			try {
 				const response = await fetch(endpoint, {
 					method: "POST",
@@ -50,7 +49,7 @@ export const actions = {
             return {
                 success: true,
             }
-		} catch (err) {
+		} catch (err: any) {
 			const { fieldErrors: errors } = err.flatten();
             console.log(errors);
 			const { firstname, lastname, raison, email, message } = formData;

@@ -11,7 +11,7 @@
 <div class="box is-{type} is-fullheight">
     <div class="columns is-vcentered">
         <div class="column is-4">
-            <div class="rounded" style={`background-image: url(${PUBLIC_HOST_API}/assets/${photo});`}>
+            <div class="rounded" style={`background-image: url(${PUBLIC_HOST_API}/assets/${photo}?width=150&height=150&format=webp);`}>
             </div>
             <p class="name">{name}</p>
             {#if date}

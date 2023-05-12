@@ -64,7 +64,7 @@
                                             <label class="label is-2" for="firstname">Prénom</label>
                                             <div class="control">
                                                 <input
-                                                    class="input {form?.firstnameMissing ? 'is-danger': ''}"
+                                                    class="input"
                                                     id="firstname"
                                                     name="firstname"
                                                     type="text"
@@ -80,7 +80,7 @@
                                             <label class="label is-2" for="lastname">Nom</label>
                                             <div class="control">
                                                 <input
-                                                    class="input {form?.lastnameMissing ? 'is-danger': ''}"
+                                                    class="input"
                                                     id="lastname"
                                                     name="lastname"
                                                     type="text"
@@ -98,7 +98,7 @@
                                     <label class="label is-2" for="email">Votre mail</label>
                                     <div class="control">
                                         <input
-                                            class="input {form?.emailMissing ? 'is-danger': ''}"
+                                            class="input"
                                             id="email"
                                             name="email"
                                             type="email"
@@ -115,7 +115,7 @@
                                 <legend class="label">Pour quelle raison nous contactez vous ?</legend>
                                 <div class="field">
                                     <div class="control">
-                                        <div class="select {form?.raisonMissing ? 'is-danger': ''}">
+                                        <div class="select">
                                             <select
                                                 id="raison"
                                                 name="raison"
@@ -135,7 +135,7 @@
                                     <label for="message" class="label is-2">Message</label>
                                     <div class="control">
                                         <textarea
-                                            class="textarea {form?.messageMissing ? 'is-danger': ''}"
+                                            class="textarea"
                                             id="message"
                                             name="message"
                                             placeholder="Votre message"
