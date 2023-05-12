@@ -48,7 +48,7 @@
                 <div class="rows">
                     <div class="row">
                         <picture>
-                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}" alt="">
+                            <img class="mea" src="{`${PUBLIC_HOST_API}/assets/${colloque.illustration_colloque}`}?width=400&height=300&format=webp" alt="">
                         </picture>
                     </div>
                     <div class="row">
@@ -59,6 +59,7 @@
                             {@html colloque.tarifs}
                             <p class="ref">Lieu du rendez-vous</p>
                             <p>{colloque.lieu}</p>
+                            {#if colloque.programme}
                             <div class="columns placement is-centered">
                                 <div class="column has-text-centered">
                                     <a href="/">
@@ -66,6 +67,7 @@
                                     </a>
                                 </div>
                             </div>
+                            {/if}
                         </div>
                     </div>
                 </div>

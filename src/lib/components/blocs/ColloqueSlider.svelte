@@ -23,7 +23,7 @@
     <div class="card is-fullheight">
         <div class="card-image">
             <figure class="image">
-                <img src="{`${PUBLIC_HOST_API}/assets/${illustration_colloque}`}" alt="Placeholder">
+                <img src="{`${PUBLIC_HOST_API}/assets/${illustration_colloque}?width=400&height=300&format=webp`}" alt="Placeholder">
             </figure>
         </div>
         <div class="card-content">
