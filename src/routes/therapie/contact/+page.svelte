@@ -5,12 +5,10 @@
     import { enhance } from '$app/forms';
     $store.nav = 'therapie';
     
-    let step = 1;
-    
     /** @type {import('./$types').ActionData} */
     export let form: any = {};
     
-    $: step = form?.step ?? 2;
+    $: step = form?.step ?? 1;
     
     function prevStep(e: any) {
         e.preventDefault();
@@ -25,12 +23,51 @@
         role: '',
         details: '',
     };
+    let addFamilyStranger = {
+        role: '',
+        details: '',
+    };
 
     let personFamily: any[] = [];
+    let strangerFamily: any[] = [];
 
     let addPerson = (member: any) => {
-        personFamily.push({ role: member.role, details: member.details });
+        if (member.role === '' || member.details === '') {
+            return;
+        }
+        personFamily = [...personFamily, member];
+        addFamilyMember = {
+            role: '',
+            details: '',
+        };
+    }   
+
+    let removePerson = (index: number) => {
+        personFamily.splice(index, 1);
+        personFamily = personFamily;
     }
+
+    let addStranger = (member: any) => {
+        if (member.role === '' || member.details === '') {
+            return;
+        }
+        strangerFamily = [...strangerFamily, member];
+        addFamilyStranger = {
+            role: '',
+            details: '',
+        };
+    }   
+
+    let removeStranger = (index: number) => {
+        strangerFamily.splice(index, 1);
+        strangerFamily = strangerFamily;
+    }
+
+    let exportFamily = '';
+    let exportStranger = '';
+
+    $: exportFamily = JSON.stringify(personFamily);
+    $: exportStranger = JSON.stringify(strangerFamily);
     
 </script>
 <section class="section">
@@ -203,31 +240,31 @@
                                         <label for="">Indiquez pour chacun le rôle, le nom, le prénom, l’âge et la profession ou scolarité</label>
                                     </div>
                                     <div class="addPerson">
+                                        {#each personFamily as person, index}
                                         <div class="columns mb-0">
-                                            {#each personFamily as person}
                                             <div class="column is-5">
-                                                Père
+                                                {person.role}
                                             </div>
                                             <div class="column">
-                                                Venerosy Julien, webmastersqdeffezgrzffegrefe
+                                                {person.details}
                                             </div>
                                             <div class="column is-narrow">
-                                                <a href="/#" class="link">Supprimer</a>
+                                                <span on:click={() => removePerson(index)} class="link" on:keydown>Supprimer</span>
                                             </div>
-                                            {/each}
                                         </div>
+                                        {/each}
                                         <div class="columns">
                                             <div class="column is-5">
                                                 <input type="text" class="input" bind:value={addFamilyMember.role} placeholder="Rôle de la personne">
                                             </div>
                                             <div class="column">
-                                                <input type="text" class="input" bind:value={addFamilyMember.detail} placeholder="Nom, prénom, âge et profession ou scolarité">
+                                                <input type="text" class="input" bind:value={addFamilyMember.details} placeholder="Nom, prénom, âge et profession ou scolarité">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="control">
-                                    <span class="link add" onClick={(addFamilyMember) => {}} onKeyDown={this.handleKeyDown}>
+                                    <span class="link add" on:click={() => addPerson(addFamilyMember)} on:keydown>
                                         <span class="icon-text">
                                             <span class="icon">
                                                 <img src="/images/pictos/add.svg" alt="" />
@@ -236,41 +273,50 @@
                                         </span>
                                     </span>
                                 </div>
+                                {#if form?.errors?.family}
+                                <p class="has-text-danger mention">{form?.errors?.family[0]}</p>
+                                {/if}
                                 <hr>
                                 <div class="fieldset">
                                     <div class="field">
                                         <legend class="label">Y-a-t-il des personnes ressources en dehors de votre famille ?</legend>
                                         <label for="">Indiquez pour chacun le rôle, le nom, le prénom, l’âge et la profession ou scolarité</label>
                                     </div>
-                                    <div class="addPerson">
+                                    <div class="addStranger">
+                                        {#each strangerFamily as stranger, index}
                                         <div class="columns mb-0">
-                                            <div class="column is-narrow">
-                                                Personne 1
-                                            </div>
-                                            <div class="column"></div>
-                                            <div class="column is-narrow">
-                                                <a href="/#" class="link">Supprimer</a>
-                                            </div>
-                                        </div>
-                                        <div class="columns">
                                             <div class="column is-5">
-                                                <input type="text" class="input" placeholder="Rôle de la personne">
+                                                {stranger.role}
                                             </div>
                                             <div class="column">
-                                                <input type="text" class="input" placeholder="Nom, prénom, âge et profession ou scolarité">
+                                                {stranger.details}
+                                            </div>
+                                            <div class="column is-narrow">
+                                                <span on:click={() => removeStranger(index)} class="link" on:keydown>Supprimer</span>
+                                            </div>
+                                        </div>
+                                        {/each}
+                                        <div class="columns">
+                                            <div class="column is-5">
+                                                <input type="text" class="input" bind:value={addFamilyStranger.role} placeholder="Rôle de la personne">
+                                            </div>
+                                            <div class="column">
+                                                <input type="text" class="input" bind:value={addFamilyStranger.details} placeholder="Nom, prénom, âge et profession ou scolarité">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="control">
-                                    <a href="/#" class="link add">
+                                    <span class="link add" on:click={() => addStranger(addFamilyStranger)} on:keydown>
                                         <span class="icon-text">
                                             <span class="icon">
                                                 <img src="/images/pictos/add.svg" alt="" />
                                             </span>
                                             <span>Ajouter une personne</span>
                                         </span>
-                                    </a>
+                                    </span>
+                                    <input type="hidden" name="family" bind:value={exportFamily}>
+                                    <input type="hidden" name="stranger" bind:value={exportStranger}>
                                 </div>
                                 <hr>
                                 <div class="columns is-vcentered">
@@ -294,8 +340,11 @@
                                 <div class="fieldset">
                                     <div class="field">
                                         <label class="label" for="problem">Merci de nous donner une description succincte de votre problème</label>
-                                        <textarea class="textarea" name="problem" id="problem" placeholder="Exprimez-vous ici"></textarea>
+                                        <textarea class="textarea" name="problem" id="problem" placeholder="Exprimez-vous ici" value="{form?.answer?.problem ?? form?.problem ?? ''}"></textarea>
                                     </div>
+                                    {#if form?.errors?.problem}
+                                    <p class="has-text-danger mention">{form?.errors?.problem[0]}</p>
+                                    {/if}
                                 </div>
                                 <div class="fieldset">
                                     <legend class="label">Comment vous appelez vous ?</legend>
@@ -303,28 +352,43 @@
                                         <div class="columns">
                                             <div class="column">
                                                 <label for="prenom">Prénom</label>
-                                                <input class="input" type="text" id="prenom" name="prenom">
+                                                <input class="input" type="text" id="prenom" name="firstname" value="{form?.answer?.firstname ?? form?.firstname ?? ''}">
+                                                {#if form?.errors?.firstname}
+                                                <p class="has-text-danger mention">{form?.errors?.firstname[0]}</p>
+                                                {/if}
                                             </div>
                                             <div class="column">
                                                 <label for="nom">Nom</label>
-                                                <input class="input" type="text" id="nom" name="nom">
+                                                <input class="input" type="text" id="nom" name="lastname" value="{form?.answer?.lastname ?? form?.lastname ?? ''}">
+                                                {#if form?.errors?.lastname}
+                                                <p class="has-text-danger mention">{form?.errors?.lastname[0]}</p>
+                                                {/if}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <label for="place">Votre place dans la famille</label>
-                                        <input class="input" type="text" id="place" name="place">
+                                        <input class="input" type="text" id="place" name="place" value="{form?.answer?.place ?? form?.place ?? ''}">
                                     </div>
+                                    {#if form?.errors?.place}
+                                    <p class="has-text-danger mention">{form?.errors?.place[0]}</p>
+                                    {/if}
                                 </div>
                                 <div class="fieldset">
                                     <legend class="label">Comment pouvons-nous vous contacter ?</legend>
                                     <div class="field">
                                         <label for="email">Email</label>
-                                        <input class="input" type="email" id="email" name="email">
+                                        <input class="input" type="email" id="email" name="email" value="{form?.answer?.email ?? form?.email ?? ''}">
+                                        {#if form?.errors?.email}
+                                        <p class="has-text-danger mention">{form?.errors?.email[0]}</p>
+                                        {/if}
                                     </div>
                                     <div class="field">
                                         <label for="phone">Téléphone</label>
-                                        <input class="input" type="tel" id="phone" name="phone">
+                                        <input class="input" type="tel" id="phone" name="phone" value="{form?.answer?.phone ?? form?.phone ?? ''}">
+                                        {#if form?.errors?.phone}
+                                        <p class="has-text-danger mention">{form?.errors?.phone[0]}</p>
+                                        {/if}
                                     </div>
                                 </div>
                                 <div class="columns is-vcentered">

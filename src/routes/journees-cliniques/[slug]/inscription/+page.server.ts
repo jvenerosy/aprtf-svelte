@@ -265,7 +265,7 @@ export const actions = {
         const formStep5 = Object.fromEntries(formData);
         
         answer = Object.assign(answer, formStep5);
-        console.log(answer);
+        console.log(JSON.stringify(answer));
         try {
             const response = await fetch(endpoint, {
                 method: "POST",
