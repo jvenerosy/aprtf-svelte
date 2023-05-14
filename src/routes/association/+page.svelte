@@ -12,7 +12,7 @@
 <section class="section association">
     <div class="container is-max-widescreen">
         <div class="bloc">
-            <h2 class="title is-2">Les missions de l’Aprtf</h2>
+            <h2 class="title is-2">Les missions de l’Aprtf.</h2>
             <p class="subtitle">Fondée en 1981</p>
         </div>
         <div class="pepites columns">
