@@ -26,18 +26,14 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    let handicap ='false';
-    let handicapRythme = '';
-    let handicapPedago = '';
-    let finance: 0;
-    let cadreParticipe = '';
-    let cadrePratique = '';
-    let cadreSeul = '';
-    let cadreEquipe = '';
-    let cadreFilme = '';
+    let handicap = form?.answer?.handicap ?? form?.handicap ?? '';
+    let handicapRythme = form?.answer?.handicapRythme ?? form?.handicapRythme ?? '';
+    let handicapPedago =  form?.answer?.handicapPedago ?? form?.handicapPedago ?? '';
+    let finance = form?.answer?.finance ?? form?.finance ?? 0;
+    let cadre = form?.answer?.cadre ?? form?.cadre ?? '';
+    let context = form?.answer?.context ?? form?.context ?? '';
+    let level = form?.answer?.level ?? form?.level ?? '';
 
-    // firstname = form.answer.firstname si il existe sinon form.firstname sinon ''
-    $: firstname = form?.answer?.firstname ?? form?.firstname ?? '';
 
 </script>
 
@@ -83,7 +79,7 @@
                                                                 class="input"
                                                                 id="firstname"
                                                                 name="firstname"
-                                                                value="{firstname}"
+                                                                value="{form?.answer?.firstname ?? form?.firstname ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.firstname}
@@ -98,7 +94,7 @@
                                                                 class="input"
                                                                 id="lastname"
                                                                 name="lastname"
-                                                                value="{form?.lastname ?? ''}"
+                                                                value="{form?.answer?.lastname ?? form?.lastname ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.lastname}
@@ -120,7 +116,7 @@
                                                         class="input"
                                                         id="phone"
                                                         name="phone"
-                                                        value="{form?.phone ?? ''}"
+                                                        value="{form?.answer?.phone ?? form?.phone ?? ''}"
                                                     />
                                                 </div>
                                                 {#if form?.errors?.phone}
@@ -135,7 +131,7 @@
                                                         class="input"
                                                         id="email"
                                                         name="email"
-                                                        value="{form?.email ?? ''}"
+                                                        value="{form?.answer?.email ?? form?.email ?? ''}"
                                                     />
                                                 </div>
                                                 {#if form?.errors?.email}
@@ -155,7 +151,7 @@
                                                         class="input"
                                                         id="address"
                                                         name="address"
-                                                        value="{form?.address ?? ''}"
+                                                        value="{form?.answer?.address ?? form?.address ?? ''}"
                                                     />
                                                 </div>
                                                 {#if form?.errors?.address}
@@ -172,7 +168,7 @@
                                                                 class="input"
                                                                 id="postal_code"
                                                                 name="postalCode"
-                                                                value="{form?.postalCode ?? ''}"
+                                                                value="{form?.answer?.postalCode ?? form?.postalCode ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.postalCode}
@@ -187,7 +183,7 @@
                                                                 class="input"
                                                                 id="city"
                                                                 name="city"
-                                                                value="{form?.city ?? ''}"
+                                                                value="{form?.answer?.city ?? form?.city ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.city}
@@ -221,7 +217,7 @@
                                                 <div class="control">
                                                     <div class="select">
                                                         <select
-                                                            value="{form?.connu ?? ''}"
+                                                            value="{form?.answer?.connu ?? form?.connu ?? ''}"
                                                             name="connu"
                                                             id="connu"
                                                         >
@@ -308,7 +304,7 @@
                                                         class="input"
                                                         name="profession"
                                                         id="profession"
-                                                        value="{form?.profession ?? ''}"
+                                                        value="{form?.answer?.profession ?? form?.profession ?? ''}"
                                                     />
                                                 </div>
                                                 {#if form?.errors?.profession}
@@ -325,7 +321,7 @@
                                                                 class="input"
                                                                 name="etablissement"
                                                                 id="etablissement"
-                                                                value="{form?.etablissement ?? ''}"
+                                                                value="{form?.answer?.etablissement ?? form?.etablissement ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.etablissement}
@@ -340,7 +336,7 @@
                                                                 class="input"
                                                                 name="service"
                                                                 id="service"
-                                                                value="{form?.service ?? ''}"
+                                                                value="{form?.answer?.service ?? form?.service ?? ''}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.service}
@@ -367,6 +363,7 @@
                                 </div>
                                 <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step3" use:enhance>
+                                        {#key form}
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -377,7 +374,7 @@
                                                         class="textarea" 
                                                         placeholder="Exprimez vous ici"
                                                         name="objectif"
-                                                        value="{form?.objectif ?? ''}" 
+                                                        value="{form?.answer?.objectif ?? form?.objectif ?? ''}" 
                                                     ></textarea>
                                                     {#if form?.errors?.objectif}
                                                     <p class="has-text-danger mention">{form?.errors?.objectif[0]}</p>
@@ -389,11 +386,11 @@
                                                 <div class="control">
                                                     <label for="level_1" class="radio is-2">
                                                         <input
-                                                            value="{form?.level ?? 1}"
                                                             type="radio"
                                                             class="radio"
                                                             name="level"
                                                             id="level_1"
+                                                            bind:group={level}
                                                         />
                                                         Peu de connaissance
                                                     </label>
@@ -401,11 +398,11 @@
                                                 <div class="control">
                                                     <label for="level_2" class="radio is-2">
                                                         <input
-                                                            value="{form?.level ?? 2}"
                                                             type="radio"
                                                             class="radio"
                                                             name="level"
                                                             id="level_2"
+                                                            bind:group={level}
                                                         />
                                                         Connaissance théorique
                                                     </label>
@@ -430,7 +427,7 @@
                                                         class="textarea"
                                                         placeholder="Exprimez vous ici"
                                                         name="connaissance"
-                                                        value="{form?.connaissance ?? ''}"
+                                                        value="{form?.answer?.connaissance ?? form?.connaissance ?? ''}"
                                                     ></textarea>
                                                     {#if form?.errors?.connaissance}
                                                     <p class="has-text-danger mention">{form?.errors?.connaissance[0]}</p>
@@ -450,11 +447,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {/key}
                                     </form>
                                 </div>
                                 <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step4" use:enhance>
-
+                                        {#key form}
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Questions de positionnement</legend>
@@ -468,6 +466,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="liberal"
+                                                            bind:group={context}
                                                         />
                                                         En libéral
                                                     </label>
@@ -479,6 +478,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="institution"
+                                                            bind:group={context}
                                                         />
                                                         En institution
                                                     </label>
@@ -490,6 +490,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="structure_adulte"
+                                                            bind:group={context}
                                                         />
                                                         Dans une structure de psychiatrie adulte
                                                     </label>
@@ -501,6 +502,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="structure_pedopsy"
+                                                            bind:group={context}
                                                         />
                                                         Dans une structure de pédopsychiatrie
                                                     </label>
@@ -512,6 +514,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="medico_social"
+                                                            bind:group={context}
                                                         />
                                                         Dans le secteur médico-social
                                                     </label>
@@ -523,6 +526,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="educatif"
+                                                            bind:group={context}
                                                         />
                                                         Dans le milieu éducatif
                                                     </label>
@@ -534,6 +538,7 @@
                                                             type="checkbox"
                                                             name="context"
                                                             value="associatif"
+                                                            bind:group={context}
                                                         />
                                                         Dans le milieu social et/ou associatif
                                                     </label>
@@ -552,7 +557,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={cadreParticipe}
+                                                            bind:group={cadre}
                                                             value="participe"
                                                         />
                                                         Je participe ou conduits des entretiens familiaux
@@ -564,7 +569,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={cadrePratique}
+                                                            bind:group={cadre}
                                                             value="pratique"
                                                         />
                                                         Je pratique la thérapie familiale
@@ -576,7 +581,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={cadreSeul}
+                                                            bind:group={cadre}
                                                             value="seul"
                                                         />
                                                         Je travaille seul
@@ -588,7 +593,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={cadreEquipe}
+                                                            bind:group={cadre}
                                                             value="equipe"
                                                         />
                                                         Je travaille en équipe
@@ -600,7 +605,7 @@
                                                             class="checkbox"
                                                             type="checkbox"
                                                             name="cadre"
-                                                            bind:group={cadreFilme}
+                                                            bind:group={cadre}
                                                             value="filmer"
                                                         />
                                                         Je peux filmer les entretiens
@@ -623,10 +628,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {/key}
                                     </form>
                                 </div>
                                 <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step5" use:enhance>
+                                        {#key form}
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Qui finance votre formation ?</legend>
@@ -657,7 +664,7 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_payeur"
-                                                        value="{form?.finance_payeur ?? ''}"
+                                                        value="{form?.answer?.finance_payeur ?? form?.finance_payeur ?? ''}"
                                                     >
                                                 </div>
                                                 {#if form?.errors?.finance_payeur}
@@ -671,7 +678,7 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_responsable"
-                                                        value="{form?.finance_responsable ?? ''}"
+                                                        value="{form?.answer?.finance_responsable ?? form?.finance_responsable ?? ''}"
                                                     >
                                                 </div>
                                                 {#if form?.errors?.finance_responsable}
@@ -685,7 +692,7 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_mail"
-                                                        value="{form?.finance_mail ?? ''}"
+                                                        value="{form?.answer?.finance_mail ?? form?.finance_mail ?? ''}"
                                                     >
                                                 </div>
                                                 {#if form?.errors?.finance_mail}
@@ -699,7 +706,7 @@
                                                         class="input"
                                                         type="text"
                                                         name="finance_address"
-                                                        value="{form?.finance_adress ?? ''}"
+                                                        value="{form?.answer?.finance_adress ?? form?.finance_adress ?? ''}"
                                                     >
                                                 </div>
                                                 {#if form?.errors?.finance_adress}
@@ -720,6 +727,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {/key}
                                     </form>
                                 </div>
                             

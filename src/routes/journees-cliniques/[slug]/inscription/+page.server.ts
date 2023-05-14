@@ -270,10 +270,10 @@ export const actions = {
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: {
-                  "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 },
                 body: JSON.stringify(answer),
-              });
+            });
             
         } catch (error) {
             console.error('Erreur lors de la création de l\'article :', error);
