@@ -46,6 +46,13 @@
                 border-color: darken($tertiary, 5%);
             }
         }
+        &.is-inverted-family {
+            color: $family;
+            border: 1px solid $family;
+            &:hover {
+                border-color: darken($family, 5%);
+            }
+        }
         
     }
 </style>

@@ -34,13 +34,13 @@
         <div class="columns bottom">
             <div class="column">© 2023 A.P.R.T.F</div>
             <div class="column">
-                <a href="/#">Tarifs et conditions</a>
+                <a href="/conditions-generales-de-vente">Conditions générales de vente</a>
             </div>
             <div class="column">
-                <a href="/#">Règlement intérieur</a>
+                <a href="/reglement-interieur">Règlement intérieur</a>
             </div>
             <div class="column">
-                Membre de <a href="/#">l'EFTA</a> et la <a href="/#">SFTF</a>
+                Membre de <a href="https://europeanfamilytherapy.eu/fr/accueil/" target="_blank">l'EFTA</a> et la <a href="https://www.sftf.net/" target="_blank">SFTF</a>
             </div>
         </div>
     </div>

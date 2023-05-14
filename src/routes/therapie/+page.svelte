@@ -19,7 +19,9 @@
                 <p class="subtitle">Consultation familiale et conjugale</p>
                 <p class="parag">Thérapies familiale et conjugale systémiques sont des approches thérapeutiques qui ont montré leur efficacité sur les symptômes (rechutes, adhésion aux soins, réhospitalisation), les crises familiales et conjugales et sur la qualité des relations familiales, avec des effets à long terme reconnus.</p>
                 <div class="links">
-                    <Button theme="is-primary" text="Contacter" />
+                    <a href="/therapie/contact">
+                        <Button theme="is-primary" text="Contacter" />
+                    </a>
                 </div>
             </div>
         </div>
