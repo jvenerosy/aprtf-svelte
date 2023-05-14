@@ -221,9 +221,9 @@
                                                             id="connu"
                                                         >
                                                             <option value="" disabled selected>Selectionnez une réponse</option>
-                                                            <option value="1">Raison 1</option>
-                                                            <option value="2">Raison 2</option>
-                                                            <option value="3">Raison 3</option>
+                                                            <option value="1">Par le site internet</option>
+                                                            <option value="2">Vous connaissez quelqu'un formé à l'APRTF</option>
+                                                            <option value="3">Vous êtes actuellement en formation à l'APRTF</option>
                                                         </select>
                                                     </div>
                                                 </div>
