@@ -51,7 +51,7 @@
         <div class="bloc">
             <h2 class="title is-2">La philosophie de l’Aprtf</h2>
             <p class="subtitle">Developper la pratiques des équipes</p>
-            <p class="text">Les thérapeutes formateurs de l’Aprtf sont tous des professionnels, thérapeutes dans le service public de psychiatrie (générale ou infanto-juvénile).</p>
+            <p class="text">Les formateurs de l’Aprtf dont tous des professionnels exerçant comme thérapeutes dans le service public de psychiatrie (générale ou infanto-juvénile).</p>
             <p class="text">Ils ont participé à la création et au développement de nombreuses équipes de consultation publiques en thérapie familiale sur tout le territoire national.</p>
             <p class="text">Ils travaillent au sein d’unités de thérapie familiale, qui proposent des consultations gratuites, rattachées aux hôpitaux publics, ouvertes aux familles souffrant de dysfonctionnements relationnels sévères, touchées par des troubles psychiques ou des maladies mentales, ou traversant de graves crises existentielles.</p>
             <p class="text">Les thérapeutes et formateurs de l’Aprtf sont tous membres titulaires de la SFTF (Société française de thérapie familiale) et de l’EFTA (European family therapy association).</p>
