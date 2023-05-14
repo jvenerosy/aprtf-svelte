@@ -69,7 +69,7 @@ export const actions = {
     },
     step4: async ({request}) => {
         return {
-            answer,
+            answer, 
             step: 5
         };
     }

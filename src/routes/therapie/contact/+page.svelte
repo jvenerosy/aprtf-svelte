@@ -21,9 +21,15 @@
     let orientation: string = form?.answer?.orientation ?? form?.orientation ?? '';
     let demande: string = form?.answer?.demande ?? form?.demande ?? '';
 
-    let addPerson = (e) => {
-        e.preventDefault();
-        personFamily.push({ name: '', age: '', sexe: '' });
+    let addFamilyMember = {
+        role: '',
+        details: '',
+    };
+
+    let personFamily: any[] = [];
+
+    let addPerson = (member: any) => {
+        personFamily.push({ role: member.role, details: member.details });
     }
     
 </script>
@@ -198,7 +204,7 @@
                                     </div>
                                     <div class="addPerson">
                                         <div class="columns mb-0">
-                                            {#each person as personFamily}
+                                            {#each personFamily as person}
                                             <div class="column is-5">
                                                 Père
                                             </div>
@@ -212,23 +218,23 @@
                                         </div>
                                         <div class="columns">
                                             <div class="column is-5">
-                                                <input type="text" class="input" placeholder="Rôle de la personne">
+                                                <input type="text" class="input" bind:value={addFamilyMember.role} placeholder="Rôle de la personne">
                                             </div>
                                             <div class="column">
-                                                <input type="text" class="input" placeholder="Nom, prénom, âge et profession ou scolarité">
+                                                <input type="text" class="input" bind:value={addFamilyMember.detail} placeholder="Nom, prénom, âge et profession ou scolarité">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="control">
-                                    <a href="/#" class="link add" on:click={addPerson}>
+                                    <span class="link add" onClick={(addFamilyMember) => {}} onKeyDown={this.handleKeyDown}>
                                         <span class="icon-text">
                                             <span class="icon">
                                                 <img src="/images/pictos/add.svg" alt="" />
                                             </span>
                                             <span>Ajouter une personne</span>
                                         </span>
-                                    </a>
+                                    </span>
                                 </div>
                                 <hr>
                                 <div class="fieldset">
