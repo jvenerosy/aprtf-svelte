@@ -86,6 +86,7 @@ export const actions = {
                 address,
                 postalCode,
                 city,
+                answer,
                 step: 2
 			};
             
@@ -101,6 +102,7 @@ export const actions = {
                 address,
                 postalCode,
                 city,
+                answer,
                 step: 1,
 				errors
 			};
@@ -146,6 +148,7 @@ export const actions = {
                 profession,
                 etablissement,
                 service,
+                answer,
                 step: 3
 			};
             
@@ -159,6 +162,7 @@ export const actions = {
                 profession,
                 etablissement,
                 service,
+                answer,
                 step: 2,
 				errors
 			};
@@ -192,6 +196,7 @@ export const actions = {
 				objectif,
                 number,
                 connaissance,
+                answer,
                 step: 4
 			};
             
@@ -205,6 +210,7 @@ export const actions = {
                 number,
                 connaissance,
                 step: 3,
+                answer,
 				errors
 			};
         }
@@ -235,6 +241,7 @@ export const actions = {
                 objectif,
                 number,
                 connaissance,
+                answer,
                 step: 5
 			};
             
@@ -248,6 +255,7 @@ export const actions = {
                 number,
                 connaissance,
                 step: 4,
+                answer,
 				errors
 			};
         }

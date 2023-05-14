@@ -6,22 +6,30 @@
     $store.nav = 'therapie';
     
     let step = 1;
-
+    
     /** @type {import('./$types').ActionData} */
     export let form: any = {};
-
-    $: step = form?.step ?? 1;
+    
+    $: step = form?.step ?? 2;
     
     function prevStep(e: any) {
         e.preventDefault();
         step--;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    let orientation: string = form?.answer?.orientation ?? form?.orientation ?? '';
+    let demande: string = form?.answer?.demande ?? form?.demande ?? '';
+
+    let addPerson = (e) => {
+        e.preventDefault();
+        personFamily.push({ name: '', age: '', sexe: '' });
+    }
     
 </script>
 <section class="section">
     <div class="container is-max-widescreen">
-        <div class="columns is-variable is-8">
+        <div class="columns is-vcentered is-variable is-8">
             <div class="column is-7">
                 <div class="rows">
                     <div class="row">
@@ -60,6 +68,7 @@
                     <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
                         <div class="box">
                             <form method="POST" action="?/step2" use:enhance>
+                                {#key form }
                                 <div class="fieldset">
                                     <div class="field">
                                         <legend class="label">Qui vous oriente ?</legend>
@@ -70,7 +79,8 @@
                                                 name="orientation"
                                                 value="professionnel"
                                                 class="radio"
-                                                id="handicap"
+                                                id="orientation"
+                                                bind:group={orientation}
                                                 />
                                                 Professionnel de santé
                                             </label>
@@ -83,10 +93,14 @@
                                                 value="autre"
                                                 class="radio"
                                                 id="orientationAutre"
+                                                bind:group={orientation}
                                                 />
                                                 Autres
                                             </label>
                                         </div>
+                                        {#if form?.errors?.orientation}
+                                        <p class="has-text-danger mention">{form?.errors?.orientation[0]}</p>
+                                        {/if}
                                     </div>
                                 </div>
                                 <div class="fieldset">
@@ -94,11 +108,11 @@
                                         <label for="orienteby" class="label is-2">Civilité, nom et prénom de la personne qui vous oriente</label>
                                         <div class="control">
                                             <input
-                                                type="text"
-                                                class="input"
-                                                name="orienteby"
-                                                id="orienteby"
-                                                value="{form?.orienteby ?? ''}"
+                                            type="text"
+                                            class="input"
+                                            name="orienteby"
+                                            id="orienteby"
+                                            value="{form?.answer?.orienteby ?? form?.orienteby ?? ''}"
                                             />
                                         </div>
                                         {#if form?.errors?.orienteby}
@@ -117,6 +131,7 @@
                                                 value="familiale"
                                                 class="radio"
                                                 id="demande"
+                                                bind:group={demande}
                                                 />
                                                 Une thérapie familiale
                                             </label>
@@ -129,10 +144,14 @@
                                                 value="couple"
                                                 class="radio"
                                                 id="demandeCouple"
+                                                bind:group={demande}
                                                 />
                                                 Une thérapie de couple
                                             </label>
                                         </div>
+                                        {#if form?.errors?.demande}
+                                        <p class="has-text-danger mention">{form?.errors?.demande[0]}</p>
+                                        {/if}
                                     </div>
                                 </div>
                                 <div class="fieldset">
@@ -141,11 +160,11 @@
                                         <label for="therapeute" class="label is-2">Indiquez le nom de celui-ci</label>
                                         <div class="control">
                                             <input
-                                                type="text"
-                                                class="input"
-                                                name="therapeute"
-                                                id="therapeute"
-                                                value="{form?.therapeute ?? ''}"
+                                            type="text"
+                                            class="input"
+                                            name="therapeute"
+                                            id="therapeute"
+                                            value="{form?.answer?.therapeute ?? form?.therapeute ?? ''}"
                                             />
                                         </div>
                                         {#if form?.errors?.therapeute}
@@ -165,27 +184,172 @@
                                         </div>
                                     </div>
                                 </div>
+                                {/key}
                             </form>
                         </div>
                     </div>
                     <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
                         <div class="box">
                             <form method="POST" action="?/step3" use:enhance>
-                                <legend for="" class="label">Merci de nous indiquer qui compose votre famille (foyer et hors foyer)</legend>
-                                <label for="">Indiquez pour chacun le rôle, le nom, le prénom, l’âge et la profession ou scolarité</label>
                                 <div class="fieldset">
-                                    <div class="field person">
-                                        <div class="columns">
-                                            <div class="column">
-                                                Personne 1
+                                    <div class="field">
+                                        <legend class="label">Merci de nous indiquer qui compose votre famille (foyer et hors foyer)</legend>
+                                        <label for="">Indiquez pour chacun le rôle, le nom, le prénom, l’âge et la profession ou scolarité</label>
+                                    </div>
+                                    <div class="addPerson">
+                                        <div class="columns mb-0">
+                                            {#each person as personFamily}
+                                            <div class="column is-5">
+                                                Père
                                             </div>
                                             <div class="column">
-                                                <a href="" class="link">Supprimer</a>
+                                                Venerosy Julien, webmastersqdeffezgrzffegrefe
+                                            </div>
+                                            <div class="column is-narrow">
+                                                <a href="/#" class="link">Supprimer</a>
+                                            </div>
+                                            {/each}
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column is-5">
+                                                <input type="text" class="input" placeholder="Rôle de la personne">
+                                            </div>
+                                            <div class="column">
+                                                <input type="text" class="input" placeholder="Nom, prénom, âge et profession ou scolarité">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="control">
+                                    <a href="/#" class="link add" on:click={addPerson}>
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <img src="/images/pictos/add.svg" alt="" />
+                                            </span>
+                                            <span>Ajouter une personne</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="fieldset">
+                                    <div class="field">
+                                        <legend class="label">Y-a-t-il des personnes ressources en dehors de votre famille ?</legend>
+                                        <label for="">Indiquez pour chacun le rôle, le nom, le prénom, l’âge et la profession ou scolarité</label>
+                                    </div>
+                                    <div class="addPerson">
+                                        <div class="columns mb-0">
+                                            <div class="column is-narrow">
+                                                Personne 1
+                                            </div>
+                                            <div class="column"></div>
+                                            <div class="column is-narrow">
+                                                <a href="/#" class="link">Supprimer</a>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column is-5">
+                                                <input type="text" class="input" placeholder="Rôle de la personne">
+                                            </div>
+                                            <div class="column">
+                                                <input type="text" class="input" placeholder="Nom, prénom, âge et profession ou scolarité">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <a href="/#" class="link add">
+                                        <span class="icon-text">
+                                            <span class="icon">
+                                                <img src="/images/pictos/add.svg" alt="" />
+                                            </span>
+                                            <span>Ajouter une personne</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <hr>
+                                <div class="columns is-vcentered">
+                                    <div class="column is-narrow">
+                                        <a href="/therapie" class="link">Annuler</a>
+                                    </div>
+                                    <div class="column"></div>
+                                    <div class="column is-narrow">
+                                        <div class="buttons">
+                                            <Button theme="is-inverted-family" text="← Précédent" on:click={prevStep} />
+                                            <Button theme="is-family" text="Suivant →" />
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
+                        </div>
+                    </div>
+                    <div class="step {step === 4 ? '': 'is-hidden'}" transition:fade>
+                        <div class="box">
+                            <form method="POST" action="?/step4" use:enhance>
+                                <div class="fieldset">
+                                    <div class="field">
+                                        <label class="label" for="problem">Merci de nous donner une description succincte de votre problème</label>
+                                        <textarea class="textarea" name="problem" id="problem" placeholder="Exprimez-vous ici"></textarea>
+                                    </div>
+                                </div>
+                                <div class="fieldset">
+                                    <legend class="label">Comment vous appelez vous ?</legend>
+                                    <div class="field">
+                                        <div class="columns">
+                                            <div class="column">
+                                                <label for="prenom">Prénom</label>
+                                                <input class="input" type="text" id="prenom" name="prenom">
+                                            </div>
+                                            <div class="column">
+                                                <label for="nom">Nom</label>
+                                                <input class="input" type="text" id="nom" name="nom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="place">Votre place dans la famille</label>
+                                        <input class="input" type="text" id="place" name="place">
+                                    </div>
+                                </div>
+                                <div class="fieldset">
+                                    <legend class="label">Comment pouvons-nous vous contacter ?</legend>
+                                    <div class="field">
+                                        <label for="email">Email</label>
+                                        <input class="input" type="email" id="email" name="email">
+                                    </div>
+                                    <div class="field">
+                                        <label for="phone">Téléphone</label>
+                                        <input class="input" type="tel" id="phone" name="phone">
+                                    </div>
+                                </div>
+                                <div class="columns is-vcentered">
+                                    <div class="column is-narrow">
+                                        <a href="/therapie" class="link">Annuler</a>
+                                    </div>
+                                    <div class="column"></div>
+                                    <div class="column is-narrow">
+                                        <div class="buttons">
+                                            <Button theme="is-inverted-family" text="← Précédent" on:click={prevStep} />
+                                            <Button theme="is-family" text="Suivant →" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="step {step === 5 ? '': 'is-hidden'}" transition:fade>
+                        <div class="box">
+                            <div class="fieldset has-text-centered">
+                                <div class="field">
+                                    <picture class="is-family">
+                                        <img src="/images/pictos/check-circle.svg" alt="">
+                                    </picture>
+                                </div>
+                                <div class="field">
+                                    <p class="title is-2">Votre demande a bien été envoyée</p>
+                                    <p>Nous vous remercions, vous serez prochainement contacté(e) par un professionnel pour vous orienter.</p>
+                                </div>
+                                <a href="/therapie" class="link">← Retour</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,27 +392,11 @@
             font-style: italic;
         }
     }
-    .label {
-        &.is-2 {
-            font-weight: normal;
-            
-            span {
-                color: $grey;
-            }
-        }
-    }
-    .person {
-        padding-left: $gap;
-        &:before {
-            content: ● ;
-            display: inline;
-        }
-    }
     
     form {
         text-align: left;
         
-        input:not(.radio, .checkbox), select, .select {
+        input:not(.radio, .checkbox) {
             width: 100%;
         }
     }
@@ -259,10 +407,16 @@
     textarea {
         resize: none;
     }
-    
-    .ref {
-        font-weight: bold;
-        margin-top: calc($gap/2);
+    .add {
+        display: flex;
+        img {
+            filter: invert(28%) sepia(91%) saturate(5927%) hue-rotate(333deg) brightness(84%) contrast(94%);
+        }
+    }
+    .is-family {
+        img {
+            filter: invert(28%) sepia(91%) saturate(5927%) hue-rotate(333deg) brightness(84%) contrast(94%);
+        }
     }
     
     .title {
@@ -293,4 +447,5 @@
             text-decoration: underline;
         }
     }
+    
 </style>

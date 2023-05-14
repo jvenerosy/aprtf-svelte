@@ -36,6 +36,8 @@
     let cadreEquipe = '';
     let cadreFilme = '';
 
+    // firstname = form.answer.firstname si il existe sinon form.firstname sinon ''
+    $: firstname = form?.answer?.firstname ?? form?.firstname ?? '';
 
 </script>
 
@@ -65,6 +67,7 @@
                             <div class="box-content">
                                 <div class="step {step === 1 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step1" use:enhance>
+                                        {#key form}
                                         <input type="hidden" name="slug" value="{colloque.titre}">
                                         <div class="fieldset">
                                             <div class="field">
@@ -80,7 +83,7 @@
                                                                 class="input"
                                                                 id="firstname"
                                                                 name="firstname"
-                                                                value="{form?.firstname ?? ''}"
+                                                                value="{firstname}"
                                                             />
                                                         </div>
                                                         {#if form?.errors?.firstname}
@@ -205,10 +208,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {/key}
                                     </form>
                                 </div>
                                 <div class="step {step === 2 ? '': 'is-hidden'}" transition:fade>
                                     <form method="POST" action="?/step2" use:enhance>
+                                        {#key form}
                                         <div class="fieldset">
                                             <div class="field">
                                                 <legend class="label">Quelques informations complémentaires</legend>
@@ -357,6 +362,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {/key}
                                     </form>
                                 </div>
                                 <div class="step {step === 3 ? '': 'is-hidden'}" transition:fade>
