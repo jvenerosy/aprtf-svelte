@@ -34,7 +34,7 @@
         <div class="columns bottom">
             <div class="column">© 2023 A.P.R.T.F</div>
             <div class="column">
-                <a href="/#">Tarifs et conditions</a>
+                <a href="/conditions-generales-de-vente">Conditions générales de vente</a>
             </div>
             <div class="column">
                 <a href="/#">Règlement intérieur</a>
