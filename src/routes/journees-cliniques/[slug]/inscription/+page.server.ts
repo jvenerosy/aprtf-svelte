@@ -86,6 +86,7 @@ export const actions = {
                 address,
                 postalCode,
                 city,
+                answer,
                 step: 2
 			};
             
@@ -101,6 +102,7 @@ export const actions = {
                 address,
                 postalCode,
                 city,
+                answer,
                 step: 1,
 				errors
 			};
@@ -146,6 +148,7 @@ export const actions = {
                 profession,
                 etablissement,
                 service,
+                answer,
                 step: 3
 			};
             
@@ -159,6 +162,7 @@ export const actions = {
                 profession,
                 etablissement,
                 service,
+                answer,
                 step: 2,
 				errors
 			};
@@ -192,6 +196,7 @@ export const actions = {
 				objectif,
                 number,
                 connaissance,
+                answer,
                 step: 4
 			};
             
@@ -205,6 +210,7 @@ export const actions = {
                 number,
                 connaissance,
                 step: 3,
+                answer,
 				errors
 			};
         }
@@ -235,6 +241,7 @@ export const actions = {
                 objectif,
                 number,
                 connaissance,
+                answer,
                 step: 5
 			};
             
@@ -248,6 +255,7 @@ export const actions = {
                 number,
                 connaissance,
                 step: 4,
+                answer,
 				errors
 			};
         }
@@ -257,15 +265,15 @@ export const actions = {
         const formStep5 = Object.fromEntries(formData);
         
         answer = Object.assign(answer, formStep5);
-        console.log(answer);
+        console.log(JSON.stringify(answer));
         try {
             const response = await fetch(endpoint, {
                 method: "POST",
                 headers: {
-                  "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 },
                 body: JSON.stringify(answer),
-              });
+            });
             
         } catch (error) {
             console.error('Erreur lors de la création de l\'article :', error);
