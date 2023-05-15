@@ -72,7 +72,9 @@
                     <p class="text">Nous proposons des thérapies pour accompagner les difficultés familiales (enfants, adolescents, adultes, fratries) ou de couple. Bienvenue dans cette section pour en savoir plus ou faire une demande.</p>
                     <div class="links columns is-vcentered is-mobile">
                         <div class="column is-narrow">
-                            <Button theme="is-family" text="Contacter" />
+                            <a href="/therapie/contact" title="Inscription aux thérapie">
+                                <Button theme="is-family" text="Contacter" />
+                            </a>
                         </div>
                         <div class="column">
                             <a href="/therapie">En savoir plus</a>
