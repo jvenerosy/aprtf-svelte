@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="fieldset">
-                                <legend class="label">Pour quelle raison nous contactez vous ?</legend>
+                                <legend class="label">Votre demande concerne :</legend>
                                 <div class="field">
                                     <div class="control">
                                         <div class="select">
@@ -120,10 +120,10 @@
                                                 id="raison"
                                                 name="raison"
                                             >
-                                                <option value="" disabled selected hidden>La raison de votre contact</option>
-                                                <option value="1">Raison 1</option>
-                                                <option value="2">Raison 2</option>
-                                                <option value="3">Raison 3</option>
+                                                <option value="1">Les formations à l'APRTF</option>
+                                                <option value="2">Les journées thématiques</option>
+                                                <option value="3">Une formation spécifique sur site</option>
+                                                <option value="4">Les consultations</option>
                                             </select>
                                         </div>
                                         {#if form?.errors?.raison}
