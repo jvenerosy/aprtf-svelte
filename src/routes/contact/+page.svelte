@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label class="label is-2" for="email">Votre mail</label>
+                                    <label class="label is-2" for="email">Votre email</label>
                                     <div class="control">
                                         <input
                                             class="input"
