@@ -8,7 +8,7 @@
 
 <section class="section">
     <div class="container is-max-desktop legals">
-        <h1 class="title is-1">Conditions générales de vente</h1>
+        <h1 class="title is-1">Règlement intérieur</h1>
         <p class="subtitle">L’APRTF est une Association dispensant des formations.</p>
         <hr class="divider">
         <div class="rows">

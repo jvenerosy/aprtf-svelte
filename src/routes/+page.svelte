@@ -65,23 +65,6 @@
             <p class="subtitle">Les consultations familiales et les formations pour les professionnel(le)s</p>
         </div>
         <div class="formations columns">
-            <div class="column is-4 family">
-                <div class="box is-fullheight">
-                    <h3 class="title is-3">Vous êtes une famille, un couple</h3>
-                    <p class="subtitle">Consultation familiale et conjugale</p>
-                    <p class="text">Nous proposons des thérapies pour accompagner les difficultés familiales (enfants, adolescents, adultes, fratries) ou de couple. Bienvenue dans cette section pour en savoir plus ou faire une demande.</p>
-                    <div class="links columns is-vcentered is-mobile">
-                        <div class="column is-narrow">
-                            <a href="/therapie/contact" title="Inscription aux thérapie">
-                                <Button theme="is-family" text="Contacter" />
-                            </a>
-                        </div>
-                        <div class="column">
-                            <a href="/therapie">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="column pro">
                 <div class="box is-fullheight">
                     <h3 class="title is-3">Vous êtes un(e) professionnel(le)</h3>
@@ -95,6 +78,23 @@
                         </div>
                         <div class="column">
                             <a href="/journees-cliniques">Voir les événements</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4 family">
+                <div class="box is-fullheight">
+                    <h3 class="title is-3">Vous êtes une famille, un couple</h3>
+                    <p class="subtitle">Consultation familiale et conjugale</p>
+                    <p class="text">Nous proposons des thérapies pour accompagner les difficultés familiales (enfants, adolescents, adultes, fratries) ou de couple. Bienvenue dans cette section pour en savoir plus ou faire une demande.</p>
+                    <div class="links columns is-vcentered is-mobile">
+                        <div class="column is-narrow">
+                            <a href="/therapie/contact" title="Inscription aux thérapie">
+                                <Button theme="is-family" text="Contacter" />
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a href="/therapie">En savoir plus</a>
                         </div>
                     </div>
                 </div>
