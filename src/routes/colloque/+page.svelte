@@ -23,9 +23,27 @@
     </div>
 </section>
 <section class="section bottom">
-    <div class="container is-max-desktop">
+    <div class="container">
         <h2 class="title is-2 has-text-centered">Intéressé(e) par une formation, un événement ou découvrir l’Aprtf ?</h2>
-        <div class="columns pepites is-variable is-8">
+        <div class="columns pepites is-variable is-fullhd">
+            <div class="column">
+                <div class="rows">
+                    <div class="row">
+                        <picture>
+                            <img src="images/pictos/school.svg" alt="" />
+                        </picture>
+                    </div>
+                    <div class="row">
+                        <p class="name">Information et inscriptions aux formations</p>
+                        <p class="parag">Découvrez nos parcours structurés de sensibilisation, formation et supervision en pratique systémique et en thérapie familiale, ainsi qu’en thérapie multifamiliale</p>
+                    </div>
+                    <div class="row is-narrow links">
+                        <a href="/formations">
+                            <Button text="S'inscrire" />
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="column">
                 <div class="rows">
                     <div class="row">
@@ -44,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-6">
+            <div class="column">
                 <div class="rows">
                     <div class="row">
                         <picture>

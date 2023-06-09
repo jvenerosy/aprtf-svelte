@@ -65,23 +65,6 @@
             <p class="subtitle">Les consultations familiales et les formations pour les professionnel(le)s</p>
         </div>
         <div class="formations columns">
-            <div class="column pro">
-                <div class="box is-fullheight">
-                    <h3 class="title is-3">Vous êtes un(e) professionnel(le)</h3>
-                    <p class="subtitle">Formations et journées cliniques</p>
-                    <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
-                    <div class="links columns is-vcentered is-mobile">
-                        <div class="column is-narrow">
-                            <a href="/colloque">
-                                <Button text="Découvrir" />
-                            </a>
-                        </div>
-                        <div class="column">
-                            <a href="/journees-cliniques">Voir les événements</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="column is-4 family">
                 <div class="box is-fullheight">
                     <h3 class="title is-3">Vous êtes une famille, un couple</h3>
@@ -99,12 +82,39 @@
                     </div>
                 </div>
             </div>
+            <div class="column pro">
+                <div class="box is-fullheight">
+                    <h3 class="title is-3">Vous êtes un(e) professionnel(le)</h3>
+                    <p class="subtitle">Formations et journées cliniques</p>
+                    <p class="text">Nous développons depuis de nombreuses années des formations longues à la pratique systémique, en thérapie familiale et en thérapie multifamiliale, à destination des professionnels des champs sanitaire, social &médico-social, et de nombreux événements cliniques thématiques. Si vous voulez en savoir plus, bienvenue dans cette section.</p>
+                    <div class="links columns is-vcentered is-mobile">
+                        <div class="column is-narrow">
+                            <a href="/colloque">
+                                <Button text="Découvrir" />
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a href="/journees-cliniques">Voir les événements</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <style lang="scss">
     @import '../styles/variables.scss';
+
+    .formations {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @media screen and (min-width: $b-desktop) {
+            flex-direction: row;
+        
+        }
+    }
 
     .title {
         font-family: $family-title;
