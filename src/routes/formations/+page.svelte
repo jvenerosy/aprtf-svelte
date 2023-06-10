@@ -1,6 +1,10 @@
 <script>
     import { store } from '$lib/stores/Store';
 	import FormationNav from "$lib/components/FormationNav.svelte";
+	import FormationSlider from '$lib/components/blocs/FormationSlider.svelte';
+
+    export let data;
+    const modules = data.donnees;
     
     $store.nav = 'formations';
     $store.sousnav = 'description';
@@ -52,8 +56,33 @@
 </section>
 <section class="section list">
     <div class="container is-max-widescreen">
-        <p class="title is-2">Les formations proposées</p>
-        <p class="subtitle">Cycle 1 et cycle 2</p>
+        <div class="rows">
+            <div class="row">
+                <p class="title is-2">Les formations proposées</p>
+                <p class="subtitle">Cycle 1 et cycle 2</p>
+                <div class="container is-max-widescreen colloques">
+                    <div class="columns is-centered is-multiline">
+                        {#each modules as item}
+                        {#if item.type === 'cycle-1' || item.type === 'cycle-2'}
+                            <FormationSlider {...item} />
+                        {/if}
+                        {/each}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="subtitle">Hors cycle</p>
+                <div class="container is-max-widescreen colloques">
+                    <div class="columns is-centered is-multiline">
+                        {#each modules as item}
+                        {#if item.type === 'hors-cycle'}
+                            <FormationSlider {...item} />
+                        {/if}
+                        {/each}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -103,6 +132,12 @@
 
         .subnumbers {
             font-weight: 600;
+        }
+    }
+
+    .list {
+        .row {
+            margin-bottom: calc($gap*2);
         }
     }
 </style>

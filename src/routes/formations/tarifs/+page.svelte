@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
     import { store } from '$lib/stores/Store';
 	import FormationNav from "$lib/components/FormationNav.svelte";
+
+    export let data;
+    const modules = data.donnees;
     
     $store.nav = 'formations';
     $store.sousnav = 'tarifs';
@@ -31,86 +34,26 @@
                 <p>Le contrat ou la convention doivent avoir été signés au moins 15 jours avant le démarrage de la formation.</p>
             </div>
             <div class="box">
-                <div class="line">
-                    <table>
-                        <tr>
-                            <th>Nom du module</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Financement individuel</td>
-                            <td>2465 €</td>
-                        </tr>
-                        <tr>
-                            <td>Financement via la Formation Permanente</td>
-                            <td>2765 €</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="line">
-                    <table>
-                        <tr>
-                            <th>Nom du module</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Financement individuel</td>
-                            <td>2465 €</td>
-                        </tr>
-                        <tr>
-                            <td>Financement via la Formation Permanente</td>
-                            <td>2765 €</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="line">
-                    <table>
-                        <tr>
-                            <th>Nom du module</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Financement individuel</td>
-                            <td>2465 €</td>
-                        </tr>
-                        <tr>
-                            <td>Financement via la Formation Permanente</td>
-                            <td>2765 €</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="line">
-                    <table>
-                        <tr>
-                            <th>Nom du module</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Financement individuel</td>
-                            <td>2465 €</td>
-                        </tr>
-                        <tr>
-                            <td>Financement via la Formation Permanente</td>
-                            <td>2765 €</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="line">
-                    <table>
-                        <tr>
-                            <th>Nom du module</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>Financement individuel</td>
-                            <td>2465 €</td>
-                        </tr>
-                        <tr>
-                            <td>Financement via la Formation Permanente</td>
-                            <td>2765 €</td>
-                        </tr>
-                    </table>
-                </div>
+                {#each modules as item}
+                    {#if item.tarifs_individuel}
+                        <div class="line">
+                            <table>
+                                <tr>
+                                    <th>{ item.titre }</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>Financement individuel</td>
+                                    <td>{ item.tarifs_individuel } €</td>
+                                </tr>
+                                <tr>
+                                    <td>Financement via la Formation Permanente</td>
+                                    <td>{ item.tarifs_formation_permanente } €</td>
+                                </tr>
+                            </table>
+                        </div>
+                    {/if}
+                {/each}
                 <p class="mentions">L’APRTF n’est pas assujettie à la TVA.<br>Toute inscription ferme, donne lieu au règlement de 15 € de frais d’adhésion à la charge du stagiaire.</p>
             </div>
         </div>

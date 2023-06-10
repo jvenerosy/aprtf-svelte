@@ -3,12 +3,24 @@
 	import FormationNav from "$lib/components/FormationNav.svelte";
     import Button from '$lib/components/forms/Button.svelte';
 
+	import FormationSlider from '$lib/components/blocs/FormationSlider.svelte';
+    
+    import { PUBLIC_HOST_API } from '$env/static/public';
+
     export let data;
+    const modules = data.donnees;
+    const module = data.module;
+
     
     $store.nav = 'formations';
-    $store.sousnav = 'cycle2';
+    $store.sousnav = module.type;
     $store.slug = '/formations/cycle-2';
 </script>
+
+<svelte:head>
+<title>{module.titre}</title>
+<meta name="robots" content="index follow" />
+</svelte:head>
 
 <FormationNav />
 <section class="section">
@@ -17,17 +29,16 @@
             <div class="column is-7">
                 <div class="rows">
                     <div class="row">
-                        <h1 class="title is-2">Cycle 2 Thérapie familiale</h1>
+                        <h1 class="title is-2">{module.titre}</h1>
                         <span class="subtitle">Description</span>
                     </div>
                     <div class="row">
                         <div class="description">
-                            <p>Une pratique effective d’entretiens ou de thérapies familiales est exigée à ce niveau de la formation.</p>
-                            <p>Ce second cycle de formation se décline en deux modules de formation à l’Aprtf. Un second cycle complet implique, au minimum, un an de Supervision clinique et un an de Résonance, soit 2 ans à raison de 70 heures minimum par an.</p>
+                            {@html module.description}
                         </div>
                     </div>
                     <div class="row">
-                        <a class="button-inscription" href="/journees-cliniques/{data.slug}/inscription">
+                        <a target="_blank" class="button-inscription" href="{PUBLIC_HOST_API}/assets/{module.inscription}">
                             <Button text="Inscription" />
                         </a>
                         <a class="button-inscription" href="/formations/tarifs">
@@ -36,27 +47,25 @@
                     </div>
                 </div>
             </div>
+            {#if module.informations_pratiques}
             <div class="column infos">
                 <div class="rows">
                     <div class="row">
                         <div class="box">
                             <div class="placement-tag">
-                                <p class="tag violet">Goupe de 40 personnes max</p>
+                                <p class="tag violet">{module.groupe}</p>
                             </div>
                             <div class="placement-txt">
-                                <p class="ref">Durée</p>
-                                <p>du 05/09/22 au 15/01/23</p>
-                                <p class="ref">Inscription</p>
-                                <p>18 journées soit 126h</p>
-                                <p class="ref">Session</p>
-                                <p>18 journées<br>+ stage clinique (50h) soit 176h</p>
+                                <div class="description">
+                                    {@html module.informations_pratiques}
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="columns placement is-centered">
                             <div class="column has-text-centered">
-                                <a href="/">
+                                <a target="_blank" href="{PUBLIC_HOST_API}/assets/{module.programme}">
                                     <Button theme="is-inverted" text="Télécharger le programme et le planning" />
                                 </a>
                             </div>
@@ -64,9 +73,11 @@
                     </div>
                 </div>
             </div>
+            {/if}
         </div>
     </div>
 </section>
+{#if module.administrative}
 <section class="section utile">
     <div class="container is-max-widescreen">
         <h2 class="title is-2">Informations utiles</h2>
@@ -81,7 +92,7 @@
                     <div class="row">
                         <p class="subtitle">Information et inscription administrative</p>
                         <div class="text">
-                            <p>Pour toute information d’ordre administratif ou organisationnel, nous contacter à l’adresse <a href="mailto:contact@aprtfformations.fr">contact@aprtfformations.fr</a></p>
+                            {@html module.administrative}
                         </div>
                     </div>
                 </div>
@@ -96,7 +107,7 @@
                     <div class="row">
                         <p class="subtitle">Nom et coordonnées du/des animateurs</p>
                         <div class="text">
-                            <p>Jean Desmarquet est le référent pédagogique pour cette formation, lui écrire à l’adresse : <a href="mailto:jdesmarquet@aprtfformations.fr">jdesmarquet@aprtfformations.fr</a></p>
+                            {@html module.referent}
                         </div>
                     </div>
                 </div>
@@ -111,7 +122,7 @@
                     <div class="row">
                         <p class="subtitle">Public concerné</p>
                         <div class="text">
-                            <p>Professionnels de la santé et du champ social travaillant avec des familles et souhaitant développer leurs compétences en thérapie familiale et/ou en interventions systémiques</p>
+                            {@html module.public}
                         </div>
                     </div>
                 </div>
@@ -126,7 +137,7 @@
                     <div class="row">
                         <p class="subtitle">Modalité d'inscription</p>
                         <div class="text">
-                            <p>Il est nécessaire de renseigner la fiche d’inscription et de positionnement, et de joindre un CV et une lettre de motivation.</p>
+                            {@html module.modalite}
                         </div>
                     </div>
                 </div>
@@ -134,21 +145,41 @@
         </div>
     </div>
 </section>
+{/if}
 <section class="section list">
     <div class="container is-max-widescreen">
-        <p class="title is-2">Les autres formations proposées</p>
+        <p class="subtitle">Dans le même cycle</p>
+        <div class="container is-max-widescreen colloques">
+            <div class="columns is-multiline">
+                {#each modules as item}
+                {#if item.type === module.type && item.slug !== module.slug}
+                    <FormationSlider {...item} />
+                {/if}
+                {/each}
+            </div>
+        </div>
     </div>
 </section>
 
 <style lang="scss">
     @import '../../../../styles/variables.scss';
 
+
+    .description {
+        margin-top: $gap;
+    }
+
     :global(.description p) {
         margin-bottom: 20px;
     }
-
+    
     :global(.description ul) {
         list-style-type: disc;
+        margin-left: $gap;
+    }
+    
+    :global(.description ol) {
+        margin-bottom: 20px;
         margin-left: $gap;
     }
 

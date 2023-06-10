@@ -1,9 +1,13 @@
 <script>
     import { store } from '$lib/stores/Store';
 	import FormationNav from "$lib/components/FormationNav.svelte";
+	import FormationSlider from '$lib/components/blocs/FormationSlider.svelte';
+
+    export let data;
+    const modules = data.donnees;
     
     $store.nav = 'formations';
-    $store.sousnav = 'cycle2';
+    $store.sousnav = 'cycle-2';
     $store.slug = '/formations/cycle-2';
 </script>
 
@@ -23,10 +27,17 @@
                             <p>Ce second cycle de formation se décline en deux modules de formation à l’Aprtf. Un second cycle complet implique, au minimum, un an de Supervision clinique et un an de Résonance, soit 2 ans à raison de 70 heures minimum par an.</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <span class="subtitle">Modules</span>
-                    </div>
                 </div>
+            </div>
+        </div>
+        <p class="subtitle">Les modules</p>
+        <div class="container is-max-widescreen colloques">
+            <div class="columns is-multiline">
+                {#each modules as item}
+                {#if item.type === 'cycle-2'}
+                    <FormationSlider {...item} />
+                {/if}
+                {/each}
             </div>
         </div>
     </div>
@@ -35,6 +46,10 @@
 <style lang="scss">
     @import '../../../styles/variables.scss';
 
+    .description {
+        margin-top: $gap;
+    }
+    
     :global(.description p) {
         margin-bottom: 20px;
     }

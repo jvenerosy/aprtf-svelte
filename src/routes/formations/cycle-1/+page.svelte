@@ -1,11 +1,15 @@
 <script>
-	import { onMount } from 'svelte';
     import { store } from '$lib/stores/Store';
 	import FormationNav from "$lib/components/FormationNav.svelte";
     import Button from '$lib/components/forms/Button.svelte';
     
+    import { PUBLIC_HOST_API } from '$env/static/public';
+
+    export let data;
+    const module = data.donnees;
+    
     $store.nav = 'formations';
-    $store.sousnav = 'cycle1';
+    $store.sousnav = 'cycle-1';
     $store.slug = '/formations/cycle-1';
 </script>
 
@@ -16,17 +20,16 @@
             <div class="column is-7">
                 <div class="rows">
                     <div class="row">
-                        <h1 class="title is-2">Cycle 1 Thérapie familiale</h1>
+                        <h1 class="title is-2">{module.titre}</h1>
                         <span class="subtitle">Description</span>
                     </div>
                     <div class="row">
                         <div class="description">
-                            <p>Il se déroule sur deux ans, au sein du même groupe, et avec les mêmes formateurs. Il vise l’acquisition par l’étudiant de références théoriques mais aussi d’une expérience pratique des entretiens familiaux systémiques ou de la thérapie familiale.</p>
-                            <p>Le training en thérapie familiale constitue le premier cycle de formation à l’Aprtf. Il est ouvert aux personnes qui exercent dans un contexte professionnel leur permettant d’envisager des prises en charge familiales. Il vise à développer leurs capacités personnelles dans le travail systémique avec les familles. Il est mené généralement par deux formateurs de l’Aprtf.</p>
+                            {@html module.description}
                         </div>
                     </div>
                     <div class="row">
-                        <a href="/journees-cliniques/">
+                        <a target="_blank" href="{PUBLIC_HOST_API}/assets/{module.inscription}">
                             <Button text="Inscription" />
                         </a>
                     </div>
@@ -36,20 +39,18 @@
                 <div class="rows">
                     <div class="row">
                         <div class="box">
-                            <p class="ref">Inscription ouvertes</p>
-                            <p>du 05/09/22 au 15/01/23</p>
-                            <p class="ref">1ère année</p>
-                            <p>18 journées soit 126h</p>
-                            <p class="ref">2ère année</p>
-                            <p>18 journées<br>+ stage clinique (50h) soit 176h</p>
-                            <p class="ref">Total pour les deux années</p>
-                            <p>302h</p>
+                            <div class="placement-tag">
+                                <p class="tag violet">{module.groupe}</p>
+                            </div>
+                            <div class="description">
+                                {@html module.informations_pratiques}
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="columns placement is-centered">
                             <div class="column has-text-centered">
-                                <a href="/">
+                                <a target="_blank" href="{PUBLIC_HOST_API}/assets/{module.programme}.pdf">
                                     <Button theme="is-inverted" text="Télécharger le programme" />
                                 </a>
                             </div>
@@ -91,7 +92,7 @@
                     <div class="row">
                         <p class="subtitle">Information et inscription administrative</p>
                         <div class="text">
-                            <p>Pour toute information d’ordre administratif ou organisationnel, nous contacter à l’adresse <a href="mailto:contact@aprtfformations.fr">contact@aprtfformations.fr</a></p>
+                            {@html module.administrative}
                         </div>
                     </div>
                 </div>
@@ -106,7 +107,7 @@
                     <div class="row">
                         <p class="subtitle">Nom et coordonnées du/des animateurs</p>
                         <div class="text">
-                            <p>Jean Desmarquet est le référent pédagogique pour cette formation, lui écrire à l’adresse : <a href="mailto:jdesmarquet@aprtfformations.fr">jdesmarquet@aprtfformations.fr</a></p>
+                            {@html module.referent}
                         </div>
                     </div>
                 </div>
@@ -121,7 +122,7 @@
                     <div class="row">
                         <p class="subtitle">Public concerné</p>
                         <div class="text">
-                            <p>Professionnels de la santé et du champ social travaillant avec des familles et souhaitant développer leurs compétences en thérapie familiale et/ou en interventions systémiques</p>
+                            {@html module.public}
                         </div>
                     </div>
                 </div>
@@ -136,7 +137,7 @@
                     <div class="row">
                         <p class="subtitle">Modalité d'inscription</p>
                         <div class="text">
-                            <p>Il est nécessaire de renseigner la fiche d’inscription et de positionnement, et de joindre un CV et une lettre de motivation.</p>
+                            {@html module.modalite}
                         </div>
                     </div>
                 </div>
@@ -260,6 +261,10 @@
 <style lang="scss">
     @import '../../../styles/variables.scss';
 
+    .description {
+        margin-top: $gap;
+    }
+
     :global(.description p) {
         margin-bottom: 20px;
     }
@@ -291,6 +296,11 @@
         .placement {
             margin-top: calc($gap / 2);
             margin-top: -30px;
+        }
+        .placement-tag {
+            display: flex;
+            justify-content: center;
+            margin-top: -40px;
         }
     }
 
