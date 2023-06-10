@@ -89,7 +89,7 @@
 
     .bilan {
         text-align: center;
-        background: $grey-light;
+        background: $grey-lighter;
 
         .columns {
             margin-top: calc($gap*2);

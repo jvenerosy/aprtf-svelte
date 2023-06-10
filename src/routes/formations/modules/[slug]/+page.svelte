@@ -27,10 +27,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="/journees-cliniques/{data.slug}/inscription">
+                        <a class="button-inscription" href="/journees-cliniques/{data.slug}/inscription">
                             <Button text="Inscription" />
                         </a>
-                        <a href="/formations/tarifs">
+                        <a class="button-inscription" href="/formations/tarifs">
                             <Button theme="is-inverted" text="Voir le tarif" />
                         </a>
                     </div>
@@ -162,6 +162,12 @@
 
     .is-fullheight {
         height: 100%;
+    }
+
+    .button-inscription {
+        &:not(:last-child) {
+            margin-right: $gap;
+        }
     }
 
     .infos {
