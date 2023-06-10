@@ -6,7 +6,7 @@
     
     $store.nav = 'formations';
     $store.sousnav = 'cycle1';
-    $store.slug = '/formations/tarifs';
+    $store.slug = '/formations/cycle-1';
 </script>
 
 <FormationNav />
@@ -179,77 +179,79 @@
     </div>
 </section>
 <section class="section groupe">
-    <p class="title is-2">Groupes programmés en 2023</p>
-    <div class="columns">
-        <div class="column">
-            <div class="box is-fullheight">
-                <div class="rows">
-                    <div class="row">
-                        <div class="columns">
-                            <div class="column is-narrow">
-                                <picture>
-                                    <img src="/images/c1.svg" alt="">
-                                </picture>
-                            </div>
-                            <div class="column">
-                                <p class="annee">Année 1</p>
-                                <p class="training">Training 1</p>
+    <div class="container is-max-widescreen">
+        <p class="title is-2">Groupes programmés en 2023</p>
+        <div class="columns">
+            <div class="column">
+                <div class="box is-fullheight">
+                    <div class="rows">
+                        <div class="row">
+                            <div class="columns">
+                                <div class="column is-narrow">
+                                    <picture>
+                                        <img src="/images/c1.svg" alt="">
+                                    </picture>
+                                </div>
+                                <div class="column">
+                                    <p class="annee">Année 1</p>
+                                    <p class="training">Training 1</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row groupes">
-                        <ul>
-                            <li>Groupe lundi/mardi</li>
-                            <li>Groupe mercredi/jeudi</li>
-                            <li>Groupe vendredi/samedi</li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <p class="details">Ouverture des inscriptions début septembre et les plannings en décembre dernier délai</p>
+                        <div class="row groupes">
+                            <ul>
+                                <li>Groupe lundi/mardi</li>
+                                <li>Groupe mercredi/jeudi</li>
+                                <li>Groupe vendredi/samedi</li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <p class="details">Ouverture des inscriptions début septembre et les plannings en décembre dernier délai</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="box is-fullheight">
-                <div class="rows">
-                    <div class="row">
-                        <div class="columns">
-                            <div class="column is-narrow">
-                                <picture>
-                                    <img src="/images/c1.svg" alt="">
-                                </picture>
-                            </div>
-                            <div class="column">
-                                <p class="annee">Année 2</p>
-                                <p class="training">Training 2</p>
+            <div class="column">
+                <div class="box is-fullheight">
+                    <div class="rows">
+                        <div class="row">
+                            <div class="columns">
+                                <div class="column is-narrow">
+                                    <picture>
+                                        <img src="/images/c1.svg" alt="">
+                                    </picture>
+                                </div>
+                                <div class="column">
+                                    <p class="annee">Année 2</p>
+                                    <p class="training">Training 2</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row groupes">
-                        <ul>
-                            <li>Groupe lundi/mardi</li>
-                            <li>Groupe mercredi/jeudi</li>
-                            <li>Groupe vendredi/samedi</li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <p class="details">Candidature simplifiée pour les stagiaires de 1ère année en 2022 et les plannings en décembre dernier délai</p>
+                        <div class="row groupes">
+                            <ul>
+                                <li>Groupe lundi/mardi</li>
+                                <li>Groupe mercredi/jeudi</li>
+                                <li>Groupe vendredi/samedi</li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <p class="details">Candidature simplifiée pour les stagiaires de 1ère année en 2022 et les plannings en décembre dernier délai</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="column">
-            <div class="box info is-fullheight">
-                <p class="title is-5">Information pour les 2 années</p>
-                <p class="intro">
-                    Horaires du 1er jour<br>
-                    13h00-20h00
-                </p>
-                <p class="intro">
-                    Horaires du 2ème jour<br>
-                    9h30-17h30
-                </p>
+            <div class="column">
+                <div class="box info is-fullheight">
+                    <p class="title is-5">Information pour les 2 années</p>
+                    <p class="intro">
+                        Horaires du 1er jour<br>
+                        13h00-20h00
+                    </p>
+                    <p class="intro">
+                        Horaires du 2ème jour<br>
+                        9h30-17h30
+                    </p>
+                </div>
             </div>
         </div>
     </div>

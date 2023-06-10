@@ -125,90 +125,32 @@
                 <div class="accordion-name box">Compte CPF <span>↓</span></div>
                 <div class="accordion-description">
                     <p>
-                        Procédure de prise en charge :<br>
-                        Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.
-                    </p>
-                    <p>
-                        Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.
-                    </p>
-                    <p>
-                        Demande de prise en charge :<br>
-                        Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours calendaires suivant le 1er jour de formation.<br>
-                        Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br>
-                        Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne
+                        Il n’est pas possible de mobiliser son compte CPF pour financer les formations dispensées à l’APRTF, car les formations menant au métier de thérapeute familial ou de couple ne sont pas sanctionnées par un diplôme ou un certificat.
                     </p>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-name box">Compte CPF <span>↓</span></div>
+                <div class="accordion-name box">FIF PL – Fonds Interprofessionnels de Formation des Professionnels Libéraux <span>↓</span></div>
                 <div class="accordion-description">
-                    <p>
-                        Procédure de prise en charge :<br>
-                        Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.
-                    </p>
-                    <p>
-                        Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.
-                    </p>
-                    <p>
-                        Demande de prise en charge :<br>
-                        Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours calendaires suivant le 1er jour de formation.<br>
-                        Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br>
-                        Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne
-                    </p>
+                    <p>Procédure de prise en charge :</p>
+                    <p>Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.</p>
+                    <p>Ces Représentants Professionnels définissent pour la (les) profession(s) qu’ils représentent une liste de thèmes de<br />formation susceptibles de faire l’objet d’une prise en charge par le FIF PL ainsi que des modalités financières de prise<br />en charge.</p>
+                    <p>Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de<br />chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.</p>
+                    <p>Demande de prise en charge :<br />Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours<br />calendaires suivant le 1er jour de formation.</p>
+                    <p>Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br />Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-name box">Fonds Interprofessionnels de Formation des Professionnels Libéraux <span>↓</span></div>
+                <div class="accordion-name box">FAF PM – Fonds d’assurance Formation de la Profession médicale <span>↓</span></div>
                 <div class="accordion-description">
-                    <p>
-                        Procédure de prise en charge :<br>
-                        Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.
-                    </p>
-                    <p>
-                        Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.
-                    </p>
-                    <p>
-                        Demande de prise en charge :<br>
-                        Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours calendaires suivant le 1er jour de formation.<br>
-                        Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br>
-                        Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne
-                    </p>
+                    <p>Procédure de prise en charge :<br /><strong>La demande de prise en charge est déposée directement au FAF PM par un médecin libéral</strong>, en vue d’obtenir le remboursement des frais de fonctionnement de l’action de formation qu’il a suivie et qui a été réalisée (priorités et critères à consulter sur le site)</p>
+                    <p>Le montant des frais pris en charge par le FAF PM au titre d’une prise en charge individuelle d’une action de formation ne peut excéder, par médecin libéral, un montant fixé chaque année par le Conseil de gestion du FAF PM (ex : le <strong>forfait de prise en charge à titre individuel en 2021 est de 300 euros</strong>)</p>
                 </div>
             </div>
             <div class="accordion-item">
-                <div class="accordion-name box">Fonds d’assurance Formation de la Profession médicale <span>↓</span></div>
+                <div class="accordion-name box">OPCO-SANTE <span>↓</span></div>
                 <div class="accordion-description">
-                    <p>
-                        Procédure de prise en charge :<br>
-                        Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.
-                    </p>
-                    <p>
-                        Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.
-                    </p>
-                    <p>
-                        Demande de prise en charge :<br>
-                        Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours calendaires suivant le 1er jour de formation.<br>
-                        Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br>
-                        Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne
-                    </p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-name box">OPCO SANTE <span>↓</span></div>
-                <div class="accordion-description">
-                    <p>
-                        Procédure de prise en charge :<br>
-                        Des critères de prise en charge sont déterminés annuellement par les Représentants Professionnels de chaque profession.
-                    </p>
-                    <p>
-                        Ces critères de prise en charge, disponibles sur le site du FIF PL, sont applicables du 1er janvier au 31 décembre de chaque année et peuvent, au regard des priorités du FIF PL et de chaque profession, être modifiés d’une année à l’autre.
-                    </p>
-                    <p>
-                        Demande de prise en charge :<br>
-                        Toute demande préalable de prise en charge doit impérativement être saisie en ligne, au plus tard, dans les 10 jours calendaires suivant le 1er jour de formation.<br>
-                        Passé ce délai de 10 jours calendaires, la demande de prise en charge sera refusée.<br>
-                        Le professionnel libéral saisit personnellement sa demande de prise en charge en ligne
-                    </p>
+                    <p>Pour toutes questions sur l’orientation, la formation et ses conditions de financement :<br />09.75.18.76.91. et <a href="https://opco-sante.fr">opco-sante.fr</a></p>
                 </div>
             </div>
         </div>
@@ -250,8 +192,8 @@
         }
 
         td, th {
-           border: none;
-           padding: calc($gap/4);
+            border: none;
+            padding: calc($gap/4);
         }
 
         th:first-child, td:first-child {

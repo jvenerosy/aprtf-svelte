@@ -22,8 +22,8 @@
         <li><a class:active={$store.sousnav === 'description'} href="/formations">Description</a></li>
         <li><a class:active={$store.sousnav === 'tarifs'} href="/formations/tarifs">Tarifs</a></li>
         <li><a class:active={$store.sousnav === 'cycle1'} href="/formations/cycle-1">Cycle 1</a></li>
-        <li><a class:active={$store.sousnav === 'cycle2'} href="/">Cycle 2</a></li>
-        <li><a class:active={$store.sousnav === 'hcycle'} href="/">Hors Cycles</a></li>
+        <li><a class:active={$store.sousnav === 'cycle2'} href="/formations/cycle-2">Cycle 2</a></li>
+        <li><a class:active={$store.sousnav === 'hcycle'} href="/formations/hors-cycle">Hors Cycles</a></li>
     </ul>
 </section>
 
