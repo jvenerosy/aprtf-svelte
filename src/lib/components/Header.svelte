@@ -69,7 +69,7 @@
                     <li class="column is-narrow"><a class:active={$store.nav === 'formations'} href="/formations">Formations</a></li>
                     <li class="column is-narrow"><a class:active={$store.nav === 'colloque'} href="/journees-cliniques">Journées cliniques</a></li>
                     <li class="column is-narrow"><a class:active={$store.nav === 'therapie'} href="/therapie">Thérapie</a></li>
-                    <li class="column is-narrow"><a class:active={$store.nav === 'contact'} href="/contact">Contact</a></li>
+                    <li class="column is-narrow"><a class:active={$store.nav === 'contact'} href="/contact">Contact & Infos</a></li>
                 </ul>
             </div>
             <div class="column search is-narrow {isBurger === true ? "" : "is-hidden-touch"}">

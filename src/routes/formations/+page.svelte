@@ -61,7 +61,7 @@
                 <p class="title is-2">Les formations proposées</p>
                 <p class="subtitle">Cycle 1 et cycle 2</p>
                 <div class="container is-max-widescreen colloques">
-                    <div class="columns is-centered is-multiline">
+                    <div class="columns is-multiline">
                         {#each modules as item}
                         {#if item.type === 'cycle-1' || item.type === 'cycle-2'}
                             <FormationSlider {...item} />
@@ -73,7 +73,7 @@
             <div class="row">
                 <p class="subtitle">Hors cycle</p>
                 <div class="container is-max-widescreen colloques">
-                    <div class="columns is-centered is-multiline">
+                    <div class="columns is-multiline">
                         {#each modules as item}
                         {#if item.type === 'hors-cycle'}
                             <FormationSlider {...item} />
