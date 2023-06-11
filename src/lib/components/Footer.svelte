@@ -25,10 +25,12 @@
             <ul class="column">
                 <!-- <li><a href="/#">Formations</a></li> -->
                 <li><a href="/therapie">Thérapie familiale & couple</a></li>
+                <li><a href="/formations">Formations</a></li>
             </ul>
             <ul class="column">
                 <!-- <li><a href="/#">Ressources</a></li> -->
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact">Contact & Infos</a></li>
+                <li><a href="/formations/tarifs">Tarifs</a></li>
             </ul>
         </div>
         <div class="columns bottom">
