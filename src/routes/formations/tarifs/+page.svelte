@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
     import { store } from '$lib/stores/Store';
 	import FormationNav from "$lib/components/FormationNav.svelte";
+	import Button from '$lib/components/forms/Button.svelte';
+
+    import { PUBLIC_HOST_API } from '$env/static/public';
 
     export let data;
     const modules = data.donnees;
@@ -27,7 +30,7 @@
 <FormationNav />
 <section class="section tarifs">
     <div class="container is-max-widescreen">
-        <p class="title is-2">Tarifs des formations applicables en 2023</p>
+        <p class="title is-2">Tarifs des formations applicables en 2023 / 2024</p>
         <div class="table">
             <div class="infos">
                 <p class="chapo">Information</p>
@@ -55,6 +58,9 @@
                     {/if}
                 {/each}
                 <p class="mentions">L’APRTF n’est pas assujettie à la TVA.<br>Toute inscription ferme, donne lieu au règlement de 15 € de frais d’adhésion à la charge du stagiaire.</p>
+                <a target="_blank" href="{PUBLIC_HOST_API}/assets/846b9770-1008-443c-84e3-8b051e51d974">
+                    <Button text="Télécharger le catalogue des tarifs" />
+                </a>
             </div>
         </div>
     </div>
@@ -148,7 +154,7 @@
         }
 
         .mentions {
-            margin-top: $gap;
+            margin: $gap 0;
             font-size: $size-small;
             text-align: left;
         }
