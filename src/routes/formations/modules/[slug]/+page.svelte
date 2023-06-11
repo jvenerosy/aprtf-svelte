@@ -11,6 +11,8 @@
     const modules = data.donnees;
     const module = data.module;
 
+    const disabled = module.statut !== 'during' ? 'disabled' : '';
+
     
     $store.nav = 'formations';
     $store.sousnav = module.type;
@@ -39,7 +41,7 @@
                     </div>
                     <div class="row">
                         <a target="_blank" class="button-inscription" href="{PUBLIC_HOST_API}/assets/{module.inscription}">
-                            <Button text="Inscription" />
+                            <Button text="Inscription" disabled={disabled} />
                         </a>
                         <a class="button-inscription" href="/formations/tarifs">
                             <Button theme="is-inverted" text="Voir le tarif" />

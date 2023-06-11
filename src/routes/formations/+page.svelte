@@ -32,7 +32,7 @@
 </section>
 <section class="section bilan">
     <div class="container is-max-widescreen">
-        <p class="title is-2">Bilan des formations 20233</p>
+        <p class="title is-2">Bilan des formations 2023</p>
         <p class="subtitle">126 des participants sur 208 ont répondu (60,6%) à un questionnaire de satisfaction</p>
         <div class="columns">
             <div class="column">

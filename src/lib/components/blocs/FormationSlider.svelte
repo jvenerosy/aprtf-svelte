@@ -7,7 +7,7 @@
 
 	import { PUBLIC_HOST_API } from '$env/static/public';
     
-    let statutValue:string = statut === 'past' ? 'Terminé' : statut === 'during' ? 'Inscriptions ouvertes' : 'A venir';
+    let statutValue:string = statut === 'before' ? 'Inscriprions closes' : statut === 'during' ? 'Inscriptions ouvertes' : 'À venir';
 
     const link = slug === 'cycle-1-therapie-familiale' ? '/formations/cycle-1' : `/formations/modules/${slug}`;
 </script>
@@ -52,7 +52,7 @@
         font-family: $family-regular;
         font-weight: bold;
         
-        &.is-past {
+        &.is-before {
             background: $tag-past;
         }
         &.is-during {

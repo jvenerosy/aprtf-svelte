@@ -16,7 +16,10 @@ export const load = async () => {
     donnees.public = md.render(donnees.public);
     donnees.modalite = md.render(donnees.modalite);
 
+    const statut = donnees.statut === 'past' ? 'Terminé' : donnees.statut === 'during' ? 'Inscriptions ouvertes' : 'A venir';
+
     return {
-        donnees: donnees
+        donnees: donnees,
+        status: statut
     };
 };
