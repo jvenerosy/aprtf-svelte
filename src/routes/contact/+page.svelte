@@ -199,6 +199,9 @@
                                 Accès routier : Par la Porte de la Chapelle<br>
                                 Les formations sont assurées en présentiel.
                             </p>
+                            <p>
+                                Les locaux de l'APRTF sont accessibles PMR par le 24 rue Marc Seguin, Paris 18e
+                            </p>
                         </div>
                     </div>
                 </div>
