@@ -35,133 +35,13 @@
                 <div class="columns">
                     <div class="column">
                         <h2 class="title is-2">Nous contacter</h2>
-                        {#if form?.success}
-                        <div class="box validation" transition:fade>
-                            <div class="rows">
-                                <div class="row">
-                                    <picture>
-                                        <img src="/images/pictos/check-circle.svg" alt="">
-                                    </picture>
-                                </div>
-                                <div class="row">
-                                    <h2 class="title is-2">Merci !</h2>
-                                    <p class="parag">Votre message a bien été envoyé, nous vous répondrons dans les plus brefs délais.</p>
-                                </div>
-                            </div>
-                        </div>
-                        {:else if form?.etatSend === 'error'}
-                        <div class="box validation">
-                            <h2 class="title is-2">Erreur !</h2>
-                            <p class="parag">Il y a eu une erreur lors de l'envoie de votre message, merci de reessayer en rechargeant la page.</p>
-                        </div>
-                        {:else}
-                        <form method="POST" use:enhance>
-                            <div class="fieldset">
-                                <div class="field">
-                                    <legend class="label">Vos informations</legend>
-                                    <div class="columns">
-                                        <div class="column">
-                                            <label class="label is-2" for="firstname">Prénom</label>
-                                            <div class="control">
-                                                <input
-                                                    class="input"
-                                                    id="firstname"
-                                                    name="firstname"
-                                                    type="text"
-                                                    placeholder="Votre prénom"
-                                                    value="{form?.firstname ?? ''}"
-                                                />
-                                            </div>
-                                            {#if form?.errors?.firstname}
-                                            <p class="has-text-danger mention">{form?.errors?.firstname[0]}</p>
-                                            {/if}
-                                        </div>
-                                        <div class="column">
-                                            <label class="label is-2" for="lastname">Nom</label>
-                                            <div class="control">
-                                                <input
-                                                    class="input"
-                                                    id="lastname"
-                                                    name="lastname"
-                                                    type="text"
-                                                    placeholder="Votre nom"
-                                                    value="{form?.lastname ?? ''}"
-                                                />
-                                            </div>
-                                            {#if form?.errors?.lastname}
-                                            <p class="has-text-danger mention">{form?.errors?.lastname[0]}</p>
-                                            {/if}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label class="label is-2" for="email">Votre email</label>
-                                    <div class="control">
-                                        <input
-                                            class="input"
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            placeholder="Votre email"
-                                            value="{form?.email ?? ''}"
-                                        />
-                                    </div>
-                                    {#if form?.errors?.email}
-                                    <p class="has-text-danger mention">{form?.errors?.email[0]}</p>
-                                    {/if}
-                                </div>
-                            </div>
-                            <div class="fieldset">
-                                <legend class="label">Votre demande concerne :</legend>
-                                <div class="field">
-                                    <div class="control">
-                                        <div class="select">
-                                            <select
-                                                id="raison"
-                                                name="raison"
-                                            >
-                                                <option value="1">Les formations à l'APRTF</option>
-                                                <option value="2">Les journées thématiques</option>
-                                                <option value="3">Une formation spécifique sur site</option>
-                                                <option value="4">Les consultations</option>
-                                            </select>
-                                        </div>
-                                        {#if form?.errors?.raison}
-                                        <p class="has-text-danger mention">{form?.errors?.raison[0]}</p>
-                                        {/if}
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="message" class="label is-2">Message</label>
-                                    <div class="control">
-                                        <textarea
-                                            class="textarea"
-                                            id="message"
-                                            name="message"
-                                            placeholder="Votre message"
-                                            value="{form?.message ?? ''}"
-                                        ></textarea>
-                                    </div>
-                                    {#if form?.errors?.message}
-                                    <p class="has-text-danger mention">{form?.errors?.message[0]}</p>
-                                    {/if}
-                                </div>
-                            </div>
-                            <div class="field">
-                                <div class="control">
-                                    <Button text="Envoyer" />
-                                </div>
-                            </div>
-                        </form>
-                        {/if}
-                        <hr>
                         <address>
+                            <p>Pour toutes demandes de renseignements, vous pouvez nous joindre par mail : <a href="mailto:contact@aprtfformations.fr">contact@aprtfformations.fr</a></p>
                             <p class="ref">Adresse</p>
                             <p>16 rue de l’Evangile – 75018 Paris</p>
                             <p class="ref">Téléphone</p>
                             <p><a href="tel:+33143381698">01 43 38 16 98</a></p>
                             <p class="ref">Mail</p>
-                            <p><a href="mailto:contact@aprtfformations.fr">contact@aprtfformations.fr</a></p>
                         </address>
                     </div>
                     <div class="column">

@@ -58,7 +58,7 @@
                     {/if}
                 {/each}
                 <p class="mentions">L’APRTF n’est pas assujettie à la TVA.<br>Toute inscription ferme, donne lieu au règlement de 15 € de frais d’adhésion à la charge du stagiaire.</p>
-                <a target="_blank" href="{PUBLIC_HOST_API}/assets/846b9770-1008-443c-84e3-8b051e51d974">
+                <a target="_blank" href="{PUBLIC_HOST_API}/assets/1ad9f26e-370e-465a-85de-8e8777e6a192">
                     <Button text="Télécharger le catalogue des tarifs" />
                 </a>
             </div>
