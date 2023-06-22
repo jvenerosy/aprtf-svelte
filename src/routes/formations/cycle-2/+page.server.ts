@@ -1,5 +1,5 @@
 import { PUBLIC_HOST_API } from '$env/static/public';
-const endpoint = `${PUBLIC_HOST_API}/items/formations?sort=slug`;
+const endpoint = `${PUBLIC_HOST_API}/items/formations?sort=title`;
 
 
 export const load = async () => {
