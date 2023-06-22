@@ -1,7 +1,7 @@
 import { PUBLIC_HOST_API } from '$env/static/public';
 import MarkdownIt from 'markdown-it';
 let md = new MarkdownIt();
-const endpoint = `${PUBLIC_HOST_API}/items/formations/cycle-1-therapie-familiale`;
+const endpoint = `${PUBLIC_HOST_API}/items/formations/cycle-1-therapie-familiale?sort=titre`;
 
 
 export const load = async () => {
