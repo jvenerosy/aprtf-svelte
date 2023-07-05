@@ -15,7 +15,7 @@
         <div class="columns is-vcentered">  
             <div class="column is-5">
                 <picture>
-                    <img src="images/home-illustration.svg" alt="" />      
+                    <img src="images/home-illustration.svg" alt="" width="500" height="300" fetchpriority="high" />      
                 </picture>
             </div>
             <div class="column">
@@ -31,7 +31,7 @@
             <div class="column">            
                 <div class="box">
                     <picture>
-                        <img src="images/pictos/megaphone.svg" srcset="images/pictos/megaphone.svg 38w" sizes="38px" alt="">
+                        <img src="images/pictos/megaphone.svg" srcset="images/pictos/megaphone.svg 38w" width="38px" height="38px" alt="">
                     </picture>
                     <h3 class="parag">Développer la pratique des thérapies avec les familles</h3>
                     <p>Proposer des consultations de thérapie familiale et de couple, et promouvoir ces modalités de soins dans le service public de santé.</p>
@@ -40,7 +40,7 @@
             <div class="column">
                 <div class="box">
                     <picture>
-                        <img src="images/pictos/people.svg" srcset="images/pictos/people.svg 38w" sizes="38px" alt="">
+                        <img src="images/pictos/people.svg" srcset="images/pictos/people.svg 38w" width="38px" height="38px" alt="">
                     </picture>
                     <h3 class="parag">Former les professionnels à la pratique systémique</h3>
                     <p>Proposer un parcours structuré de formation à la pratique thérapeutique familiale systémique pour les professionnels médicaux, psychologiques, paramédicaux et sociaux.</p>
@@ -49,7 +49,7 @@
             <div class="column">
                 <div class="box">
                     <picture>
-                        <img src="images/pictos/hospital.svg" srcset="images/pictos/hospital.svg 38w" sizes="38px" alt="">
+                        <img src="images/pictos/hospital.svg" srcset="images/pictos/hospital.svg 38w" width="38px" height="38px" alt="">
                     </picture>
                     <h3 class="parag">Approfondir la recherche clinique</h3>
                     <p>Sur les processus thérapeutiques, les vécus expérientiels des familles et contribuer à la réflexion sur la pertinence des modèles systémiques.</p>

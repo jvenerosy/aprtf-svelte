@@ -56,7 +56,7 @@
                     <div class="column">
                         <a href="/">
                             <picture>
-                                <img src="/images/logo.svg" srcset="/images/logo.svg 153w, /images/logo.svg 306w" sizes="(max-width: 1023px) 153px, 306px" alt="Logo APRTF">
+                                <img src="/images/logo.svg" srcset="/images/logo.svg 153w, /images/logo.svg 306w" sizes="(max-width: 1023px) 153px, 306px" width="160" height="90" fetchpriority="high" alt="Logo APRTF">
                             </picture>
                         </a>
                     </div>
